@@ -37,7 +37,7 @@ public class Function_Home : MonoBehaviour {
     }
     public void Learn()
     {
-        //Application.LoadLevel("Learn");
+        Application.LoadLevel("Learn");
     }
     public void Deck()
     {

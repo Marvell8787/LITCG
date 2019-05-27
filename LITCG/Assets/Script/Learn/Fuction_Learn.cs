@@ -11,9 +11,9 @@ public class Fuction_Learn : MonoBehaviour {
     {
         Application.LoadLevel("Level");
     }
-    public void BackHome()
+    public void Back()
     {
-        //Application.LoadLevel("Home");
+        Application.LoadLevel("Home");
     }
 
 }
