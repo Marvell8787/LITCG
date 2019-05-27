@@ -103,9 +103,9 @@ public class Function_Task : MonoBehaviour {
         }
     }
 
-    public void BackHome() //回首頁
+    public void Back() //回首頁
     {
-        Debug.Log("BackHome");
+        Application.LoadLevel("Home");
     }
     public void ClearAllText() //清除所有Text
     {
