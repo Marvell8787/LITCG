@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Function_Leaderboard : MonoBehaviour {
+public class Canvas_Task : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
 		
 	}
-    public void Back()
-    {
-        Application.LoadLevel("Profile");
-    }
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }

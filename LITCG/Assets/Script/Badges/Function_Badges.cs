@@ -10,6 +10,6 @@ public class Function_Badges : MonoBehaviour {
 	}
     public void Back()
     {
-        Application.LoadLevel("Home");
+        Application.LoadLevel("Profile");
     }
 }

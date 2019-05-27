@@ -33,7 +33,7 @@ public class Function_Home : MonoBehaviour {
     //GO Button
     public void Task()
     {
-        //Application.LoadLevel("Task");
+        Application.LoadLevel("Task");
     }
     public void Learn()
     {
