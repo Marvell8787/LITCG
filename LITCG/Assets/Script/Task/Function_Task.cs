@@ -12,7 +12,7 @@ public class Function_Task : MonoBehaviour {
     void Start()
     {
         ClearAllText();
-
+        
         Task_Data.Learn_Init();
         Task_Data.Battle_Init();
 
