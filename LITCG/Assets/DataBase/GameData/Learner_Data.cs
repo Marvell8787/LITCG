@@ -30,8 +30,8 @@ static class Learner_Data{
     //Card
     private static int Card_Num = 0; //卡片數量
     //Punishment
-    private static int Points = 0; //點數
-    private static int Mistakes = 0; //失誤
+    private static int Points_Num = 0; //點數
+    private static int Mistakes_Num = 0; //失誤
 
     //Learner_Data Fuction
     public static void Learner_Init()
@@ -42,11 +42,30 @@ static class Learner_Data{
     {
         switch (s)
         {
-            case "Task_Finish":
-                Task_Finish+=n;
-                break;
+            //Task
+            case "Task_Finish":Task_Finish+=n;break;
+            case "Task_Succes":Task_Succes += n;break;
+            case "Task_Fail": Task_Fail += n; break;
+            //Learn
+            case "Learn_Finish": Learn_Finish += n; break;
+            //Battle
+            case "Battle_Num": Battle_Num += n; break;
+            case "Battle_Win": Battle_Win += n; break;
+            case "Battle_Lose": Battle_Lose += n; break;
+            case "Battle_Question_Succes_Num": Battle_Question_Succes_Num += n; break;
+            case "Battle_Question_Fail_Num": Battle_Question_Fail_Num += n; break;
+            //Reward and Punishment
+            case "Score": Score += n; break;
+            case "Coin": Coin += n; break;
+            case "Crystal": Crystal += n; break;
+            //Reward
+            case "Badges_Num": Badges_Num += n; break;
+            case "Card_Num": Card_Num += n; break;
+            //Punishment
+            case "Points_Num": Points_Num += n; break;
+            case "Mistakes_Num": Mistakes_Num += n; break;
 
-
+            default: break;
         }
     }
 }
