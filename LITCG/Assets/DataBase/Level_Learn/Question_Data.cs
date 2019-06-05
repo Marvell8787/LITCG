@@ -15,28 +15,28 @@ static class Question_Check
 
 static class Question_Data{
     // Level_Learn
-    public static string[] Question = new string[5] { "", "", "", "", "" };
-    public static string[] Answer_r = new string[5] { "", "", "", "", "" };
-    public static string[] Answer_r_Content = new string[5] { "", "", "", "", "" };
-    public static string[] Answer_c = new string[5] { "", "", "", "", "" };
-    public static string[] Answer_c_Content = new string[5] { "", "", "", "", "" };
-    public static string[] FeedBack = new string[5] { "", "", "", "", ""};
+    private static string[] Question = new string[5] { "", "", "", "", "" };
+    private static string[] Answer_r = new string[5] { "", "", "", "", "" };
+    private static string[] Answer_r_Content = new string[5] { "", "", "", "", "" };
+    private static string[] Answer_c = new string[5] { "", "", "", "", "" };
+    private static string[] Answer_c_Content = new string[5] { "", "", "", "", "" };
+    private static string[] FeedBack = new string[5] { "", "", "", "", ""};
 
     //Overall
-    public static string[] O_Question = new string[10] { "", "", "", "", "", "", "", "", "", "" };
-    public static string[] O_Question_E = new string[10] { "", "", "", "", "", "", "", "", "", "" };
-    public static string[] O_Answer_r_Content = new string[10] { "", "", "", "", "", "", "", "", "", "" };
-    public static string[] O_Answer_c_Content = new string[10] { "", "", "", "", "", "", "", "", "", "" };
-    public static string[] O_FeedBack = new string[10] { "", "", "", "", "", "", "", "", "", "" };
+    private static string[] O_Question = new string[10] { "", "", "", "", "", "", "", "", "", "" };
+    private static string[] O_Question_E = new string[10] { "", "", "", "", "", "", "", "", "", "" };
+    private static string[] O_Answer_r_Content = new string[10] { "", "", "", "", "", "", "", "", "", "" };
+    private static string[] O_Answer_c_Content = new string[10] { "", "", "", "", "", "", "", "", "", "" };
+    private static string[] O_FeedBack = new string[10] { "", "", "", "", "", "", "", "", "", "" };
 
-    public static string[] Button_Ans = new string[3] { "", "", ""};
+    private static string[] Button_Ans = new string[3] { "", "", ""};
 
-    public static string[] Button_Ans_Check = new string[3] { "A", "B", "C" };
+    private static string[] Button_Ans_Check = new string[3] { "A", "B", "C" };
 
-    public static Question_Class[] question_temp = new Question_Class[5];
-    public static Question_Class[] question_overall_temp = new Question_Class[10];
-    public static Question_Class[] question_overall_temp_E = new Question_Class[10];
-    public static Vocabulary_Class[] vocabulary_temp = new Vocabulary_Class[10];
+    private static Question_Class[] question_temp = new Question_Class[5];
+    private static Question_Class[] question_overall_temp = new Question_Class[10];
+    private static Question_Class[] question_overall_temp_E = new Question_Class[10];
+    private static Vocabulary_Class[] vocabulary_temp = new Vocabulary_Class[10];
 
 
 

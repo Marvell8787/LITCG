@@ -11,14 +11,14 @@ static class Level_Check
 }
 static class Level_Data{
 
-    public static string[] Level_Title = new string[7] { "Level-1", "Level-2", "Level-3", "Level-4", "Level-5", "Level-6", "Overall" };
-    public static string[] Level_QuestionType = new string[7] { "Listening", "Translation", "Fill in the blanks", "Listening", "Translation", "Fill in the blanks", "Spelling" };
-    public static string[] Level_Range = new string[7] { "1-5", "1-5", "1-5", "6-10", "6-10", "6-10", "1-10" };
-    public static string[] Level_Reward = new string[7] { "Money", "Money", "Money", "Money", "Money", "Money", "Money" };
-    public static string[] Level_Punishment = new string[7] { "Money", "Money", "Money", "Money", "Money", "Money", "Money" };
-    public static string[] Level_HighestScore = new string[7] { "0", "0", "0", "0", "0", "0", "0" };
+    private static string[] Level_Title = new string[7] { "Level-1", "Level-2", "Level-3", "Level-4", "Level-5", "Level-6", "Overall" };
+    private static string[] Level_QuestionType = new string[7] { "Listening", "Translation", "Fill in the blanks", "Listening", "Translation", "Fill in the blanks", "Spelling" };
+    private static string[] Level_Range = new string[7] { "1-5", "1-5", "1-5", "6-10", "6-10", "6-10", "1-10" };
+    private static string[] Level_Reward = new string[7] { "Money", "Money", "Money", "Money", "Money", "Money", "Money" };
+    private static string[] Level_Punishment = new string[7] { "Money", "Money", "Money", "Money", "Money", "Money", "Money" };
+    private static string[] Level_HighestScore = new string[7] { "0", "0", "0", "0", "0", "0", "0" };
 
-    public static Level_Class[] level_temp = new Level_Class[7];
+    private static Level_Class[] level_temp = new Level_Class[7];
 
     public static void Level_Init()
     {
