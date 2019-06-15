@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 class Level_Class{
     private string Title = "";
     private string QuestionType = "";
