@@ -18,12 +18,22 @@ public class Function_Home : MonoBehaviour {
     }
     public void Status()
     {
-        //Text t_temp;
-        for (int i = 0; i < 8; i++)
-        {
-            //t_temp = GameObject.Find("Text_GameGoal_" + (i + 1).ToString()).GetComponent<Text>();
-            //t_temp.text = GameGoal_Data.GameGoal[i];
-        }
+        Text t_temp;
+        t_temp = GameObject.Find("Text_ScoreContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Score").ToString();
+        t_temp = GameObject.Find("Text_CoinContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Coin").ToString();
+        t_temp = GameObject.Find("Text_CrystalContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Crystal").ToString();
+        t_temp = GameObject.Find("Text_CardsContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Cards").ToString();
+        t_temp = GameObject.Find("Text_BadgesContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Badges_Num").ToString();
+        t_temp = GameObject.Find("Text_PointsContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Point_Num").ToString();
+        t_temp = GameObject.Find("Text_MistakesContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Mistakes_Num").ToString();
+
     }
     //GO Button
     public void Task()

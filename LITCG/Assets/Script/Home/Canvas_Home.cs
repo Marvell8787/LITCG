@@ -20,7 +20,7 @@ public class Canvas_Home : MonoBehaviour {
         }
         t_temp = GameObject.Find("Text_ScoreContent").GetComponent<Text>();
         t_temp.text = "";
-        t_temp = GameObject.Find("Text_MoneyContent").GetComponent<Text>();
+        t_temp = GameObject.Find("Text_CoinContent").GetComponent<Text>();
         t_temp.text = "";
         t_temp = GameObject.Find("Text_CrystalContent").GetComponent<Text>();
         t_temp.text = "";

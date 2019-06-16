@@ -68,4 +68,36 @@ static class Learner_Data{
             default: break;
         }
     }
+    public static int Learner_GetData(string s) // s=想要加的東西    
+    {
+        int n;
+        switch (s)
+        {
+            //Task
+            case "Task_Finish": n= Task_Finish; break;
+            case "Task_Succes": n= Task_Succes; break;
+            case "Task_Fail": n= Task_Fail; break;
+            //Learn
+            case "Learn_Finish": n= Learn_Finish; break;
+            //Battle
+            case "Battle_Num":  n= Battle_Num; break;
+            case "Battle_Win": n= Battle_Win; break;
+            case "Battle_Lose": n= Battle_Lose; break;
+            case "Battle_Question_Succes_Num": n= Battle_Question_Succes_Num; break;
+            case "Battle_Question_Fail_Num": n= Battle_Question_Fail_Num; break;
+            //Reward and Punishment
+            case "Score": n= Score; break;
+            case "Coin": n= Coin; break;
+            case "Crystal": n= Crystal; break;
+            //Reward
+            case "Badges_Num": n= Badges_Num; break;
+            case "Card_Num": n= Card_Num; break;
+            //Punishment
+            case "Points_Num": n= Points_Num; break;
+            case "Mistakes_Num": n= Mistakes_Num; break;
+
+            default: n = 0; break;
+        }
+        return n;
+    }
 }

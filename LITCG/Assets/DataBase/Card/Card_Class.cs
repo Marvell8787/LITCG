@@ -4,15 +4,17 @@ using UnityEngine;
 
 class Card_Class{
     private string CType = ""; //戰鬥卡 魔法卡 支援卡
+    private string Picture = ""; //圖片
     private string Name = ""; //名字
     private string Rarity = ""; //稀有度 N R SR SSR
     private string Description = ""; //描述
     private int ATK = 0; //戰鬥卡
     private string Effect = ""; //魔法卡 支援卡
 
-    public Card_Class(string _CType = "", string _Name = "", string _Rarity = "", string _Description = "", int _ATK = 0, string _Effect = "")
+    public Card_Class(string _CType = "",string _Picture="", string _Name = "", string _Rarity = "", string _Description = "", int _ATK = 0, string _Effect = "")
     {
         CType = _CType;
+        Picture = _Picture;
         Name = _Name;
         Rarity = _Rarity;
         Description = _Description;
@@ -22,6 +24,10 @@ class Card_Class{
     public string GetCType()
     {
         return CType;
+    }
+    public string GetPicture()
+    {
+        return Picture;
     }
     public string GetName()
     {
