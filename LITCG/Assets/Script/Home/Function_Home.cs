@@ -26,11 +26,11 @@ public class Function_Home : MonoBehaviour {
         t_temp = GameObject.Find("Text_CrystalContent").GetComponent<Text>();
         t_temp.text = Learner_Data.Learner_GetData("Crystal").ToString();
         t_temp = GameObject.Find("Text_CardsContent").GetComponent<Text>();
-        t_temp.text = Learner_Data.Learner_GetData("Cards").ToString();
+        t_temp.text = Learner_Data.Learner_GetData("Cards_Num").ToString();
         t_temp = GameObject.Find("Text_BadgesContent").GetComponent<Text>();
         t_temp.text = Learner_Data.Learner_GetData("Badges_Num").ToString();
         t_temp = GameObject.Find("Text_PointsContent").GetComponent<Text>();
-        t_temp.text = Learner_Data.Learner_GetData("Point_Num").ToString();
+        t_temp.text = Learner_Data.Learner_GetData("Points_Num").ToString();
         t_temp = GameObject.Find("Text_MistakesContent").GetComponent<Text>();
         t_temp.text = Learner_Data.Learner_GetData("Mistakes_Num").ToString();
 

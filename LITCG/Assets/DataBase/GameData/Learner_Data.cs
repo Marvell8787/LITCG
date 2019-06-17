@@ -19,18 +19,18 @@ static class Learner_Data{
     private static int Battle_Question_Succes_Num = 0; //對戰回答成功次數
     private static int Battle_Question_Fail_Num = 0; //對戰回答失敗次數
     //Reward and Punishment
-    private static int Score = 0; //分數
-    private static int Coin = 0; //金幣
-    private static int Crystal = 0; //水晶
+    private static int Score = 100; //分數
+    private static int Coin = 100; //金幣
+    private static int Crystal = 5; //水晶
     //Reward
     //Badges
     private static string[] Badges_Name = new string[9] {"", "", "", "", "", "", "", "", "" }; //Task*3 Leaen*3 Battle*3
     private static int[] Badges_Status = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //Task*3 Leaen*3 Battle*3 Status
     private static int Badges_Num = 0; //獎章數量
     //Card
-    private static int Card_Num = 0; //卡片數量
+    private static int Cards_Num = 10; //卡片數量
     //Punishment
-    private static int Points_Num = 0; //點數
+    private static int Points_Num = 5; //點數
     private static int Mistakes_Num = 0; //失誤
 
     //Learner_Data Fuction
@@ -60,7 +60,7 @@ static class Learner_Data{
             case "Crystal": Crystal += n; break;
             //Reward
             case "Badges_Num": Badges_Num += n; break;
-            case "Card_Num": Card_Num += n; break;
+            case "Card_Num": Cards_Num += n; break;
             //Punishment
             case "Points_Num": Points_Num += n; break;
             case "Mistakes_Num": Mistakes_Num += n; break;
@@ -91,7 +91,7 @@ static class Learner_Data{
             case "Crystal": n= Crystal; break;
             //Reward
             case "Badges_Num": n= Badges_Num; break;
-            case "Card_Num": n= Card_Num; break;
+            case "Cards_Num": n= Cards_Num; break;
             //Punishment
             case "Points_Num": n= Points_Num; break;
             case "Mistakes_Num": n= Mistakes_Num; break;

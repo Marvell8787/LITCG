@@ -4,25 +4,25 @@ using UnityEngine;
 
 static class Card_Data{
 
-    private static string[] Card_CType = new string[30];
-    private static string[] Card_Name = new string[30];
-    private static string[] Card_Rarity = new string[30];
-    private static string[] Card_Description = new string[30];
-    private static int[] Card_ATK = new int[30];
-    private static string[] Card_Effect = new string[30];
+    private static string[] Card_CType = new string[22];
+    private static string[] Card_Name = new string[22];
+    private static string[] Card_Rarity = new string[22];
+    private static string[] Card_Description = new string[22];
+    private static int[] Card_ATK = new int[22];
+    private static string[] Card_Effect = new string[22];
 
-    private static Card_Class[] card_temp = new Card_Class[30];
+    private static Card_Class[] card_temp = new Card_Class[22];
 
     // Use this for initialization
     public static void Card_Init()
     {
-        for(int i = 0; i < 30; i++)
+        for(int i = 0; i < 22; i++)
         {
-            if (i < 18)
+            if (i < 15)
                 Card_CType[i] = "Fight";
-            else if (i > 17 & i < 24)
+            else if (i > 14 & i < 19)
                 Card_CType[i] = "Magic";
-            else if (i >23)
+            else if (i >18)
                 Card_CType[i] = "Support";
         }
 
