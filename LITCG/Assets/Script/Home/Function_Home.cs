@@ -60,9 +60,9 @@ public class Function_Home : MonoBehaviour {
     {
         Application.LoadLevel("Profile");
     }
-    public void Introduction()
+    public void Guide()
     {
-        Application.LoadLevel("Introduction");
+        Application.LoadLevel("Guide");
     }
 
 
