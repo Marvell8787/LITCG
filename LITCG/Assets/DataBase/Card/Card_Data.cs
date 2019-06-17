@@ -26,8 +26,11 @@ static class Card_Data{
                 Card_CType[i] = "Support";
         }
 
+
+
+
         //宣告 level_temp 陣列並加入資料 Start
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 22; i++)
         {
             card_temp[i] = new Card_Class();
         }
