@@ -21,7 +21,7 @@ static class Learner_Data{
     private static int Battle_Question_Fail_Num = 0; //對戰回答失敗次數
     //Reward and Punishment
     private static int Score = 100; //分數
-    private static int Coin = 100; //金幣
+    private static int Coin = 1000; //金幣
     private static int Crystal = 5; //水晶
     //Reward
     //Badges
@@ -106,5 +106,9 @@ static class Learner_Data{
     public static int Learner_GetCard_Status(int n)
     {
             return Card_Status[n];
+    }
+    public static void Learner_ChangeCard_Status(int n)
+    {
+        Card_Status[n] = 1;
     }
 }
