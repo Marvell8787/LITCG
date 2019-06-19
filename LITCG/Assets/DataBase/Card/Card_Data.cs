@@ -33,7 +33,11 @@ static class Card_Data{
                 case 15: Card_Effect[i] = "Destory 1 Fight Card"; break;
                 case 16: Card_Effect[i] = "Enemy LP - 3"; break;
                 case 17: Card_Effect[i] = "Draw 2 Card"; break;
-
+                case 18: Card_Effect[i] = "Player LP -10 and Enemy LP -10"; break;
+                case 19: Card_Effect[i] = "ALL Fight Card are destory"; break;
+                case 20: Card_Effect[i] = "Enemy LP - 5"; break;
+                case 21: Card_Effect[i] = "Player LP +5 and Enemy LP -5"; break;
+                default: Card_Effect[i] = "#"; break;
             }
 
         }
@@ -41,7 +45,7 @@ static class Card_Data{
         //宣告 level_temp 陣列並加入資料 Start
         for (int i = 0; i < 22; i++)
         {
-            card_temp[i] = new Card_Class(Card_CType[i],Card_Picture[i], Card_Name[i]);
+            card_temp[i] = new Card_Class(Card_CType[i],Card_Picture[i], Card_Name[i], Card_Rarity[i],"", Card_ATK[i], Card_Effect[i]);
         }
 
     }
