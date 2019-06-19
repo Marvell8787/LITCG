@@ -50,7 +50,7 @@ static class Card_Data{
 
     }
 
-    public static Card_Class Learn_Get(int n)
+    public static Card_Class Card_Get(int n)
     {
         return card_temp[n];
     }

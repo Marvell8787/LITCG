@@ -12,6 +12,7 @@ static class Learner_Data{
     //Learn
     private static int Learn_Finish = 0; //完成數量
     private static int[] Learn_Score = new int[6] { 0,0,0,0,0,0}; //各關上次獲得的分數
+    private static int[] Learn_Score_request = new int[6] { 0, 0, 0, 0, 0, 0 }; //任務要求分數
     //Battle
     private static int Battle_Num = 0; //對戰次數
     private static int Battle_Win = 0; //勝利次數
@@ -25,10 +26,12 @@ static class Learner_Data{
     //Reward
     //Badges
     private static string[] Badges_Name = new string[9] {"", "", "", "", "", "", "", "", "" }; //Task*3 Leaen*3 Battle*3
-    private static int[] Badges_Status = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //Task*3 Leaen*3 Battle*3 Status
+    private static int[] Badges_Status = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //獎章持有狀態 0:無 1:有
     private static int Badges_Num = 0; //獎章數量
+
     //Card
     private static int Cards_Num = 10; //卡片數量
+    private static int[] Card_Status = new int[22] { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 }; //卡片持有狀態 0:無 1:有
     //Punishment
     private static int Points_Num = 5; //點數
     private static int Mistakes_Num = 0; //失誤
