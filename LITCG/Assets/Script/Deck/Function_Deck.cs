@@ -5,15 +5,7 @@ using UnityEngine.UI;
 
 public class Function_Deck : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-    public void All()
-    {
-        
-    }
-	public void Back()
+    public void Back()
     {
         Application.LoadLevel("Home");
     }

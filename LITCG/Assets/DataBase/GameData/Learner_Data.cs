@@ -103,4 +103,8 @@ static class Learner_Data{
         }
         return n;
     }
+    public static int Learner_GetCard_Status(int n)
+    {
+            return Card_Status[n];
+    }
 }
