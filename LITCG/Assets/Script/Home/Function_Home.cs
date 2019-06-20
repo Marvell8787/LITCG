@@ -50,7 +50,7 @@ public class Function_Home : MonoBehaviour {
     }
     public void Battle()
     {
-        //Application.LoadLevel("Battle");
+        Application.LoadLevel("Battle");
     }
     public void Shop()
     {

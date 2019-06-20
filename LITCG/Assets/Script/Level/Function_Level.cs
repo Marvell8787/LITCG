@@ -58,6 +58,8 @@ public class Function_Level : MonoBehaviour {
         Level_Class level_temp = new Level_Class();
         level_temp = Level_Data.Level_Get(n);
 
+        Debug.Log(n);
+
         t_temp = GameObject.Find("Text_QuestionTypeContent").GetComponent<Text>();
         t_temp.text = level_temp.GetQuestionType();
         t_temp = GameObject.Find("Text_RangeContent").GetComponent<Text>();

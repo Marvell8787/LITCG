@@ -33,10 +33,9 @@ public class Function_Guide : MonoBehaviour {
         T_Temp.text = "●一開始雙方各抽五張至手上作為手牌\n";
         T_Temp.text += "●第一回合雙方不能抽牌，之後每當某方玩家的回合開始，該玩家要從牌庫抽一張卡至手上，作為手牌。\n";
         T_Temp.text += "●回合分四個階段:\n   問答、行動、戰鬥、結束\n";
-        T_Temp.text += "●遊戲雙方各打5回合，共10回合\n";
+        T_Temp.text += "●遊戲雙方各打3回合，共6回合\n";
         T_Temp.text += "●玩家必須在問答階段回答問題，回答正確才可進入戰鬥階段，回答錯誤會扣1點HP。\n";
-        T_Temp.text += "●先手的玩家不能進入戰鬥階段\n";
-        T_Temp.text += "●10回合結束後，生命值較高的一方獲勝\n";
+        T_Temp.text += "●6回合結束後，生命值較高的一方獲勝\n";
 
     }
     public void Status()

@@ -8,6 +8,7 @@ public class Canvas_Level : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Button b_temp;
+        Text t_temp;
 
         ClearAllText();
         b_temp = GameObject.Find("Button_Challenge").GetComponent<Button>();
@@ -18,8 +19,12 @@ public class Canvas_Level : MonoBehaviour {
         {
             level_temp[i] = Level_Data.Level_Get(i);
         }
+
         b_temp = GameObject.Find("Button_Overall").GetComponent<Button>();
         b_temp.interactable = true;
+
+        t_temp = GameObject.Find("Text_CoinContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Coin").ToString();
     }
     public void ClearAllText()
     {
