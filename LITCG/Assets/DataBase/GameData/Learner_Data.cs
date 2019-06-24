@@ -33,14 +33,15 @@ static class Learner_Data{
     private static int Cards_Num = 10; //卡片數量
     private static int[] Card_Status = new int[22] { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 }; //卡片持有狀態 0:無 1:有
     //Punishment
+    //Point
+    private static string[] Points_Name = new string[3] { "Task", "Learn", "Battle" }; //Task Learn Battle
+    private static int[] Points_Status = new int[3] { 5, 5, 5}; //點數持有狀態 Task Learn Battle
     private static int Points_Num = 5; //點數
+    //Mistakes
+    private static string[] Mistakes_Name = new string[3] { "Warning", "Y Card", "R Card" }; //Task*3 Leaen*3 Battle*3
+    private static int[] Mistakes_Status = new int[3] { 0, 0, 0 }; //點數持有狀態 Task Learn Battle
     private static int Mistakes_Num = 0; //失誤
 
-    //Learner_Data Fuction
-    public static void Learner_Init()
-    {
-
-    }
     public static void Learner_Add(string s,int n) // s=想要加的東西  n=數字(可+ -)   
     {
         switch (s)
@@ -107,8 +108,20 @@ static class Learner_Data{
     {
             return Card_Status[n];
     }
-    public static void Learner_ChangeCard_Status(int n)
+    public static void Learner_ChangeCard_Status(int n) //Cards
     {
         Card_Status[n] = 1;
+    }
+    public static void Learner_ChangeBadges_Status(int n) //Badges
+    {
+        Badges_Status[n] = 1;
+    }
+    public static void Learner_ChangePoints_Status(int n) //Points
+    {
+        Points_Status[n] -= 1;
+    }
+    public static void Learner_ChangeMistakes_Status(int n) //Mistakes
+    {
+        Mistakes_Status[n] += 1;
     }
 }
