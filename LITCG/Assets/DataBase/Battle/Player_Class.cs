@@ -8,6 +8,7 @@ class Player_Class{
     private int Deck_Num = 0;
     private int Deck_Draw = 0; //已抽取牌數
     private int Hand = 0;
+    private int[] Hand_Status = new int[5] { 0, 0, 0, 0, 0 };
     private int State = 0; // 0:No 1:Ok
 
     public Player_Class(int _LP = 0, int _Deck_Num = 0, int _Hand = 0, int _State = 0)
@@ -53,6 +54,11 @@ class Player_Class{
     public void ChangeHand(int n)
     {
         Hand -= n;
+    }
+    public int[] ChangeHand_Status(int s, int n) //s=索引值 n=值
+    {
+        Hand_Status[s] = n;
+        return Hand_Status;
     }
     public void ChangeState(int n)
     {

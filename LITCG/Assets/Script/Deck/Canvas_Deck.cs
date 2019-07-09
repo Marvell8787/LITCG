@@ -24,7 +24,7 @@ public class Canvas_Deck : MonoBehaviour {
 
         for (int i = 0; i < 22; i++)
         {
-            if (card_status[i] == 1)
+            if (card_status[i] >= 1)
             {
                 I_Temp = GameObject.Find("Image_Card_" + i.ToString()).GetComponent<Image>();
                 I_Temp.sprite = Resources.Load("Image/Card/" + card_temp[i].GetPicture(), typeof(Sprite)) as Sprite;

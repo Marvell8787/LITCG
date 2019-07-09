@@ -24,7 +24,17 @@ public class Text_Count_RoomFight : MonoBehaviour {
         {
             t_temp.text = "Play!";
             CancelInvoke("timer");
+
+            Image i_temp;
+
             Destroy(t_temp,1);
+            i_temp = GameObject.Find("Image_Test").GetComponent<Image>();
+            i_temp.color = Color.white;
+            i_temp = GameObject.Find("Button_QP").GetComponent<Image>();
+            i_temp.color = Color.red; 
+
+
+
         }
 
     }

@@ -31,7 +31,7 @@ static class Learner_Data{
 
     //Card
     private static int Cards_Num = 10; //卡片數量
-    private static int[] Card_Status = new int[22] { 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0 }; //卡片持有狀態 0:無 1:有
+    private static int[] Card_Status = new int[22] { 1, 2, 3, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 15, 16, 17, 0, 0, 0, 0, 0 }; //卡片持有狀態 0:無 1~22:有
     //Punishment
     //Point
     private static string[] Points_Name = new string[3] { "Task", "Learn", "Battle" }; //Task Learn Battle
