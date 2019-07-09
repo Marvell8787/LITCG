@@ -72,7 +72,7 @@ static class Learner_Data{
             default: break;
         }
     }
-    public static int Learner_GetData(string s) // s=想要加的東西    
+    public static int Learner_GetData(string s) // s=想要讀取的東西    
     {
         int n;
         switch (s)
