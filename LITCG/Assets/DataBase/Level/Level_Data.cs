@@ -12,8 +12,8 @@ static class Level_Check
 static class Level_Data{
 
     private static string[] Level_Title = new string[7] { "Level-1", "Level-2", "Level-3", "Level-4", "Level-5", "Level-6", "Overall" };
-    private static string[] Level_QuestionType = new string[7] { "Listening", "Translation", "Fill in the blanks", "Listening", "Translation", "Fill in the blanks", "Spelling" };
-    private static string[] Level_Range = new string[7] { "1-5", "1-5", "1-5", "6-10", "6-10", "6-10", "1-10" };
+    private static string[] Level_QuestionType = new string[7] { "Listening", "Listening", "Listening", "Translation", "Translation", "Translation", "Spelling" };
+    private static string[] Level_Range = new string[7] { "1-10", "11-20", "1-20", "1-10", "11-20", "1-20", "1-20" };
     private static string[] Level_Reward = new string[7] { "Money", "Money", "Money", "Money", "Money", "Money", "Money" };
     private static string[] Level_Punishment = new string[7] { "Money", "Money", "Money", "Money", "Money", "Money", "Money" };
     private static string[] Level_HighestScore = new string[7] { "0", "0", "0", "0", "0", "0", "0" };

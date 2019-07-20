@@ -16,7 +16,7 @@ public class Audio_Level_Learn : MonoBehaviour {
     
     public void Voice()
     {
-        if (Level_Check.choose == 0 || Level_Check.choose == 3)
+        if (Level_Check.choose < 3)
             Play();
     }
     public void Play()

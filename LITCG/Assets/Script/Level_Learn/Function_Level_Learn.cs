@@ -72,21 +72,11 @@ public class Function_Level_Learn : MonoBehaviour {
             switch (Level_Check.choose)
             {
                 case 0: //Level-1 聽力
+                case 1: //Level-2 聽力
+                case 2: //Level-3 聽力
                     break;
-                case 1: //Level-2 中文
-                    t_temp = GameObject.Find("Text_Question").GetComponent<Text>();
-                    t_temp.text = question_temp.GetQuestion();
-                    break;
-                case 2: //Level-3 填空
-                    t_temp = GameObject.Find("Text_Question").GetComponent<Text>();
-                    t_temp.text = question_temp.GetQuestion();
-                    break;
-                case 3: //Level-4 聽力
-                    break;
+                case 3: //Level-4 中文
                 case 4: //Level-5 中文
-                    t_temp = GameObject.Find("Text_Question").GetComponent<Text>();
-                    t_temp.text = question_temp.GetQuestion();
-                    break;
                 case 5: //Level-6 填空
                     t_temp = GameObject.Find("Text_Question").GetComponent<Text>();
                     t_temp.text = question_temp.GetQuestion();

@@ -54,20 +54,20 @@ static class Question_Data{
             case 0: //Level-1 Listening
                 Question_Vocabulary_Set(0,5);
                 break;
-            case 1: //Level-2 英翻中
+            case 1: //Level-2 Listening
                 Question_Vocabulary_Set(0,5);
                 break;
-            case 2: //Level-3 填空
-                Question_Sentence_Set(0, 5);
+            case 2: //Level-3 Listening
+                Question_Vocabulary_Set(0, 5);
                 break;
-            case 3: //Level-4 Listening
+            case 3: //Level-4 英翻中
                 Question_Vocabulary_Set(5,10);
                 break;
             case 4: //Level-5 英翻中
                 Question_Vocabulary_Set(5,10);
                 break;
-            case 5: //Level-6 填空
-                Question_Sentence_Set(5, 10);
+            case 5: //Level-6 英翻中
+                Question_Vocabulary_Set(5, 10);
                 break;
             case 6: //Overall
                 Question_Overall_Set();
@@ -76,14 +76,14 @@ static class Question_Data{
                 break;
         }
     }
-    public static void Question_Vocabulary_Set(int n1,int n2) //Level 1 2 4 5
+    public static void Question_Vocabulary_Set(int n1,int n2) //Level 1 2 3 4 5 6
     {
         for(int i= n1;i< n2; i++)
         {
             if (n1 < 5)
             {
                 Question[i] = vocabulary_temp[i].GetE_Name();
-                if(Level_Check.choose !=1)
+                if(Level_Check.choose <=2)
                     Answer_r_Content[i] = vocabulary_temp[i].GetE_Name();
                 else
                     Answer_r_Content[i] = vocabulary_temp[i].GetC_Name();
@@ -92,7 +92,7 @@ static class Question_Data{
             else if(n1 > 4)
             {
                 Question[i-5] = vocabulary_temp[i].GetE_Name();
-                if (Level_Check.choose != 4)
+                if (Level_Check.choose <=2)
                     Answer_r_Content[i-5] = vocabulary_temp[i].GetE_Name();
                 else
                     Answer_r_Content[i-5] = vocabulary_temp[i].GetC_Name();
@@ -103,68 +103,6 @@ static class Question_Data{
         for(int i = 0; i < 5; i++)
         {
             question_temp[i] = new Question_Class(i+1, Question[i],"", Answer_r_Content[i],"","","");
-        }
-    }
-
-    public static void Question_Sentence_Set(int n1, int n2)
-    {
-        for (int i = n1; i < n2; i++)
-        {
-            int r = Random.Range(0, 3);
-            if(Level_Check.choose == 2)
-            {
-                switch (i)
-                {
-                    case 0:
-                        Question[i] = Question_bank.Level3_Question_1[r];
-                        break;
-                    case 1:
-                        Question[i] = Question_bank.Level3_Question_2[r];
-                        break;
-                    case 2:
-                        Question[i] = Question_bank.Level3_Question_3[r];
-                        break;
-                    case 3:
-                        Question[i] = Question_bank.Level3_Question_4[r];
-                        break;
-                    case 4:
-                        Question[i] = Question_bank.Level3_Question_5[r];
-                        break;
-                    default:
-                        break;
-                }
-                Answer_r_Content[i] = vocabulary_temp[i].GetE_Name();
-            }
-            else
-            {
-                switch (i-5)
-                {
-                    case 0:
-                        Question[i - 5] = Question_bank.Level6_Question_1[r];
-                        break;
-                    case 1:
-                        Question[i - 5] = Question_bank.Level6_Question_2[r];
-                        break;
-                    case 2:
-                        Question[i - 5] = Question_bank.Level6_Question_3[r];
-                        break;
-                    case 3:
-                        Question[i - 5] = Question_bank.Level6_Question_4[r];
-                        break;
-                    case 4:
-                        Question[i - 5] = Question_bank.Level6_Question_5[r];
-                        break;
-                    default:
-                        break;
-                }
-                Answer_r_Content[i-5] = vocabulary_temp[i].GetE_Name();
-
-            }
-        }
-        QaARandomSequence(5);
-        for (int i = 0; i < 5; i++)
-        {
-            question_temp[i] = new Question_Class(i + 1, Question[i], "", Answer_r_Content[i], "", "", "");
         }
     }
     public static void Question_Overall_Set()
@@ -205,7 +143,7 @@ static class Question_Data{
             {
                 while (true)
                 {
-                    if (Level_Check.choose != 1 && Level_Check.choose != 4)  //英文
+                    if (Level_Check.choose <=2)  //英文
                     {
                         if (Question_bank.Vocabulary_Ans[rand[c]] == (question_temp[Question_Check.Question_Num].GetAnswer_r_Content()))
                         { c++; continue; }
@@ -298,7 +236,7 @@ static class Question_Data{
             Answer_r_Content[r] = temp;
         }
     }
-    public static void O_QaARandomSequence(int total)
+    public static void O_QaARandomSequence(int total) //Overall
     {
         int r;
         for (int i = 0; i < total; i++)
