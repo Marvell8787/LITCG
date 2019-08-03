@@ -47,7 +47,7 @@ static class Question_Data{
     {
         Random.seed = System.Guid.NewGuid().GetHashCode();
         Vocabulary_Data.Vocabulary_Init();
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 20; i++)
         {
             vocabulary_temp[i] = Vocabulary_Data.Vocabulary_Get(i);
         }
@@ -55,28 +55,28 @@ static class Question_Data{
         switch (Level_Check.choose)
         {
             case 0: //Level-1 Listening
-                Question_Vocabulary_Set(1,10,10);
                 Question_Check.Question_total = 10;
+                Question_Vocabulary_Set(1,10,10);
                 break;
             case 1: //Level-2 Listening
-                Question_Vocabulary_Set(11,20, 10);
                 Question_Check.Question_total = 10;
+                Question_Vocabulary_Set(11,20, 10);
                 break;
             case 2: //Level-3 Listening
-                Question_Vocabulary_Set(1, 20, 20);
                 Question_Check.Question_total = 20;
+                Question_Vocabulary_Set(1, 20, 20);
                 break;
             case 3: //Level-4 英翻中
-                Question_Vocabulary_Set(1, 10, 10);
                 Question_Check.Question_total = 10;
+                Question_Vocabulary_Set(1, 10, 10);
                 break;
             case 4: //Level-5 英翻中
-                Question_Vocabulary_Set(11, 20, 10);
                 Question_Check.Question_total = 10;
+                Question_Vocabulary_Set(11, 20, 10);
                 break;
             case 5: //Level-6 英翻中
-                Question_Vocabulary_Set(1, 20, 20);
                 Question_Check.Question_total = 20;
+                Question_Vocabulary_Set(1, 20, 20);
                 break;
             case 6: //Overall
                 Question_Overall_Set();
@@ -89,24 +89,23 @@ static class Question_Data{
     {
         if(Question_Check.Question_total == 10)
         {
-            for (int i = n1; i < n2; i++)
+            for (int i = n1-1; i < n2; i++)
             {
-                if (n1 < 10)
+                if (n1 > 10)
+                {
+                    Question[i - 10] = vocabulary_temp[i].GetE_Name();
+                    if (Level_Check.choose <= 2)
+                        Answer_r_Content[i - 10] = vocabulary_temp[i].GetE_Name();
+                    else
+                        Answer_r_Content[i - 10] = vocabulary_temp[i].GetC_Name();
+                }
+                else
                 {
                     Question[i] = vocabulary_temp[i].GetE_Name();
                     if (Level_Check.choose <= 2)
                         Answer_r_Content[i] = vocabulary_temp[i].GetE_Name();
                     else
                         Answer_r_Content[i] = vocabulary_temp[i].GetC_Name();
-
-                }
-                else if (n1 > 10)
-                {
-                    Question[i - 11] = vocabulary_temp[i].GetE_Name();
-                    if (Level_Check.choose <= 2)
-                        Answer_r_Content[i - 11] = vocabulary_temp[i].GetE_Name();
-                    else
-                        Answer_r_Content[i - 11] = vocabulary_temp[i].GetC_Name();
                 }
             }  
         }
@@ -152,14 +151,15 @@ static class Question_Data{
         int r = 0;
         r = Random.Range(0, 3);
         //亂數陣列 START
-        int[] rand = new int[10];
+        int[] rand = new int[20];
         int c = 0;
-        rand = GetRandomSequence(10);
+        rand = GetRandomSequence(20);
         //亂數陣列 END
         for (int i = 0; i < 3; i++)
         {
             if (r == i)
             {
+                Debug.Log(question_temp[Question_Check.Question_Num].GetAnswer_r_Content());
                 ChangeButton_Ans(question_temp[Question_Check.Question_Num].GetAnswer_r_Content(), i);
                 ChangeAnswer_r(Button_Ans_Check[r], Question_Check.Question_Num); //設定正解ABC END
             }

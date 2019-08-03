@@ -16,8 +16,8 @@ public class Audion_Overall : MonoBehaviour {
 
     public void Play()
     {
-        Question_Class[] question_temp = new Question_Class[10];
-        for (int i = 0; i < 10; i++)
+        Question_Class[] question_temp = new Question_Class[20];
+        for (int i = 0; i < 20; i++)
         {
             question_temp[i] = Question_Data.Question_Overall_Get_E(i);
         }
