@@ -7,14 +7,12 @@ class Vocabulary_Class{
     private string C_Name = "";
     private string Voice = "";
     private string PartOfSpeech = "";
-    private string Sentence = "";
-    public Vocabulary_Class(string _E_Name = "", string _C_Named = "", string _Voice = "", string _PartOfSpeech = "", string _Sentence = "")
+    public Vocabulary_Class(string _E_Name = "", string _C_Named = "", string _Voice = "", string _PartOfSpeech = "")
     {
         E_Name = _E_Name;
         C_Name = _C_Named;
         Voice = _Voice;
         PartOfSpeech = _PartOfSpeech;
-        Sentence = _Sentence;
     }
     public string GetE_Name()
     {
@@ -31,9 +29,5 @@ class Vocabulary_Class{
     public string GetPartOfSpeech()
     {
         return PartOfSpeech;
-    }
-    public string GetSentence()
-    {
-        return Sentence;
     }
 }

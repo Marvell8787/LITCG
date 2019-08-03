@@ -23,7 +23,7 @@ public class Function_Overall : MonoBehaviour {
         b_temp = GameObject.Find("Button_Submit").GetComponent<Button>();
         b_temp.interactable = true;
 
-        if (Question_Check.Question_Num == 9)
+        if (Question_Check.Question_Num == 19)
         {
             if (Question_Check.Score > Level_Data.GetHighestScore(Level_Check.choose))
             {
@@ -63,7 +63,7 @@ public class Function_Overall : MonoBehaviour {
             Question_Data.ChangeFeedBack_O("O", Question_Check.Question_Num);
             t_temp = GameObject.Find("Text_FeedBack").GetComponent<Text>();
             t_temp.text = "O";
-            Question_Check.Score += 10;
+            Question_Check.Score += 5;
         }
         else
         {
@@ -81,7 +81,7 @@ public class Function_Overall : MonoBehaviour {
         b_temp = GameObject.Find("Button_Submit").GetComponent<Button>();
         b_temp.interactable = false;
 
-        if (Question_Check.Question_Num == 9)
+        if (Question_Check.Question_Num == 19)
         {
             t_temp = GameObject.Find("Text_ENDContent").GetComponent<Text>();
             t_temp.text = "END";

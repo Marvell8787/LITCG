@@ -48,7 +48,7 @@ public class Function_Level_Learn : MonoBehaviour {
         b_temp = GameObject.Find("Button_Ans-3").GetComponent<Button>();
         b_temp.interactable = true;
                 
-        if (Question_Check.Question_Num == 4)
+        if (Question_Check.Question_Num == Question_Check.Question_total-1)
         {
             if (Question_Check.Score > Level_Data.GetHighestScore(Level_Check.choose))
             {
@@ -77,7 +77,7 @@ public class Function_Level_Learn : MonoBehaviour {
                     break;
                 case 3: //Level-4 中文
                 case 4: //Level-5 中文
-                case 5: //Level-6 填空
+                case 5: //Level-6 中文
                     t_temp = GameObject.Find("Text_Question").GetComponent<Text>();
                     t_temp.text = question_temp.GetQuestion();
                     break;
@@ -103,7 +103,7 @@ public class Function_Level_Learn : MonoBehaviour {
             Question_Data.ChangeFeedBack("O", Question_Check.Question_Num);
             t_temp = GameObject.Find("Text_FeedBack").GetComponent<Text>();
             t_temp.text = "O";
-            Question_Check.Score += 20;
+            Question_Check.Score += (100 / Question_Check.Question_total) ;
         }
         else
         {
@@ -125,7 +125,7 @@ public class Function_Level_Learn : MonoBehaviour {
         b_temp = GameObject.Find("Button_Ans-3").GetComponent<Button>();
         b_temp.interactable = false;
 
-        if (Question_Check.Question_Num == 4)
+        if (Question_Check.Question_Num == (Question_Check.Question_total - 1))
         {
             t_temp = GameObject.Find("Text_ENDContent").GetComponent<Text>();
             t_temp.text = "END";

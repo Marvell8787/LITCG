@@ -6,37 +6,40 @@ using UnityEngine.UI;
 using System.Threading;
 static class Question_Check
 {
-    public static int Question_Num = 0;
-    public static string Choose_Ans = "";
-    public static string Choose_Ans_Content = "";
-    public static int Choose_Ans_n = 0;
-    public static int Score = 0;
+    public static int Question_Num = 0; //第幾題
+    public static string Choose_Ans = ""; //選項 ABC
+    public static string Choose_Ans_Content = ""; //答案內容
+    public static int Choose_Ans_n = 0; //選擇的選項
+    public static int Score = 0; //分數
+
+    public static int Question_total = 0; //共幾題
+
 }
 
 static class Question_Data{
     // Level_Learn
-    private static string[] Question = new string[5] { "", "", "", "", "" };
-    private static string[] Answer_r = new string[5] { "", "", "", "", "" };
-    private static string[] Answer_r_Content = new string[5] { "", "", "", "", "" };
-    private static string[] Answer_c = new string[5] { "", "", "", "", "" };
-    private static string[] Answer_c_Content = new string[5] { "", "", "", "", "" };
-    private static string[] FeedBack = new string[5] { "", "", "", "", ""};
+    private static string[] Question = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    private static string[] Answer_r = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    private static string[] Answer_r_Content = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    private static string[] Answer_c = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    private static string[] Answer_c_Content = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    private static string[] FeedBack = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 
     //Overall
-    private static string[] O_Question = new string[10] { "", "", "", "", "", "", "", "", "", "" };
-    private static string[] O_Question_E = new string[10] { "", "", "", "", "", "", "", "", "", "" };
-    private static string[] O_Answer_r_Content = new string[10] { "", "", "", "", "", "", "", "", "", "" };
-    private static string[] O_Answer_c_Content = new string[10] { "", "", "", "", "", "", "", "", "", "" };
-    private static string[] O_FeedBack = new string[10] { "", "", "", "", "", "", "", "", "", "" };
+    private static string[] O_Question = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    private static string[] O_Question_E = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    private static string[] O_Answer_r_Content = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    private static string[] O_Answer_c_Content = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+    private static string[] O_FeedBack = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 
     private static string[] Button_Ans = new string[3] { "", "", ""};
 
     private static string[] Button_Ans_Check = new string[3] { "A", "B", "C" };
 
-    private static Question_Class[] question_temp = new Question_Class[5];
-    private static Question_Class[] question_overall_temp = new Question_Class[10];
-    private static Question_Class[] question_overall_temp_E = new Question_Class[10];
-    private static Vocabulary_Class[] vocabulary_temp = new Vocabulary_Class[10];
+    private static Question_Class[] question_temp = new Question_Class[20];
+    private static Question_Class[] question_overall_temp = new Question_Class[20];
+    private static Question_Class[] question_overall_temp_E = new Question_Class[20];
+    private static Vocabulary_Class[] vocabulary_temp = new Vocabulary_Class[20];
 
 
 
@@ -52,22 +55,28 @@ static class Question_Data{
         switch (Level_Check.choose)
         {
             case 0: //Level-1 Listening
-                Question_Vocabulary_Set(0,5);
+                Question_Vocabulary_Set(1,10,10);
+                Question_Check.Question_total = 10;
                 break;
             case 1: //Level-2 Listening
-                Question_Vocabulary_Set(0,5);
+                Question_Vocabulary_Set(11,20, 10);
+                Question_Check.Question_total = 10;
                 break;
             case 2: //Level-3 Listening
-                Question_Vocabulary_Set(0, 5);
+                Question_Vocabulary_Set(1, 20, 20);
+                Question_Check.Question_total = 20;
                 break;
             case 3: //Level-4 英翻中
-                Question_Vocabulary_Set(5,10);
+                Question_Vocabulary_Set(1, 10, 10);
+                Question_Check.Question_total = 10;
                 break;
             case 4: //Level-5 英翻中
-                Question_Vocabulary_Set(5,10);
+                Question_Vocabulary_Set(11, 20, 10);
+                Question_Check.Question_total = 10;
                 break;
             case 5: //Level-6 英翻中
-                Question_Vocabulary_Set(5, 10);
+                Question_Vocabulary_Set(1, 20, 20);
+                Question_Check.Question_total = 20;
                 break;
             case 6: //Overall
                 Question_Overall_Set();
@@ -76,46 +85,61 @@ static class Question_Data{
                 break;
         }
     }
-    public static void Question_Vocabulary_Set(int n1,int n2) //Level 1 2 3 4 5 6
+    public static void Question_Vocabulary_Set(int n1,int n2,int n3) // 第n1~第n2題 共n3題
     {
-        for(int i= n1;i< n2; i++)
+        if(Question_Check.Question_total == 10)
         {
-            if (n1 < 5)
+            for (int i = n1; i < n2; i++)
+            {
+                if (n1 < 10)
+                {
+                    Question[i] = vocabulary_temp[i].GetE_Name();
+                    if (Level_Check.choose <= 2)
+                        Answer_r_Content[i] = vocabulary_temp[i].GetE_Name();
+                    else
+                        Answer_r_Content[i] = vocabulary_temp[i].GetC_Name();
+
+                }
+                else if (n1 > 10)
+                {
+                    Question[i - 11] = vocabulary_temp[i].GetE_Name();
+                    if (Level_Check.choose <= 2)
+                        Answer_r_Content[i - 11] = vocabulary_temp[i].GetE_Name();
+                    else
+                        Answer_r_Content[i - 11] = vocabulary_temp[i].GetC_Name();
+                }
+            }  
+        }
+        else if (Question_Check.Question_total == 20)
+        {
+            for (int i = n1; i < n2; i++)
             {
                 Question[i] = vocabulary_temp[i].GetE_Name();
-                if(Level_Check.choose <=2)
+                if (Level_Check.choose <= 2)
                     Answer_r_Content[i] = vocabulary_temp[i].GetE_Name();
                 else
                     Answer_r_Content[i] = vocabulary_temp[i].GetC_Name();
-
-            }
-            else if(n1 > 4)
-            {
-                Question[i-5] = vocabulary_temp[i].GetE_Name();
-                if (Level_Check.choose <=2)
-                    Answer_r_Content[i-5] = vocabulary_temp[i].GetE_Name();
-                else
-                    Answer_r_Content[i-5] = vocabulary_temp[i].GetC_Name();
             }
         }
-        QaARandomSequence(5);
 
-        for(int i = 0; i < 5; i++)
+        QaARandomSequence(n3);
+
+        for(int i = 0; i < n3; i++)
         {
             question_temp[i] = new Question_Class(i+1, Question[i],"", Answer_r_Content[i],"","","");
         }
     }
     public static void Question_Overall_Set()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 20; i++)
         {
             O_Question[i] = vocabulary_temp[i].GetC_Name();
             O_Question_E[i] = vocabulary_temp[i].GetE_Name();
             O_Answer_r_Content[i] = vocabulary_temp[i].GetE_Name();
         }
-        O_QaARandomSequence(10);
+        O_QaARandomSequence(20);
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 20; i++)
         {
             question_overall_temp[i] = new Question_Class(i + 1, O_Question[i], "", O_Answer_r_Content[i], "", "", "");
             question_overall_temp_E[i] = new Question_Class(i + 1, O_Question_E[i], "", O_Answer_r_Content[i], "", "", "");
@@ -220,6 +244,24 @@ static class Question_Data{
         question_overall_temp[c].ChangeFeedBack(s);
     }
     //亂數函式
+    public static int[] GetRandomSequence(int total)
+    {
+        int r;
+        int[] output = new int[total];
+        for (int i = 0; i < total; i++)
+        {
+            output[i] = i;
+        }
+        for (int i = 0; i < total; i++)
+        {
+            r = Random.Range(0, total);
+            int temp = 0;
+            temp = output[i];
+            output[i] = output[r];
+            output[r] = temp;
+        }
+        return output;
+    }
     public static void QaARandomSequence(int total)
     {
         int r;
@@ -256,22 +298,5 @@ static class Question_Data{
             O_Question_E[r] = temp;
         }
     }
-    public static int[] GetRandomSequence(int total)
-    {
-        int r;
-        int[] output = new int[total];
-        for (int i = 0; i < total; i++)
-        {
-            output[i] = i;
-        }
-        for (int i = 0; i < total; i++)
-        {
-            r = Random.Range(0, total);
-            int temp = 0;
-            temp = output[i];
-            output[i] = output[r];
-            output[r] = temp;
-        }
-        return output;
-    }
+    
 }

@@ -27,7 +27,6 @@ public class Canvas_Material : MonoBehaviour {
 
         t_temp = GameObject.Find("Text_PartOfSpeech").GetComponent<Text>();
         t_temp.text = vocabulary_temp.GetPartOfSpeech();
-        t_temp = GameObject.Find("Text_Sentence").GetComponent<Text>();
-        t_temp.text = vocabulary_temp.GetSentence();
+
     }
 }

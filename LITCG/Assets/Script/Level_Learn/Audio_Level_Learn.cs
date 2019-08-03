@@ -21,8 +21,8 @@ public class Audio_Level_Learn : MonoBehaviour {
     }
     public void Play()
     {
-        Question_Class[] question_temp = new Question_Class[5];
-        for (int i = 0; i < 5; i++) {
+        Question_Class[] question_temp = new Question_Class[Question_Check.Question_total];
+        for (int i = 0; i < Question_Check.Question_total; i++) {
             question_temp[i] = Question_Data.Question_Get(i);
         }
         question_temp[Question_Check.Question_Num].GetQuestion();
