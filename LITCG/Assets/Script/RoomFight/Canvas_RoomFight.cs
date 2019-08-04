@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Canvas_RoomFight : MonoBehaviour {
 
-    private Player_Class Player = new Player_Class();  // 0:自己 1:敵人
+    private Player_Class Player = new Player_Class();  // 0:自己
     private bool f = false;
     // Use this for initialization
     void Start () {

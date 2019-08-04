@@ -29,10 +29,12 @@ static class Card_Data{
         {
             switch (i)
             {
-                case 14: Card_Effect[i] = "Player LP + 3"; break;
-                case 15: Card_Effect[i] = "Destory 1 Fight Card"; break;
+                    //Magic
+                case 14: Card_Effect[i] = "Fight ATK + 1"; break;
+                case 15: Card_Effect[i] = "Fight ATK +3"; break;
                 case 16: Card_Effect[i] = "Enemy LP - 3"; break;
                 case 17: Card_Effect[i] = "Draw 2 Card"; break;
+                    //Support
                 case 18: Card_Effect[i] = "Player LP -10 and Enemy LP -10"; break;
                 case 19: Card_Effect[i] = "ALL Fight Card are destory"; break;
                 case 20: Card_Effect[i] = "Enemy LP - 5"; break;
