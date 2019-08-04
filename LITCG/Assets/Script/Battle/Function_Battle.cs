@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+static class Enemy{
+    public static int No = 0;
+}
+
 public class Function_Battle : MonoBehaviour {
 
 	// Use this for initialization
@@ -13,8 +17,19 @@ public class Function_Battle : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void RoomWait()
+    public void Battle1()
     {
+        Enemy.No = 1;
+        Application.LoadLevel("RoomWait");
+    }
+    public void Battle2()
+    {
+        Enemy.No = 2;
+        Application.LoadLevel("RoomWait");
+    }
+    public void Battle3()
+    {
+        Enemy.No = 3;
         Application.LoadLevel("RoomWait");
     }
     public void Back()

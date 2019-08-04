@@ -51,32 +51,31 @@ static class Question_Data{
         {
             vocabulary_temp[i] = Vocabulary_Data.Vocabulary_Get(i);
         }
-        //要弄填空的題庫
         switch (Level_Check.choose)
         {
             case 0: //Level-1 Listening
                 Question_Check.Question_total = 10;
-                Question_Vocabulary_Set(1,10,10);
+                Question_Vocabulary_Set(1,10);
                 break;
             case 1: //Level-2 Listening
                 Question_Check.Question_total = 10;
-                Question_Vocabulary_Set(11,20, 10);
+                Question_Vocabulary_Set(11,20);
                 break;
             case 2: //Level-3 Listening
                 Question_Check.Question_total = 20;
-                Question_Vocabulary_Set(1, 20, 20);
+                Question_Vocabulary_Set(1, 20);
                 break;
             case 3: //Level-4 英翻中
                 Question_Check.Question_total = 10;
-                Question_Vocabulary_Set(1, 10, 10);
+                Question_Vocabulary_Set(1, 10);
                 break;
             case 4: //Level-5 英翻中
                 Question_Check.Question_total = 10;
-                Question_Vocabulary_Set(11, 20, 10);
+                Question_Vocabulary_Set(11, 20);
                 break;
             case 5: //Level-6 英翻中
                 Question_Check.Question_total = 20;
-                Question_Vocabulary_Set(1, 20, 20);
+                Question_Vocabulary_Set(1, 20);
                 break;
             case 6: //Overall
                 Question_Overall_Set();
@@ -85,7 +84,7 @@ static class Question_Data{
                 break;
         }
     }
-    public static void Question_Vocabulary_Set(int n1,int n2,int n3) // 第n1~第n2題 共n3題
+    public static void Question_Vocabulary_Set(int n1,int n2) // 第n1~第n2題 共n3題
     {
         if(Question_Check.Question_total == 10)
         {
@@ -121,9 +120,9 @@ static class Question_Data{
             }
         }
 
-        QaARandomSequence(n3);
+        QaARandomSequence(Question_Check.Question_total);
 
-        for(int i = 0; i < n3; i++)
+        for(int i = 0; i < Question_Check.Question_total; i++)
         {
             question_temp[i] = new Question_Class(i+1, Question[i],"", Answer_r_Content[i],"","","");
         }
@@ -159,7 +158,6 @@ static class Question_Data{
         {
             if (r == i)
             {
-                Debug.Log(question_temp[Question_Check.Question_Num].GetAnswer_r_Content());
                 ChangeButton_Ans(question_temp[Question_Check.Question_Num].GetAnswer_r_Content(), i);
                 ChangeAnswer_r(Button_Ans_Check[r], Question_Check.Question_Num); //設定正解ABC END
             }
@@ -194,6 +192,7 @@ static class Question_Data{
         }
         //選項設定 END
     }
+    //Get
     public static Question_Class Question_Get(int n)
     {
         return question_temp[n];
@@ -202,7 +201,8 @@ static class Question_Data{
     {
         return Button_Ans[c];
     }
-    public static void ChangeButton_Ans(string s, int c)
+    //Change
+    public static void ChangeButton_Ans(string s, int c) //傳送到Level_Learn的三個選項
     {
         Text t_temp;
         t_temp = GameObject.Find("Text_Ans-" + (c+1).ToString()).GetComponent<Text>();

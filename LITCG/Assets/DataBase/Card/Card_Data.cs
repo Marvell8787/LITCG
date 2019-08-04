@@ -5,8 +5,8 @@ using UnityEngine;
 static class Card_Data{
 
     private static string[] Card_CType = new string[22];
-    private static string[] Card_Picture = new string[22] { "fool", "magician","high-priestess", "empress","emperor", "hierophant", "hermit" , "chariot","death","lovers", "temperance", "hanged-man", "justice" ,"judgement","sun","moon","stars","strength", "fortune-wheel", "tower", "devil", "world" };
-    private static string[] Card_Name = new string[22] { "The Fool","The Magician" , "The High PRIESTESS","The EMPRESS","The EMPEROR","The HIEROPHANT", "THE HERMIT", "THE CHARIOT" ,"THE DEATH","THE LOVERS","THE TEMPERANCE", "THE HANGED MAN", "THE JUSTICE" ,"THE JUDGEMENT","The SUN","THE MOON","THE START","STRENGTH", "WHEEL OF FORTUNE","THE TOWER", "THE DEVIL", "THE WORLD" };
+    private static string[] Card_Picture = new string[22] { "fool", "magician", "high-priestess", "empress", "emperor", "hierophant", "lovers", "chariot", "strength", "hermit", "fortune-wheel", "justice", "hanged-man", "death", "temperance", "devil", "tower", "stars", "moon", "sun", "judgement", "world" };
+    private static string[] Card_Name = new string[22] { "The FOOl", "The MAGICIAN", "The HIGH PRIESTESS", "The EMPRESS", "The EMPEROR", "The HIEROPHANT", "THE LOVERS", "THE CHARIOT" ,"STRENGTH", "THE HERMIT", "WHEEL OF FORTUNE", "THE JUSTICE", "THE HANGED MAN", "THE DEATH", "THE TEMPERANCE", "THE DEVIL", "THE TOWER", "THE START", "THE MOON", "The SUN", "THE JUDGEMENT", "THE WORLD" };
     private static string[] Card_Rarity = new string[22] { "N","N","N","N","N","N","N","R", "R", "R","SR", "SR", "SSR", "SSR" ,"R", "R", "R", "SR", "SR", "SR", "SR", "SSR" };
     private static string[] Card_Description = new string[22];
     private static int[] Card_ATK = new int[22] { 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 5,0,0,0,0,0,0,0,0,0 };
@@ -31,20 +31,19 @@ static class Card_Data{
             {
                     //Magic
                 case 14: Card_Effect[i] = "Fight ATK + 1"; break;
-                case 15: Card_Effect[i] = "Fight ATK +3"; break;
-                case 16: Card_Effect[i] = "Enemy LP - 3"; break;
-                case 17: Card_Effect[i] = "Draw 2 Card"; break;
+                case 15: Card_Effect[i] = "Fight ATK + 3"; break;
+                case 16: Card_Effect[i] = "Fight ATK + 5"; break;
+                case 17: Card_Effect[i] = "Fight ATK + 10"; break;
                     //Support
-                case 18: Card_Effect[i] = "Player LP -10 and Enemy LP -10"; break;
-                case 19: Card_Effect[i] = "ALL Fight Card are destory"; break;
-                case 20: Card_Effect[i] = "Enemy LP - 5"; break;
-                case 21: Card_Effect[i] = "Player LP +5 and Enemy LP -5"; break;
+                case 18: Card_Effect[i] = "Draw 2 Cards"; break;
+                case 19: Card_Effect[i] = "Player LP +2"; break;
+                case 20: Card_Effect[i] = "Player LP +5"; break;
+                case 21: Card_Effect[i] = "Player LP +10"; break;
                 default: Card_Effect[i] = "#"; break;
             }
 
         }
 
-        //宣告 level_temp 陣列並加入資料 Start
         for (int i = 0; i < 22; i++)
         {
             card_temp[i] = new Card_Class(Card_CType[i],Card_Picture[i], Card_Name[i], Card_Rarity[i],"", Card_ATK[i], Card_Effect[i]);
