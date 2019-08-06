@@ -45,8 +45,6 @@ public class QP_RoomFight : MonoBehaviour {
 
         question_temp = BQuestion_Data.BQuestion_Get(BQuestion_Check.Question_Num);
         Player = Player_Data.Player_Get(0);
-        Debug.Log(Player.GetLP());
-
 
         if (question_temp.GetAnswer_r() == question_temp.GetAnswer_c())
         {
@@ -68,7 +66,6 @@ public class QP_RoomFight : MonoBehaviour {
 
             t_temp = GameObject.Find("Text_LP_A_num").GetComponent<Text>();
             t_temp.text = Player.GetLP().ToString();
-            Debug.Log(Player.GetLP());
 
         }
 
@@ -97,6 +94,7 @@ public class QP_RoomFight : MonoBehaviour {
         {
             b_temp = GameObject.Find("Button_START").GetComponent<Button>();
             b_temp.interactable = true;
+            BQuestion_Check.Question_Num++;
         }
     }
 }

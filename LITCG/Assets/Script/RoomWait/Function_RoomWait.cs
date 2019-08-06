@@ -12,6 +12,9 @@ public class Function_RoomWait : MonoBehaviour {
     public void Play()
     {
         Player_Data.Player_Init();
+        Player_Data.Shuffle(0);
+        Player_Data.Shuffle(1);
+        Player_Data.Deal();
         Application.LoadLevel("RoomFight");
     }
 }
