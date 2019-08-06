@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class QP_RoomFight : MonoBehaviour {
 
+    private  Player_Class Player;  // 0:自己 1:敵人
+
     public void Choose_A()
     {
         BQuestion_Check.Choose_Ans = "A";
@@ -42,6 +44,9 @@ public class QP_RoomFight : MonoBehaviour {
         BQuestion_Data.ChangeAnswer_c_Content(BQuestion_Check.Choose_Ans_Content, BQuestion_Check.Question_Num);
 
         question_temp = BQuestion_Data.BQuestion_Get(BQuestion_Check.Question_Num);
+        Player = Player_Data.Player_Get(0);
+        Debug.Log(Player.GetLP());
+
 
         if (question_temp.GetAnswer_r() == question_temp.GetAnswer_c())
         {
@@ -50,7 +55,6 @@ public class QP_RoomFight : MonoBehaviour {
             t_temp.text = question_temp.GetAnswer_r_Content();
             t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
             t_temp.text = "答對了!";
-            //Player Status = 1;
         }
         else
         {
@@ -59,8 +63,15 @@ public class QP_RoomFight : MonoBehaviour {
             t_temp.text = question_temp.GetAnswer_r_Content();
             t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
             t_temp.text = "答錯了!";
-            //Player Status = 0;
+
+            Player.ChangeLP(Player.GetLP() - 5);
+
+            t_temp = GameObject.Find("Text_LP_A_num").GetComponent<Text>();
+            t_temp.text = Player.GetLP().ToString();
+            Debug.Log(Player.GetLP());
+
         }
+
 
         b_temp = GameObject.Find("Button_Ans_1").GetComponent<Button>();
         b_temp.interactable = false;
@@ -68,8 +79,7 @@ public class QP_RoomFight : MonoBehaviour {
         b_temp.interactable = false;
         b_temp = GameObject.Find("Button_Ans_3").GetComponent<Button>();
         b_temp.interactable = false;
-        b_temp = GameObject.Find("Button_START").GetComponent<Button>();
-        b_temp.interactable = true;
+
 
         if (BQuestion_Check.Question_Num == (BQuestion_Check.Question_total - 1))
         {
@@ -77,6 +87,16 @@ public class QP_RoomFight : MonoBehaviour {
             /*
             t_temp = GameObject.Find("Text_ENDContent").GetComponent<Text>();
             t_temp.text = "END";*/
+        }
+        else if (Player.GetLP()<=0)
+        {
+            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+            t_temp.text = "遊戲結束!";
+        }
+        else
+        {
+            b_temp = GameObject.Find("Button_START").GetComponent<Button>();
+            b_temp.interactable = true;
         }
     }
 }

@@ -61,7 +61,6 @@ static class BQuestion_Data{
 
     public static void Button_Ans_Set()
     {
-        Debug.Log("Button_Ans_Set");
         //選項設定START
         int r = 0;
         r = Random.Range(0, 3);
