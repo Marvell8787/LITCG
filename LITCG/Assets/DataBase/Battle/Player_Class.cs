@@ -10,7 +10,7 @@ class Player_Class{
     private int Deck_Num = 0;
     private int Deck_Draw = 0; //已抽取牌數
     private int Hand = 5;
-    //0~21 : 牌 22:沒有此牌 23:空的 
+    //0~21 : 牌 22:空的 
     private int[] Hand_Status = new int[5] { 22, 22, 22, 22, 22 };
 
     public Player_Class(int _LP = 0, int _Deck_Num = 0,int _Deck_Draw = 0, int _Hand = 5)
