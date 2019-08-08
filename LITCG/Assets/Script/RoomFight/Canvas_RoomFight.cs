@@ -26,7 +26,12 @@ public class Canvas_RoomFight : MonoBehaviour {
         t_temp = GameObject.Find("Text_Deck_B_num").GetComponent<Text>();
         t_temp.text = (Enemy.GetDeck_Num() - 5).ToString();
 
-
+        BattleCheck.A_ATK = 0;
+        BattleCheck.B_ATK = 0;
+        t_temp = GameObject.Find("Text_ATK_A_num").GetComponent<Text>();
+        t_temp.text = (BattleCheck.A_ATK).ToString();
+        t_temp = GameObject.Find("Text_ATK_B_num").GetComponent<Text>();
+        t_temp.text = (BattleCheck.B_ATK).ToString();
     }
 
 

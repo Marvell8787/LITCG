@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Text_Count_RoomFight : MonoBehaviour {
-    int time_int = 5;
+    int time_int = 6;
     //public Text t_temp; //可從外部放
     Text t_temp;
     private Player_Class Player = new Player_Class();
@@ -19,16 +19,23 @@ public class Text_Count_RoomFight : MonoBehaviour {
 
         time_int -= 1;
 
-        t_temp.text = time_int + "";
+        t_temp.text = (time_int-1) + "";
+
+        if(time_int == 1)
+            t_temp.text = "Play!";
 
         if (time_int == 0)
         {
-            t_temp.text = "Play!";
             CancelInvoke("timer");
 
             Image i_temp;
 
-            Destroy(t_temp,1);
+            //Destroy(t_temp,1);
+            t_temp.text = "";
+            t_temp.rectTransform.localPosition = new Vector3(-50f, 350f, 0f);
+
+            
+
             i_temp = GameObject.Find("Image_Test").GetComponent<Image>();
             i_temp.color = Color.white;
 

@@ -173,8 +173,8 @@ static class Player_Data{
             }
             else
             {
-                i_temp = GameObject.Find("Image_Hand_B" + (i + 1).ToString()).GetComponent<Image>();
-                i_temp.sprite = Resources.Load("Image/Card" + card_temp[n].GetPicture(), typeof(Sprite)) as Sprite;
+                i_temp = GameObject.Find("Image_Hand_B_" + (i + 1).ToString()).GetComponent<Image>();
+                i_temp.sprite = Resources.Load("Image/Card/" + card_temp[n].GetPicture(), typeof(Sprite)) as Sprite;
             }
             Debug.Log(card_temp[n].GetPicture());
     }
@@ -191,4 +191,5 @@ static class Player_Data{
             Player[n].ChangeDeck_Fight(r, int.Parse(temp));
         }
     }
+
 }

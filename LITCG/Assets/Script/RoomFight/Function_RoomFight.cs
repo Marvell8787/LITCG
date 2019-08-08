@@ -13,8 +13,16 @@ static class BattleCheck
     public static int Fight_A = 22; //22:沒有 0~21:有
     public static int Magic_A = 22; //22:沒有 0~21:有
     public static int Support_A = 22; //22:沒有 0~21:有
-
+    public static int A_ATK = 0; //顯示的攻擊力
     //B
+    public static int HCB_F = 0; //選擇的手牌 戰鬥卡
+    public static int HCB_M = 0; //選擇的手牌 魔法卡
+    public static int HCB_S = 0; //選擇的手牌 支援卡
+
+    public static int Fight_B = 22; //22:沒有 0~21:有
+    public static int Magic_B = 22; //22:沒有 0~21:有
+    public static int Support_B = 22; //22:沒有 0~21:有
+    public static int B_ATK = 0; //顯示的攻擊力
 }
 public class Function_RoomFight : MonoBehaviour {
 
@@ -114,31 +122,30 @@ public class Function_RoomFight : MonoBehaviour {
     }
     public void CheckUSE(int s)
     {
+        int n = Player.GetHand_Status(s);
         Button b_temp;
+
         if (Player.GetHand_Status(s) > 21)
         {
             b_temp = GameObject.Find("Button_USE").GetComponent<Button>();
             b_temp.interactable = false;
-            //BattleCheck.Fight_A = 22; //0:沒有 1:有
-            //BattleCheck.Magic_A = 22; //0:沒有 1:有
-            //BattleCheck.Support_A = 22; //0:沒有 1:有
-            //BattleCheck.TypeChoose = 0;
+
             return;
         }
 
-        if (BattleCheck.Fight_A == 22 && card_temp[Player.GetHand_Status(s)].GetCType() == "Fight")
+        if (BattleCheck.Fight_A == 22 && card_temp[n].GetCType() == "Fight")
         {
             b_temp = GameObject.Find("Button_USE").GetComponent<Button>();
             b_temp.interactable = true;
             BattleCheck.TypeChoose = 1;
         }
-        else if(BattleCheck.Magic_A == 22 && card_temp[Player.GetHand_Status(s)].GetCType() == "Magic")
+        else if(BattleCheck.Magic_A == 22 && card_temp[n].GetCType() == "Magic")
         {
             b_temp = GameObject.Find("Button_USE").GetComponent<Button>();
             b_temp.interactable = true;
             BattleCheck.TypeChoose = 2;
         }
-        else if (BattleCheck.Support_A == 22 && card_temp[Player.GetHand_Status(s)].GetCType() == "Support")
+        else if (BattleCheck.Support_A == 22 && card_temp[n].GetCType() == "Support")
         {
             b_temp = GameObject.Find("Button_USE").GetComponent<Button>();
             b_temp.interactable = true;
@@ -178,15 +185,20 @@ public class Function_RoomFight : MonoBehaviour {
         Button b_temp;
 
         t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-        t_temp.text = "你輸了!";
+        t_temp.text = "遊戲結束!";
         b_temp = GameObject.Find("Button_Surrender").GetComponent<Button>();
         b_temp.interactable = false;
+
+        t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+        t_temp.text = "你輸了!";
+        t_temp.color = new Color32(255, 0, 0, 255);
+        t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
+
         InvokeRepeating("timer", 1, 1);
 
     }
     void timer()
     {
-
         time_int -= 1;
 
 
