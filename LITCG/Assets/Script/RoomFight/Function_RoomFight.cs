@@ -15,14 +15,16 @@ static class BattleCheck
     public static int Support_A = 22; //22:沒有 0~21:有
     public static int A_ATK = 0; //顯示的攻擊力
     //B
-    public static int HCB_F = 0; //選擇的手牌 戰鬥卡
-    public static int HCB_M = 0; //選擇的手牌 魔法卡
-    public static int HCB_S = 0; //選擇的手牌 支援卡
+    public static int HCB_F = 5; //選擇的手牌 戰鬥卡
+    public static int HCB_M = 5; //選擇的手牌 魔法卡
+    public static int HCB_S = 5; //選擇的手牌 支援卡
 
     public static int Fight_B = 22; //22:沒有 0~21:有
     public static int Magic_B = 22; //22:沒有 0~21:有
     public static int Support_B = 22; //22:沒有 0~21:有
     public static int B_ATK = 0; //顯示的攻擊力
+
+    //A vs B
 }
 public class Function_RoomFight : MonoBehaviour {
 
@@ -43,6 +45,8 @@ public class Function_RoomFight : MonoBehaviour {
         Enemy = Player_Data.Player_Get(1);
         BattleCheck.HandChoose = 0;
         BattleCheck.TypeChoose = 0;
+        BattleCheck.A_ATK = 0;
+        BattleCheck.B_ATK = 0;
     }
 
     public void HA1()

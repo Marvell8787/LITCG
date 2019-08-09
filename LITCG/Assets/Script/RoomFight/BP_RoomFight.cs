@@ -22,6 +22,10 @@ public class BP_RoomFight : MonoBehaviour {
         {
             card_temp[i] = Card_Data.Card_Get(i);
         }
+        BattleCheck.A_ATK = 0;
+        BattleCheck.B_ATK = 0;
+        Player = Player_Data.Player_Get(0);
+        Enemy = Player_Data.Player_Get(1);
     }
 
     public void START()
@@ -29,8 +33,14 @@ public class BP_RoomFight : MonoBehaviour {
         Text t_temp;
         Button b_temp;
 
-        Player = Player_Data.Player_Get(0);
-        Enemy = Player_Data.Player_Get(1);
+        BattleCheck.A_ATK = 0;
+        BattleCheck.B_ATK = 0;
+
+
+        t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+        t_temp.color = new Color32(255, 255, 255, 255);
+        t_temp.text = "";
+        t_temp.rectTransform.localPosition = new Vector3(-50f, 350f, 0f);
 
         t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
         t_temp.text = "請出牌!";
@@ -41,7 +51,6 @@ public class BP_RoomFight : MonoBehaviour {
         b_temp.interactable = false;
 
         BattleCheck.Phase = 2;
-
 
     }
     public void USE()
@@ -54,7 +63,6 @@ public class BP_RoomFight : MonoBehaviour {
         b_temp = GameObject.Find("Button_USE").GetComponent<Button>();
         b_temp.interactable = false;
 
-        Player = Player_Data.Player_Get(0);
         n = Player.GetHand_Status(BattleCheck.HandChoose);
 
         if (BattleCheck.TypeChoose == 1)
@@ -63,6 +71,7 @@ public class BP_RoomFight : MonoBehaviour {
             BattleCheck.Fight_A = n;
             t_temp = GameObject.Find("Text_ATK_A_num").GetComponent<Text>();
             t_temp.text = (card_temp[n].GetATK())+" ";
+            BattleCheck.A_ATK = card_temp[n].GetATK();
             if (BattleCheck.Magic_A < 22)
             {
                 int s = BattleCheck.Magic_A;
@@ -70,12 +79,15 @@ public class BP_RoomFight : MonoBehaviour {
                 {
                     case 15:
                         t_temp.text += "+ " + (card_temp[s].GetATK());
+                        BattleCheck.A_ATK += 3;
                         break;
                     case 16:
                         t_temp.text += "+ " + (card_temp[s].GetATK());
+                        BattleCheck.A_ATK += 5;
                         break;
                     case 17:
                         t_temp.text = (card_temp[s].GetATK()).ToString();
+                        BattleCheck.A_ATK = 8;
                         break;
                     default:
                         break;
@@ -91,12 +103,15 @@ public class BP_RoomFight : MonoBehaviour {
             {
                 case 14:
                     t_temp.text += " + " + (card_temp[n].GetATK());
+                    BattleCheck.A_ATK += 3;
                     break;
                 case 15:
                     t_temp.text += " + " + (card_temp[n].GetATK());
+                    BattleCheck.A_ATK += 5;
                     break;
                 case 16:
                     t_temp.text = (card_temp[n].GetATK()).ToString();
+                    BattleCheck.A_ATK = 8;
                     break;
                 default:
                     break;
@@ -152,6 +167,7 @@ public class BP_RoomFight : MonoBehaviour {
                 if (r == 1)
                 {
                     BattleCheck.Support_B = Enemy.GetHand_Status(Ehand[i]); //使用了支援卡
+                    Enemy.ChangeHand_Status(Ehand[i], 22);
                     BattleCheck.HCB_S = Ehand[i];
                     break;
                 }
@@ -171,6 +187,7 @@ public class BP_RoomFight : MonoBehaviour {
                 if (r == 1)
                 {
                     BattleCheck.Magic_B = Enemy.GetHand_Status(Ehand[i]); //使用了魔法卡
+                    Enemy.ChangeHand_Status(Ehand[i], 22);
                     BattleCheck.HCB_M = Ehand[i];
                     break;
                 }
@@ -193,6 +210,7 @@ public class BP_RoomFight : MonoBehaviour {
                 temp = GameObject.Find("Text_ATK_B_num").GetComponent<Text>();
                 temp.text = BattleCheck.B_ATK.ToString();
                 BattleCheck.HCB_F = Ehand[i];
+                Enemy.ChangeHand_Status(Ehand[i], 22);
                 break;
             }
             else
@@ -220,6 +238,8 @@ public class BP_RoomFight : MonoBehaviour {
             t_temp = GameObject.Find("Text_ATK_B_num").GetComponent<Text>();
             t_temp.text = (card_temp[BattleCheck.Fight_B].GetATK()) + " ";
 
+            BattleCheck.B_ATK = card_temp[BattleCheck.Fight_B].GetATK();
+
             i_temp.sprite = Resources.Load("Image/Card/" + card_temp[BattleCheck.Fight_B].GetPicture(), typeof(Sprite)) as Sprite;
             i_temp = GameObject.Find("Image_Hand_B_" + (BattleCheck.HCB_F + 1).ToString()).GetComponent<Image>();
             i_temp.sprite = Resources.Load("Image/Battle/Hand", typeof(Sprite)) as Sprite;
@@ -232,12 +252,15 @@ public class BP_RoomFight : MonoBehaviour {
             {
                 case 14:
                     t_temp.text += " + " + (card_temp[BattleCheck.Magic_B].GetATK());
+                    BattleCheck.B_ATK += 3;
                     break;
                 case 15:
                     t_temp.text += " + " + (card_temp[BattleCheck.Magic_B].GetATK());
+                    BattleCheck.B_ATK += 5;
                     break;
                 case 16:
                     t_temp.text = (card_temp[BattleCheck.Magic_B].GetATK()).ToString();
+                    BattleCheck.B_ATK = 8;
                     break;
                 default:
                     break;
@@ -256,15 +279,115 @@ public class BP_RoomFight : MonoBehaviour {
         }
 
         //結算 左上角顯示這回合贏還是輸
+        //雙方攻擊力
+        Debug.Log("A = " + BattleCheck.A_ATK);
+        Debug.Log("B = " + BattleCheck.B_ATK);
+        
+        //雙方判斷支援卡
+        switch (BattleCheck.Support_A)
+        {
+            case 19:
+                Player.ChangeLP(Player.GetLP() + 2);
+                break;
+            case 20:
+                Player.ChangeLP(Player.GetLP() + 3);
+                break;
+            case 21:
+                Player.ChangeLP(Player.GetLP() + 5);
+                break;
+            default:
+                break;
+        }
+        switch (BattleCheck.Support_B)
+        {
+            case 19:
+                Enemy.ChangeLP(Enemy.GetLP() + 2);
+                break;
+            case 20:
+                Enemy.ChangeLP(Enemy.GetLP() + 3);
+                break;
+            case 21:
+                Enemy.ChangeLP(Enemy.GetLP() + 5);
+                break;
+            default:
+                break;
+        }
+        int aatk, batk;
+        aatk = BattleCheck.A_ATK;
+        batk = BattleCheck.B_ATK;
+        //判斷攻擊力並分出勝負
+        if (aatk > batk)
+        {
+            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+            Enemy.DecLP((aatk - batk));
+            t_temp.text = "敵方LP - " +(aatk - batk);
+        }
+        else if (batk > aatk)
+        {
+            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+            Player.DecLP((batk - aatk));
+            t_temp.text = "我方LP - " + (batk - aatk);
+        }
+        else
+        {
+            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+            t_temp.text = "平手";
+        }
+        t_temp = GameObject.Find("Text_LP_A_num").GetComponent<Text>();
+        t_temp.text = Player.GetLP().ToString();
+        t_temp = GameObject.Find("Text_LP_B_num").GetComponent<Text>();
+        t_temp.text = Enemy.GetLP().ToString();
 
-
-        t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-        t_temp.text = "你贏了"; //或你輸了
+        if (Player.GetLP() < 1)
+        {
+            b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+            b_temp.GetComponentInChildren<Text>().text = "END";
+            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+            t_temp.text = "遊戲結束!";
+            t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+            t_temp.text = "你輸了!";
+            t_temp.color = new Color32(255, 0, 0, 255);
+            t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
+        }
+        else if (Enemy.GetLP() < 1)
+        {
+            b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+            b_temp.GetComponentInChildren<Text>().text = "END";
+            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+            t_temp.text = "遊戲結束!";
+            t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+            t_temp.text = "你贏了!";
+            t_temp.color = new Color32(255, 0, 0, 255);
+            t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
+        }
+        else if(BQuestion_Check.Question_Num == 10) //10個回合
+        {
+            if(Player.GetLP() >= Enemy.GetLP()){
+                b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "END";
+                t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                t_temp.text = "遊戲結束!";
+                t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                t_temp.text = "你贏了!";
+                t_temp.color = new Color32(255, 0, 0, 255);
+                t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
+            }
+            else
+            {
+                b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "END";
+                t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                t_temp.text = "遊戲結束!";
+                t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                t_temp.text = "你輸了!";
+                t_temp.color = new Color32(255, 0, 0, 255);
+                t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
+            }
+        }
 
         //開啟 NEXT按鈕
         b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
         b_temp.interactable = true;
-
     }
 
     public static int[] GetRandomSequence(int total)

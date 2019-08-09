@@ -164,9 +164,9 @@ static class Player_Data{
             if (s == 0)
             {
                 i_temp = GameObject.Find("Image_Hand_A_" + (i + 1).ToString()).GetComponent<Image>();
-                if (n == 23) //23 = 沒牌
+                if (n == 22) //22 = 沒牌
                 {
-                    i_temp.sprite = Resources.Load("Hand", typeof(Sprite)) as Sprite;
+                    i_temp.sprite = Resources.Load("Image/Battle/Hand", typeof(Sprite)) as Sprite;
                 }
                 else
                     i_temp.sprite = Resources.Load("Image/Card/" + card_temp[n].GetPicture(), typeof(Sprite)) as Sprite;
@@ -174,9 +174,13 @@ static class Player_Data{
             else
             {
                 i_temp = GameObject.Find("Image_Hand_B_" + (i + 1).ToString()).GetComponent<Image>();
-                i_temp.sprite = Resources.Load("Image/Card/" + card_temp[n].GetPicture(), typeof(Sprite)) as Sprite;
-            }
-            Debug.Log(card_temp[n].GetPicture());
+                if (n == 22) //22 = 沒牌
+                {
+                    i_temp.sprite = Resources.Load("Image/Battle/Hand", typeof(Sprite)) as Sprite;
+                }
+                else
+                    i_temp.sprite = Resources.Load("Image/Card/" + card_temp[n].GetPicture(), typeof(Sprite)) as Sprite;
+        }
     }
     public static void Shuffle(int n) //要更新的對象 0:玩家 1:敵人 遊戲開始亂數牌組
     {

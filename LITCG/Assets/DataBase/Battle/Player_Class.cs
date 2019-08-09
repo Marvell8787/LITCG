@@ -77,4 +77,12 @@ class Player_Class{
     {
         Deck_Draw += n;
     }
+    public void AddLP(int n)
+    {
+        LP += n;
+    }
+    public void DecLP(int n)
+    {
+        LP -= n;
+    }
 }

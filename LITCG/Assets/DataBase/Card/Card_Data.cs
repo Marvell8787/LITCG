@@ -51,8 +51,8 @@ static class Card_Data{
                 case 17: Card_Effect[i] = "A Fight ATK = 8"; break;
                 case 18: Card_Effect[i] = "B Fight ATK = 1"; break; //moon
                     //Support
-                case 19: Card_Effect[i] = "A B Player LP + 2"; break; //sun
-                case 20: Card_Effect[i] = "A B Player LP + 3"; break; //judgement
+                case 19: Card_Effect[i] = "A Player LP + 2"; break; //sun
+                case 20: Card_Effect[i] = "A Player LP + 3"; break; //judgement
                 case 21: Card_Effect[i] = "A Player LP + 5"; break; //world
                 default: Card_Effect[i] = "#"; break;
             }
