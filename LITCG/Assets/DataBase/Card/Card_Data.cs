@@ -9,7 +9,7 @@ static class Card_Data{
     private static string[] Card_Name = new string[22] { "The FOOL", "The MAGICIAN", "The HIGH PRIESTESS", "The EMPRESS", "The EMPEROR", "The HIEROPHANT", "THE LOVERS", "THE CHARIOT" ,"STRENGTH", "THE HERMIT", "WHEEL OF FORTUNE", "THE JUSTICE", "THE HANGED MAN", "THE DEATH", "THE TEMPERANCE", "THE DEVIL", "THE TOWER", "THE START", "THE MOON", "The SUN", "THE JUDGEMENT", "THE WORLD" };
     private static string[] Card_Rarity = new string[22] { "N","N","N","N","N","N","N","R", "R", "R","R", "R", "SR", "SR" ,"SSR", "R", "R", "SR", "SSR", "SR", "SR", "SSR" };
     private static string[] Card_Description = new string[22];
-    private static int[] Card_ATK = new int[22] { 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4,4,5,3,5,8,0,0,0,0 }; //+3 +5 8
+    private static int[] Card_ATK = new int[22] { 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4,4,5,3,5,8,10,0,0,0 }; //+3 +5 8
     private static string[] Card_Effect = new string[22];
 
     private static Card_Class[] card_temp = new Card_Class[22];
@@ -49,7 +49,7 @@ static class Card_Data{
                 case 15: Card_Effect[i] = "A Fight ATK + 3"; break;
                 case 16: Card_Effect[i] = "A Fight ATK + 5"; break;
                 case 17: Card_Effect[i] = "A Fight ATK = 8"; break;
-                case 18: Card_Effect[i] = "B Fight ATK = 1"; break; //moon
+                case 18: Card_Effect[i] = "A Fight ATK = 10"; break; //moon
                     //Support
                 case 19: Card_Effect[i] = "A Player LP + 2"; break; //sun
                 case 20: Card_Effect[i] = "A Player LP + 3"; break; //judgement

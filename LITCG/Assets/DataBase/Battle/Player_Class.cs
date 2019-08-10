@@ -85,4 +85,8 @@ class Player_Class{
     {
         LP -= n;
     }
+    public void DecDeck_Num(int n)
+    {
+        Deck_Num -= n;
+    }
 }

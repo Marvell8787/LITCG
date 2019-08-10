@@ -86,10 +86,14 @@ public class QP_RoomFight : MonoBehaviour {
             t_temp.color = new Color32(255, 0, 0, 255);
             t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
         }
-        else if (Player.GetLP()<=0)
+        else if (Player.GetLP() < 1)
         {
             t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
             t_temp.text = "遊戲結束!";
+            t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+            t_temp.text = "你輸了!";
+            t_temp.color = new Color32(255, 0, 0, 255);
+            t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
             b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
             b_temp.GetComponentInChildren<Text>().text = "END";
             b_temp.interactable = true;

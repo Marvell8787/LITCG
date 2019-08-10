@@ -147,7 +147,33 @@ static class Player_Data{
     }
     public static void Draw(int s,int n) //s=要更新的對象 0:玩家 1:敵人 n=摸牌的數量
     {
-
+        int ii = 0;
+        for (int i = 0; i < 5; i++)
+        {
+            if (Player[s].GetHand_Status(i) == 22)
+            {
+ 
+                while (ii < n)
+                {
+                    int nn;
+                    nn = Player[s].GetDeck_Fight(Player[s].GetDeck_Draw());
+                    if (nn < 22)
+                    {
+                        Player[s].ChangeHand_Status(i, nn);
+                        Player[s].AddDeck_Draw(1);
+                        ii++;
+                        Player[s].DecDeck_Num(1);
+                        continue;
+                    }
+                    else
+                    {
+                        Player[s].AddDeck_Draw(1);
+                        continue;
+                    }
+                }
+                break;
+            }
+        }
     }
     public static void ShowHand(int s) //要更新的對象 0:玩家 1:敵人 顯示手牌
     {

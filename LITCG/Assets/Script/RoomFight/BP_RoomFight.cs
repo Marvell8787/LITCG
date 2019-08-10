@@ -89,10 +89,16 @@ public class BP_RoomFight : MonoBehaviour {
                         t_temp.text = (card_temp[s].GetATK()).ToString();
                         BattleCheck.A_ATK = 8;
                         break;
+                    case 18:
+                        t_temp.text = (card_temp[s].GetATK()).ToString();
+                        BattleCheck.A_ATK = 10;
+                        break;
                     default:
                         break;
                 }
             }
+            b_temp = GameObject.Find("Button_FIGHT").GetComponent<Button>();
+            b_temp.interactable = true;
         }
         else if(BattleCheck.TypeChoose == 2)
         {
@@ -101,17 +107,21 @@ public class BP_RoomFight : MonoBehaviour {
             t_temp = GameObject.Find("Text_ATK_A_num").GetComponent<Text>();
             switch (n)
             {
-                case 14:
+                case 15:
                     t_temp.text += " + " + (card_temp[n].GetATK());
                     BattleCheck.A_ATK += 3;
                     break;
-                case 15:
+                case 16:
                     t_temp.text += " + " + (card_temp[n].GetATK());
                     BattleCheck.A_ATK += 5;
                     break;
-                case 16:
+                case 17:
                     t_temp.text = (card_temp[n].GetATK()).ToString();
                     BattleCheck.A_ATK = 8;
+                    break;
+                case 18:
+                    t_temp.text = (card_temp[n].GetATK()).ToString();
+                    BattleCheck.A_ATK = 10;
                     break;
                 default:
                     break;
@@ -132,9 +142,6 @@ public class BP_RoomFight : MonoBehaviour {
         i_temp = GameObject.Find("Image_Hand_A_" + (BattleCheck.HandChoose+1).ToString()).GetComponent<Image>();
         i_temp.sprite = Resources.Load("Image/Battle/Hand", typeof(Sprite)) as Sprite;
         i_temp.color = new Color32(255, 255, 255, 255);
-
-        b_temp = GameObject.Find("Button_FIGHT").GetComponent<Button>();
-        b_temp.interactable = true;
 
         Player.ChangeHand_Status(BattleCheck.HandChoose, 22);
     }
@@ -250,17 +257,21 @@ public class BP_RoomFight : MonoBehaviour {
             t_temp = GameObject.Find("Text_ATK_B_num").GetComponent<Text>();
             switch (BattleCheck.Magic_B)
             {
-                case 14:
-                    t_temp.text += " + " + (card_temp[BattleCheck.Magic_B].GetATK());
+                case 15:
+                    t_temp.text = t_temp.text + " + " + (card_temp[BattleCheck.Magic_B].GetATK());
                     BattleCheck.B_ATK += 3;
                     break;
-                case 15:
-                    t_temp.text += " + " + (card_temp[BattleCheck.Magic_B].GetATK());
+                case 16:
+                    t_temp.text = t_temp.text + " + " + (card_temp[BattleCheck.Magic_B].GetATK());
                     BattleCheck.B_ATK += 5;
                     break;
-                case 16:
+                case 17:
                     t_temp.text = (card_temp[BattleCheck.Magic_B].GetATK()).ToString();
                     BattleCheck.B_ATK = 8;
+                    break;
+                case 18:
+                    t_temp.text = (card_temp[BattleCheck.Magic_B].GetATK()).ToString();
+                    BattleCheck.B_ATK = 10;
                     break;
                 default:
                     break;
@@ -383,6 +394,28 @@ public class BP_RoomFight : MonoBehaviour {
                 t_temp.color = new Color32(255, 0, 0, 255);
                 t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
             }
+        }
+        else if (Player.GetDeck_Num() == 0)
+        {
+            b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+            b_temp.GetComponentInChildren<Text>().text = "END";
+            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+            t_temp.text = "遊戲結束!";
+            t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+            t_temp.text = "我方牌組已抽完，你輸了!";
+            t_temp.color = new Color32(255, 0, 0, 255);
+            t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
+        }
+        else if (Enemy.GetDeck_Num() == 0)
+        {
+            b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+            b_temp.GetComponentInChildren<Text>().text = "END";
+            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+            t_temp.text = "遊戲結束!";
+            t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+            t_temp.text = "敵方牌組已抽完，你贏了!";
+            t_temp.color = new Color32(255, 0, 0, 255);
+            t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
         }
 
         //開啟 NEXT按鈕
