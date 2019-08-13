@@ -9,9 +9,9 @@ static class Task_Data{
     private static string[] Learn_Reward = new string[7] { "Crystal", "Crystal", "Crystal", "Crystal", "Crystal", "Crystal", "Crystal" };
     private static string[] Learn_Punishment = new string[7] { "Crystal", "Crystal", "Crystal", "Crystal", "Crystal", "Crystal", "Crystal" };
 
-    private static string[] Battle_Title = new string[3] { "Battle-1", "Battle-2", "Battle-3" };
-    private static string[] Battle_Threshold = new string[3] { "None", "Battle-1's Over", "Battle-2's Over"};
-    private static string[] Battle_Request = new string[3] { "Get 1 win in Battle", "Get 3  consecutive wins in Battle", "Get 5  consecutive wins in Battle" };
+    private static string[] Battle_Title = new string[3] { "Battle 1", "Battle 2", "Battle 3" };
+    private static string[] Battle_Threshold = new string[3] { "None", "Battle 1's Over", "Battle 2's Over"};
+    private static string[] Battle_Request = new string[3] { "Get a win in Battle 1", "Get a win in Battle 2", "Get a win in Battle 3" };
     private static string[] Battle_Reward = new string[3] { "Crystal", "Crystal", "Crystal"};
     private static string[] Battle_Punishment = new string[3] { "Crystal", "Crystal", "Crystal"};
 
