@@ -10,6 +10,6 @@ public class Function_Leaderboard : MonoBehaviour {
 	}
     public void Back()
     {
-        Application.LoadLevel("Profile");
+        Application.LoadLevel("Home");
     }
 }

@@ -12,12 +12,5 @@ public class Function_Profile : MonoBehaviour {
     {
         Application.LoadLevel("Home");
     }
-    public void Leaderboard()
-    {
-        Application.LoadLevel("Leaderboard");
-    }
-    public void Badges()
-    {
-        Application.LoadLevel("Badges");
-    }
+
 }

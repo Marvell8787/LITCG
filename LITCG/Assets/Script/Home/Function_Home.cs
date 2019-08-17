@@ -9,11 +9,24 @@ public class Function_Home : MonoBehaviour {
     public void GameGoals()
     {
         Text t_temp;
-        for (int i=0;i<8;i++)
+        switch (System_Data.language)
         {
-            t_temp = GameObject.Find("Text_GameGoal_" + (i + 1).ToString()).GetComponent<Text>();
-            t_temp.text = GameGoal_Data.GameGoal[i];
+            case 0:
+                for (int i = 0; i < GameGoal_Data.C_GameGoal.Length; i++)
+                {
+                    t_temp = GameObject.Find("Text_GameGoal_" + (i + 1).ToString()).GetComponent<Text>();
+                    t_temp.text = GameGoal_Data.C_GameGoal[i];
+                }
+                break;
+            default:
+                for (int i = 0; i < GameGoal_Data.E_GameGoal.Length; i++)
+                {
+                    t_temp = GameObject.Find("Text_GameGoal_" + (i + 1).ToString()).GetComponent<Text>();
+                    t_temp.text = GameGoal_Data.E_GameGoal[i];
+                }
+                break;
         }
+
     }
     public void Status()
     {
@@ -62,6 +75,14 @@ public class Function_Home : MonoBehaviour {
     public void Guide()
     {
         Application.LoadLevel("Guide");
+    }
+    public void Badges()
+    {
+        Application.LoadLevel("Badges");
+    }
+    public void Leaderboard()
+    {
+        Application.LoadLevel("Leaderboard");
     }
 
 

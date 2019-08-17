@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 static class System_Data{
+    public static int language = 0; // 0:中文 1:英文
    //Home 
     private static int Task = 0; 
     private static int Learn = 0;
