@@ -8,9 +8,15 @@ public class Canvas_Home : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Text t_temp;
+        ClearAllText();
         switch (System_Data.language)
         {
             case 0:
+                for (int i = 0; i < GameGoal_Data.C_GameGoal.Length; i++)
+                {
+                    t_temp = GameObject.Find("Text_GameGoal_" + (i + 1).ToString()).GetComponent<Text>();
+                    t_temp.text = GameGoal_Data.C_GameGoal[i];
+                }
                 for (int i = 0; i < GameGoal_Data.C_Item.Length; i++)
                 {
                     t_temp = GameObject.Find("Text_Item_" + (i + 1).ToString()).GetComponent<Text>();
@@ -18,6 +24,11 @@ public class Canvas_Home : MonoBehaviour {
                 }
                 break;
             default:
+                for (int i = 0; i < GameGoal_Data.E_GameGoal.Length; i++)
+                {
+                    t_temp = GameObject.Find("Text_GameGoal_" + (i + 1).ToString()).GetComponent<Text>();
+                    t_temp.text = GameGoal_Data.E_GameGoal[i];
+                }
                 for (int i = 0; i < GameGoal_Data.E_Item.Length; i++)
                 {
                     t_temp = GameObject.Find("Text_Item_" + (i + 1).ToString()).GetComponent<Text>();
@@ -25,7 +36,6 @@ public class Canvas_Home : MonoBehaviour {
                 }
                 break;
         }
-        ClearAllText();
     }
     public void ClearAllText()
     {

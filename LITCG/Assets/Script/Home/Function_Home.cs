@@ -9,28 +9,17 @@ public class Function_Home : MonoBehaviour {
     public void GameGoals()
     {
         Text t_temp;
-        switch (System_Data.language)
-        {
-            case 0:
-                for (int i = 0; i < GameGoal_Data.C_GameGoal.Length; i++)
-                {
-                    t_temp = GameObject.Find("Text_GameGoal_" + (i + 1).ToString()).GetComponent<Text>();
-                    t_temp.text = GameGoal_Data.C_GameGoal[i];
-                }
-                break;
-            default:
-                for (int i = 0; i < GameGoal_Data.E_GameGoal.Length; i++)
-                {
-                    t_temp = GameObject.Find("Text_GameGoal_" + (i + 1).ToString()).GetComponent<Text>();
-                    t_temp.text = GameGoal_Data.E_GameGoal[i];
-                }
-                break;
-        }
+        Button b_temp;
+
+        b_temp = GameObject.Find("Button_GameGoals").GetComponent<Button>();
+        b_temp.interactable = false;
 
     }
     public void Status()
     {
         Text t_temp;
+        Button b_temp;
+
         t_temp = GameObject.Find("Text_ScoreContent").GetComponent<Text>();
         t_temp.text = Learner_Data.Learner_GetData("Score").ToString();
         t_temp = GameObject.Find("Text_CoinContent").GetComponent<Text>();
@@ -46,6 +35,8 @@ public class Function_Home : MonoBehaviour {
         t_temp = GameObject.Find("Text_MistakesContent").GetComponent<Text>();
         t_temp.text = Learner_Data.Learner_GetData("Mistakes_Num").ToString();
 
+        b_temp = GameObject.Find("Button_Status").GetComponent<Button>();
+        b_temp.interactable = false;
     }
     //GO Button
     public void Task()
