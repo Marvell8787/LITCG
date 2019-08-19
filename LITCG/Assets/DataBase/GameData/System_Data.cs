@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 static class System_Data{
+    //User
+    public static string ID ; // 帳號
+    public static string Password ; // 密碼
     public static int language = 0; // 0:中文 1:英文
-   //Home 
+    public static int Version = 0; // 0:獎懲皆有 1:僅有獎 2:僅有懲 3:獎懲皆無
+    //Home 
     private static int Task = 0; 
     private static int Learn = 0;
     private static int Battle = 0;
