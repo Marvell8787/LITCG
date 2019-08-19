@@ -12,6 +12,8 @@ public class Canvas_Home : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Text t_temp;
+        Button b_temp;
+        Image i_temp;
         GameGoal_Data.GameGoal_Init();
 
         for(int i = 0; i < 8; i++)
@@ -71,7 +73,36 @@ public class Canvas_Home : MonoBehaviour {
                     t_temp = GameObject.Find("Text_Item_" + (i + 1).ToString()).GetComponent<Text>();
                     t_temp.text = E_Item[i];
                 }
+                b_temp = GameObject.Find("Button_Task").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Task";
+                b_temp = GameObject.Find("Button_Learn").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Learn";
+                b_temp = GameObject.Find("Button_Deck").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Deck";
+                b_temp = GameObject.Find("Button_Battle").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Battle";
+                b_temp = GameObject.Find("Button_Shop").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Shop";
+                b_temp = GameObject.Find("Button_Profile").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Profile";
+                b_temp = GameObject.Find("Button_GameGoals").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "GameGoals";
+                b_temp = GameObject.Find("Button_Status").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Status";
+                b_temp = GameObject.Find("Button_Guide").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Guide";
+                b_temp = GameObject.Find("Button_Rank").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Rank";
+                b_temp = GameObject.Find("Button_Badges").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Badges";
                 break;
+        }
+        if (System_Data.Version==3)
+        {
+            b_temp = GameObject.Find("Button_Status").GetComponent<Button>();
+            Destroy(b_temp.gameObject);
+            i_temp = GameObject.Find("Image_Status").GetComponent<Image>();
+            Destroy(i_temp);
         }
     }
     public void ClearAllText()

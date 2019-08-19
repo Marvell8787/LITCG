@@ -12,7 +12,7 @@ static class Learner_Data{
     //Learn
     private static int Learn_Finish = 0; //完成數量
     private static int[] Learn_Score = new int[6] { 0,0,0,0,0,0}; //各關上次獲得的分數
-    private static int[] Learn_Score_request = new int[6] { 0, 0, 0, 0, 0, 0 }; //任務要求分數
+    private static int[] Learn_Score_Request = new int[6] { 0, 0, 0, 0, 0, 0 }; //任務要求分數
     //Battle
     private static int Battle_Num = 0; //對戰次數
     private static int Battle_Win = 0; //勝利次數
@@ -21,12 +21,12 @@ static class Learner_Data{
     private static int Battle_Question_Fail_Num = 0; //對戰回答失敗次數
     //Reward and Punishment
     private static int Score = 100; //分數
-    private static int Coin = 1000; //金幣
-    private static int Crystal = 5; //水晶
+    private static int Coin = 100; //金幣
+    private static int Crystal = 10; //水晶
     //Reward
     //Badges
-    private static string[] Badges_Name = new string[9] {"", "", "", "", "", "", "", "", "" }; //Task*3 Leaen*3 Battle*3
-    private static int[] Badges_Status = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //獎章持有狀態 0:無 1:有
+    private static string[] Badges_Name = new string[18] {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" }; //Task*3 Leaen*3 Battle*3
+    private static int[] Badges_Status = new int[18] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //獎章持有狀態 0:無 1:有
     private static int Badges_Num = 0; //獎章數量
 
     //Card
@@ -35,8 +35,8 @@ static class Learner_Data{
     //Punishment
     //Point
     private static string[] Points_Name = new string[3] { "Task", "Learn", "Battle" }; //Task Learn Battle
-    private static int[] Points_Status = new int[3] { 5, 5, 5}; //點數持有狀態 Task Learn Battle
-    private static int Points_Num = 5; //點數
+    private static int[] Points_Status = new int[3] { 3, 3, 3}; //點數持有狀態 Task Learn Battle
+    private static int Points_Num = 9; //點數
     //Mistakes
     private static string[] Mistakes_Name = new string[3] { "Warning", "Y Card", "R Card" }; //Task*3 Leaen*3 Battle*3
     private static int[] Mistakes_Status = new int[3] { 0, 0, 0 }; //點數持有狀態 Task Learn Battle
