@@ -37,9 +37,4 @@ public class Canvas_Guide : MonoBehaviour {
                 break;
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
