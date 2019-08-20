@@ -13,8 +13,7 @@ public class Function_Task : MonoBehaviour {
     {
         ClearAllText();
         
-        Task_Data.Learn_Init();
-        Task_Data.Battle_Init();
+        Task_Data.Task_Init();
 
         Button b_temp;
         b_temp = GameObject.Find("Button_Accept").GetComponent<Button>();

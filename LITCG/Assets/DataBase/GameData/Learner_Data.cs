@@ -7,12 +7,10 @@ static class Learner_Data{
     private static int Task_Finish = 0; //完成數量
     private static int Task_Succes = 0; //成功數量
     private static int Task_Fail = 0; //失敗數量
-    private static string LearnTask_now = "";  // 目前接了哪個學習任務
-    private static string BattleTask_now = ""; // 目前接了哪個對戰任務
     //Learn
     private static int Learn_Finish = 0; //完成數量
-    private static int[] Learn_Score = new int[6] { 0,0,0,0,0,0}; //各關上次獲得的分數
-    private static int[] Learn_Score_Request = new int[6] { 0, 0, 0, 0, 0, 0 }; //任務要求分數
+    private static int[] Learn_Score = new int[7] { 0, 0,0,0,0,0,0}; //各關上次獲得的分數
+    private static int[] Learn_Score_Request = new int[7] {0, 0, 0, 0, 0, 0, 0 }; //任務要求分數
     //Battle
     private static int Battle_Num = 0; //對戰次數
     private static int Battle_Win = 0; //勝利次數
