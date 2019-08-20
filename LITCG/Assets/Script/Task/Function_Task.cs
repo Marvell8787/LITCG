@@ -59,6 +59,10 @@ public class Function_Task : MonoBehaviour {
                     break;
             }
         }
+        b_temp = GameObject.Find("Button_Learn").GetComponent<Button>();
+        b_temp.interactable = false;
+        b_temp = GameObject.Find("Button_Battle").GetComponent<Button>();
+        b_temp.interactable = true;
     }
 
     public void GetBattleData() //獲取 BattleData
@@ -100,6 +104,10 @@ public class Function_Task : MonoBehaviour {
                     break;
             }
         }
+        b_temp = GameObject.Find("Button_Learn").GetComponent<Button>();
+        b_temp.interactable = true;
+        b_temp = GameObject.Find("Button_Battle").GetComponent<Button>();
+        b_temp.interactable = false;
     }
 
     public void Back() //回首頁

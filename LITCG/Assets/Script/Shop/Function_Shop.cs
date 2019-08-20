@@ -5,24 +5,6 @@ using UnityEngine.UI;
 
 public class Function_Shop : MonoBehaviour {
 
-    public void Crystal1()
-    {
-        if(Learner_Data.Learner_GetData("Coin") >= 100)
-        {
-            Learner_Data.Learner_Add("Crystal", 1);
-            Learner_Data.Learner_Add("Coin", -100);
-            Close(1);
-        }
-    }
-    public void Crystal2()
-    {
-        if (Learner_Data.Learner_GetData("Coin") >= 100)
-        {
-            Learner_Data.Learner_Add("Crystal", 1);
-            Learner_Data.Learner_Add("Coin", -100);
-            Close(2);
-        }
-    }
     public void Card1()
     {
         if (Learner_Data.Learner_GetData("Coin") >= 150)
