@@ -7,6 +7,7 @@ static class Level_Check
     public static string s = "";
     public static int choose = 0;
     public static int init = 0;
+    public static int challenge = 0;
 
 }
 static class Level_Data{

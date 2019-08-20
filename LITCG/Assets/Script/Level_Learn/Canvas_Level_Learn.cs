@@ -12,6 +12,7 @@ public class Canvas_Level_Learn : MonoBehaviour {
         Level_Class[] level_temp = new Level_Class[7];
         Question_Class question_temp = new Question_Class();
 
+        Task_Data.Task_Init();
         Question_Data.Question_Init();
         ClearAllText();
         Question_Check.Score = 0;

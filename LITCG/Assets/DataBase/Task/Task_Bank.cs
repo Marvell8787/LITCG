@@ -4,6 +4,7 @@ using UnityEngine;
 
 static class Task_Bank
 {
+    public static int[] Learn_Request_Score = new int[7] {80, 80, 60, 80, 80, 60, 60 };
 
     public static string[] C_Learn_Title = new string[7] { "Level-1", "Level-2", "Level-3", "Level-4", "Level-5", "Level-6", "Overall" };
     public static string[] C_Learn_Threshold = new string[7] { "無", "完成Level-1", "完成Level-2", "無", "完成Level-4's Over", "完成Level-5", "完成Level-1~6" };

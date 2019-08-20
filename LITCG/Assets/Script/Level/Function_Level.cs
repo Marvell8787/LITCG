@@ -87,6 +87,7 @@ public class Function_Level : MonoBehaviour {
         {
             b_temp = GameObject.Find("Button_Challenge").GetComponent<Button>();
             b_temp.interactable = true;
+            Level_Check.challenge = 1;
         }
 
     }
