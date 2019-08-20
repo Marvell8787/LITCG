@@ -11,7 +11,7 @@ static class Item_Data
     public static string Score = "∞";
     public static string Crystal = "220";
     public static string Cards = "22";
-    public static string Badges = "18";
+    public static string Badges = "21";
     public static string Points = "9";
     public static string Mistakes = "∞";
 }

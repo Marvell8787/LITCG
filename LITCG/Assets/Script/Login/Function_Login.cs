@@ -11,7 +11,7 @@ public class Function_Login : MonoBehaviour {
     }
 	public void Login()
     {
-        Application.LoadLevel("Guide");
+        Application.LoadLevel("Home");
     }
     public void Chinese()
     {
