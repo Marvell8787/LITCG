@@ -250,6 +250,7 @@ public class Function_Task : MonoBehaviour {
     {
         Button b_temp;
         Text t_temp;
+        //改變狀態
         Task_Data.ChangeStatus(Check.s,Check.Choose,1);
         Task_Class task_temp = new Task_Class();
 
@@ -264,7 +265,6 @@ public class Function_Task : MonoBehaviour {
         t_temp = GameObject.Find("Text_Task_" + (Check.Choose + 1).ToString()).GetComponent<Text>();
         t_temp.text = task_temp.GetTitle();
         t_temp.color = Color.blue;
-
     }
     public void Finish()
     {

@@ -9,7 +9,6 @@ public class Canvas_Task : MonoBehaviour {
 	void Start () {
         Text t_temp;
         Button b_temp;
-        System_Data.language = 1;
         switch (System_Data.language)
         {
             case 0:

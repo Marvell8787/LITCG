@@ -9,11 +9,17 @@ static class Task_Data{
     private static string[] Learn_Reward = new string[7] { "", "", "", "", "", "", "" };
     private static string[] Learn_Punishment = new string[7] { "", "", "", "", "", "", "" };
 
+    private static int[] Learn_Status = new int[7] { 0, 0, 0, 0, 0, 0, 0 };
+
+
     private static string[] Battle_Title = new string[3] { "", "", "" };
     private static string[] Battle_Threshold = new string[3] { "", "", "" };
     private static string[] Battle_Request = new string[3] { "", "", "" };
     private static string[] Battle_Reward = new string[3] { "", "", "" };
     private static string[] Battle_Punishment = new string[3] { "", "", "" };
+
+    private static int[] Battle_Status = new int[3] { 0, 0, 0 };
+
 
     private static Task_Class[] learn_temp = new Task_Class[7];
     private static Task_Class[] battle_temp = new Task_Class[3];
@@ -183,7 +189,7 @@ static class Task_Data{
     {
         return battle_temp[n];
     }
-    public static void ChangeStatus(string s, int c,int n)
+    public static void ChangeStatus(string s, int c,int n) //learn battle 陣列元素 參數
     {
         if (s == "learn")
         {

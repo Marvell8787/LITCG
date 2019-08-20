@@ -44,6 +44,13 @@ public class Function_Level : MonoBehaviour {
         Level_Check.choose = 6;
         ShowContent(Level_Check.choose);
     }
+    public void Practice()
+    {
+        if (Level_Check.choose < 6)
+            Application.LoadLevel("Level_Learn");
+        else
+            Application.LoadLevel("Overall");
+    }
     public void Challenge()
     {
         if (Level_Check.choose < 6)
@@ -58,6 +65,8 @@ public class Function_Level : MonoBehaviour {
         Level_Class level_temp = new Level_Class();
         level_temp = Level_Data.Level_Get(n);
 
+        Task_Class task_temp = new Task_Class();
+        task_temp = Task_Data.Learn_Get(n);
         //Debug.Log("");
 
         t_temp = GameObject.Find("Text_QuestionTypeContent").GetComponent<Text>();
@@ -71,7 +80,14 @@ public class Function_Level : MonoBehaviour {
         t_temp = GameObject.Find("Text_HighestScoreContent").GetComponent<Text>();
         t_temp.text = level_temp.GetHighestScore();
 
-        b_temp = GameObject.Find("Button_Challenge").GetComponent<Button>();
+        b_temp = GameObject.Find("Button_Practice").GetComponent<Button>();
         b_temp.interactable = true;
+        
+        if(task_temp.GetStatus() == 1)
+        {
+            b_temp = GameObject.Find("Button_Challenge").GetComponent<Button>();
+            b_temp.interactable = true;
+        }
+
     }
 }
