@@ -79,26 +79,24 @@ public class BP_RoomFight : MonoBehaviour {
                 {
                     case 15:
                         t_temp.text += "+ " + (card_temp[s].GetATK());
-                        BattleCheck.A_ATK += 3;
+                        BattleCheck.A_ATK += 1;
                         break;
                     case 16:
                         t_temp.text += "+ " + (card_temp[s].GetATK());
-                        BattleCheck.A_ATK += 5;
+                        BattleCheck.A_ATK += 2;
                         break;
                     case 17:
                         t_temp.text = (card_temp[s].GetATK()).ToString();
-                        BattleCheck.A_ATK = 8;
+                        BattleCheck.A_ATK += 3;
                         break;
                     case 18:
                         t_temp.text = (card_temp[s].GetATK()).ToString();
-                        BattleCheck.A_ATK = 10;
+                        BattleCheck.A_ATK += 4;
                         break;
                     default:
                         break;
                 }
             }
-            b_temp = GameObject.Find("Button_FIGHT").GetComponent<Button>();
-            b_temp.interactable = true;
         }
         else if(BattleCheck.TypeChoose == 2)
         {
@@ -108,20 +106,20 @@ public class BP_RoomFight : MonoBehaviour {
             switch (n)
             {
                 case 15:
-                    t_temp.text += " + " + (card_temp[n].GetATK());
-                    BattleCheck.A_ATK += 3;
+                    t_temp.text += "+ " + (card_temp[n].GetATK());
+                    BattleCheck.A_ATK += 1;
                     break;
                 case 16:
-                    t_temp.text += " + " + (card_temp[n].GetATK());
-                    BattleCheck.A_ATK += 5;
+                    t_temp.text += "+ " + (card_temp[n].GetATK());
+                    BattleCheck.A_ATK += 2;
                     break;
                 case 17:
                     t_temp.text = (card_temp[n].GetATK()).ToString();
-                    BattleCheck.A_ATK = 8;
+                    BattleCheck.A_ATK += 3;
                     break;
                 case 18:
                     t_temp.text = (card_temp[n].GetATK()).ToString();
-                    BattleCheck.A_ATK = 10;
+                    BattleCheck.A_ATK += 4;
                     break;
                 default:
                     break;
@@ -144,6 +142,9 @@ public class BP_RoomFight : MonoBehaviour {
         i_temp.color = new Color32(255, 255, 255, 255);
 
         Player.ChangeHand_Status(BattleCheck.HandChoose, 22);
+
+        b_temp = GameObject.Find("Button_FIGHT").GetComponent<Button>();
+        b_temp.interactable = true;
     }
     public void FIGHT()
     {
@@ -223,6 +224,7 @@ public class BP_RoomFight : MonoBehaviour {
             else
                 continue;
         }
+        /*
         //Debug
         Player_Data.ShowHand(1);
         string ss="";
@@ -235,7 +237,7 @@ public class BP_RoomFight : MonoBehaviour {
         Debug.Log(BattleCheck.Magic_B);
         Debug.Log(BattleCheck.Support_B);
         //Debug
-
+        */
         //電腦放置卡牌
 
         if (BattleCheck.Fight_B < 15)
@@ -259,19 +261,19 @@ public class BP_RoomFight : MonoBehaviour {
             {
                 case 15:
                     t_temp.text = t_temp.text + " + " + (card_temp[BattleCheck.Magic_B].GetATK());
-                    BattleCheck.B_ATK += 3;
+                    BattleCheck.B_ATK += 1;
                     break;
                 case 16:
                     t_temp.text = t_temp.text + " + " + (card_temp[BattleCheck.Magic_B].GetATK());
-                    BattleCheck.B_ATK += 5;
+                    BattleCheck.B_ATK += 2;
                     break;
                 case 17:
                     t_temp.text = (card_temp[BattleCheck.Magic_B].GetATK()).ToString();
-                    BattleCheck.B_ATK = 8;
+                    BattleCheck.B_ATK += 3;
                     break;
                 case 18:
                     t_temp.text = (card_temp[BattleCheck.Magic_B].GetATK()).ToString();
-                    BattleCheck.B_ATK = 10;
+                    BattleCheck.B_ATK += 4;
                     break;
                 default:
                     break;

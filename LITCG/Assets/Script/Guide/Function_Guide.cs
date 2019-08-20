@@ -85,7 +85,7 @@ public class Function_Guide : MonoBehaviour {
         switch (System_Data.language)
         {
             case 0:
-                t_temp.text = Guide_Bank.E_Item_Content;
+                t_temp.text = Guide_Bank.C_Item_Content;
                 break;
             case 1:
                 t_temp.text = Guide_Bank.E_Item_Content;

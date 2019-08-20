@@ -178,11 +178,6 @@ public class Function_RoomFight : MonoBehaviour {
         t_temp.text = card_temp[n].GetEffect();
     }
 
-	public void Win()
-    {
-        Learner_Data.Learner_Add("Battle_Win", 1);
-        Application.LoadLevel("Settlement_Battle");
-    }
     public void Lose()
     {
         Text t_temp;
