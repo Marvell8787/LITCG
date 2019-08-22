@@ -29,6 +29,16 @@ public class Canvas_Level : MonoBehaviour {
         switch (System_Data.language)
         {
             case 0:
+                t_temp = GameObject.Find("Text_QuestionType").GetComponent<Text>();
+                t_temp.text = "題型：";
+                t_temp = GameObject.Find("Text_Range").GetComponent<Text>();
+                t_temp.text = "範圍：";
+                t_temp = GameObject.Find("Text_Reward").GetComponent<Text>();
+                t_temp.text = "獎勵：";
+                t_temp = GameObject.Find("Text_Punishment").GetComponent<Text>();
+                t_temp.text = "懲罰：";
+                t_temp = GameObject.Find("Text_HighestScore").GetComponent<Text>();
+                t_temp.text = "最高紀錄：";
                 b_temp = GameObject.Find("Button_Practice").GetComponent<Button>();
                 b_temp.GetComponentInChildren<Text>().text = "練習";
                 b_temp = GameObject.Find("Button_Challenge").GetComponent<Button>();

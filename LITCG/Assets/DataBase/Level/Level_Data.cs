@@ -24,6 +24,96 @@ static class Level_Data{
 
     public static void Level_Init()
     {
+
+        switch (System_Data.language)
+        {
+            case 0:
+                for (int i = 0; i < 7; i++)
+                {
+                    Level_Title[i] = Level_Bank.C_Level_Title[i];
+                    Level_QuestionType[i] = Level_Bank.C_Level_QuestionType[i];
+                    Level_Range[i] = Level_Bank.C_Level_Range[i];
+                }
+
+                switch (System_Data.Version)
+                {
+                    case 0:
+                        for (int i = 0; i < 7; i++)
+                        {
+                            Level_Reward[i] = Level_Bank.C_Level_Reward_0[i];
+                            Level_Punishment[i] = Level_Bank.C_Level_Punishment_0[i];
+                        }
+                        break;
+                    case 1:
+                        for (int i = 0; i < 7; i++)
+                        {
+                            Level_Reward[i] = Level_Bank.C_Level_Reward_0[i];
+                            Level_Punishment[i] = Level_Bank.C_Level_Punishment_1[i];
+                        }
+                        break;
+                    case 2:
+                        for (int i = 0; i < 7; i++)
+                        {
+                            Level_Reward[i] = Level_Bank.C_Level_Reward_1[i];
+                            Level_Punishment[i] = Level_Bank.C_Level_Punishment_0[i];
+                        }
+                        break;
+                    case 3:
+                        for (int i = 0; i < 7; i++)
+                        {
+                            Level_Reward[i] = Level_Bank.C_Level_Reward_1[i];
+                            Level_Punishment[i] = Level_Bank.C_Level_Punishment_1[i];
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 1:
+                for (int i = 0; i < 7; i++)
+                {
+                    Level_Title[i] = Level_Bank.E_Level_Title[i];
+                    Level_QuestionType[i] = Level_Bank.E_Level_QuestionType[i];
+                    Level_Range[i] = Level_Bank.E_Level_Range[i];
+                }
+                switch (System_Data.Version)
+                {
+                    case 0:
+                        for (int i = 0; i < 7; i++)
+                        {
+                            Level_Reward[i] = Level_Bank.E_Level_Reward_0[i];
+                            Level_Punishment[i] = Level_Bank.E_Level_Punishment_0[i];
+                        }
+                        break;
+                    case 1:
+                        for (int i = 0; i < 7; i++)
+                        {
+                            Level_Reward[i] = Level_Bank.E_Level_Reward_0[i];
+                            Level_Punishment[i] = Level_Bank.E_Level_Punishment_1[i];
+                        }
+                        break;
+                    case 2:
+                        for (int i = 0; i < 7; i++)
+                        {
+                            Level_Reward[i] = Level_Bank.E_Level_Reward_1[i];
+                            Level_Punishment[i] = Level_Bank.E_Level_Punishment_0[i];
+                        }
+                        break;
+                    case 3:
+                        for (int i = 0; i < 7; i++)
+                        {
+                            Level_Reward[i] = Level_Bank.E_Level_Reward_1[i];
+                            Level_Punishment[i] = Level_Bank.E_Level_Punishment_1[i];
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+
         //宣告 level_temp 陣列並加入資料 Start
         for (int i = 0; i < 7; i++)
         {
