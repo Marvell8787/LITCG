@@ -25,6 +25,21 @@ public class Canvas_Level : MonoBehaviour {
 
         t_temp = GameObject.Find("Text_CoinContent").GetComponent<Text>();
         t_temp.text = Learner_Data.Learner_GetData("Coin").ToString();
+
+        switch (System_Data.language)
+        {
+            case 0:
+                b_temp = GameObject.Find("Button_Practice").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "練習";
+                b_temp = GameObject.Find("Button_Challenge").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "挑戰";
+                b_temp = GameObject.Find("Button_Back").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "返回";
+                break;
+            default:
+                break;
+        }
+
     }
     public void ClearAllText()
     {

@@ -17,6 +17,7 @@ static class Level_Data{
     private static string[] Level_Range = new string[7] { "1-10", "11-20", "1-20", "1-10", "11-20", "1-20", "1-20" };
     private static string[] Level_Reward = new string[7] { "Money", "Money", "Money", "Money", "Money", "Money", "Money" };
     private static string[] Level_Punishment = new string[7] { "Money", "Money", "Money", "Money", "Money", "Money", "Money" };
+
     private static string[] Level_HighestScore = new string[7] { "0", "0", "0", "0", "0", "0", "0" };
 
     private static Level_Class[] level_temp = new Level_Class[7];

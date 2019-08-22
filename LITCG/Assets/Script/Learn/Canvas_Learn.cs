@@ -9,6 +9,7 @@ public class Canvas_Learn : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Text t_temp;
+        Button b_temp;
         if(Level_Check.init == 0)
             Level_Data.Level_Init();
         for (int i = 0; i < 6; i++)
@@ -20,6 +21,21 @@ public class Canvas_Learn : MonoBehaviour {
         level_temp[6] = Level_Data.Level_Get(6);
         t_temp = GameObject.Find("Text_Overall_Score").GetComponent<Text>();
         t_temp.text = level_temp[6].GetHighestScore();
+
+        switch (System_Data.language)
+        {
+            case 0:
+                b_temp = GameObject.Find("Button_Material").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "教材";
+                b_temp = GameObject.Find("Button_Level").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "關卡";
+                b_temp = GameObject.Find("Button_Back").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "返回";
+                break;
+            default:
+                break;
+        }
+
     }
 	
 }
