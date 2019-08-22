@@ -13,8 +13,6 @@ public class Function_Task : MonoBehaviour {
     {
         ClearAllText();
         
-        Task_Data.Task_Init();
-
         Button b_temp;
         b_temp = GameObject.Find("Button_Accept").GetComponent<Button>();
         b_temp.interactable = false;

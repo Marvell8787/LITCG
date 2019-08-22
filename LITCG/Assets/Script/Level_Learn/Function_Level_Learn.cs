@@ -55,18 +55,19 @@ public class Function_Level_Learn : MonoBehaviour {
                 Level_Data.ChangeHighestScore(Question_Check.Score.ToString(), Level_Check.choose);
 
             }
-            if (Level_Check.challenge ==1)
+            if (Level_Check.challenge ==1) 
             {
                 Task_Class task_temp = new Task_Class();
                 task_temp = Task_Data.Learn_Get(Level_Check.choose);
-                if (Question_Check.Score >= Task_Bank.Learn_Request_Score[Level_Check.choose])
+                if (Question_Check.Score >= Task_Bank.Learn_Request_Score[Level_Check.choose])//成功
                 {
-
+                    task_temp.ChangeStatus(3);
                 }
-                else
+                else //失敗
                 {
-
+                    task_temp.ChangeStatus(2);
                 }
+                Level_Check.challenge = 0;
             }
 
             Application.LoadLevel("Settlement_Learn");
