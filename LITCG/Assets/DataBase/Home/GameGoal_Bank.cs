@@ -19,7 +19,7 @@ static class GameGoal_Bank {
 
     //僅有懲
     public static string[] E_GameGoal_2 = new string[6] { "1.Complete Task", "2.Complete Learn", "3.Maintain Score", "4.Maintain Crystal","5.Maintain Points", "6.Less Mistakes" };
-    public static string[] C_GameGoal_2 = new string[6] { "1.完成所有任務", "2.完成所有學習關卡", "3.提高分數", "4.獲得更多水晶", "5.點數維持原樣", "6.失誤次數最少" };
+    public static string[] C_GameGoal_2 = new string[6] { "1.完成所有任務", "2.完成所有學習關卡", "3.維持分數", "4.維持水晶", "5.點數維持原樣", "6.失誤次數最少" };
     public static string[] E_Item_2 = new string[5] { "Score", "Coin", "Crystal",  "Points", "Mistakes" };
     public static string[] C_Item_2 = new string[5] { "分數", "金幣", "水晶", "點數", "失誤"};
 

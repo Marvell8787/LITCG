@@ -28,6 +28,8 @@ public class Canvas_Task : MonoBehaviour {
                 b_temp.GetComponentInChildren<Text>().text = "學習";
                 b_temp = GameObject.Find("Button_Battle").GetComponent<Button>();
                 b_temp.GetComponentInChildren<Text>().text = "對戰";
+                b_temp = GameObject.Find("Button_Back").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "返回";
                 break;
             case 1:
                 break;

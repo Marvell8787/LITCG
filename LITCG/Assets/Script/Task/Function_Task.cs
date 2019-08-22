@@ -39,19 +39,22 @@ public class Function_Task : MonoBehaviour {
             t_temp.text = learn_temp[i].GetTitle();
             switch (learn_temp[i].GetStatus())
             {
-                case 0: //未接
+                case 0: //未接 未達門檻
                     t_temp.color = Color.black;
                     break;
-                case 1: //接下
+                case 1: //未接 已達門檻
+                    t_temp.color = Color.black;
+                    break;
+                case 2: //接下
                     t_temp.color = Color.blue;
                     break;
-                case 2: //失敗
+                case 3: //失敗
                     t_temp.color = Color.red;
                     break;
-                case 3: //成功
+                case 4: //成功
                     t_temp.color = Color.green;
                     break;
-                case 4: //完成
+                case 5: //完成
                     t_temp.color = Color.gray;
                     t_temp.fontStyle = FontStyle.Italic;
                     break;
@@ -84,19 +87,22 @@ public class Function_Task : MonoBehaviour {
             t_temp.text = battle_temp[i].GetTitle();
             switch(battle_temp[i].GetStatus())
             {
-                case 0: //未接
+                case 0: //未接 未達門檻
                     t_temp.color = Color.black;
                     break;
-                case 1: //接下
+                case 1: //未接 已達門檻
+                    t_temp.color = Color.black;
+                    break;
+                case 2: //接下
                     t_temp.color = Color.blue;
                     break;
-                case 2: //失敗
+                case 3: //失敗
                     t_temp.color = Color.red;
                     break;
-                case 3: //成功
+                case 4: //成功
                     t_temp.color = Color.green;
                     break;
-                case 4: //完成
+                case 5: //完成
                     t_temp.color = Color.gray;
                     t_temp.fontStyle = FontStyle.Italic;
                     break;
@@ -206,23 +212,35 @@ public class Function_Task : MonoBehaviour {
         Button b_temp;
         n = task_temp.GetStatus();
 
-        if (n > 1 && n < 4)
+        switch (n)
         {
-            b_temp = GameObject.Find("Button_Accept").GetComponent<Button>();
-            b_temp.interactable = false;
-
-            b_temp = GameObject.Find("Button_Finish").GetComponent<Button>();
-            b_temp.interactable = true;
-        }
-        else if (n == 0)
-        {
-            b_temp = GameObject.Find("Button_Accept").GetComponent<Button>();
-            b_temp.interactable = true;
-        }
-        else if (n == 1)
-        {
-            b_temp = GameObject.Find("Button_Accept").GetComponent<Button>();
-            b_temp.interactable = false;
+            case 0: //未接 但未達門檻
+                b_temp = GameObject.Find("Button_Accept").GetComponent<Button>();
+                b_temp.interactable = false;
+                break;
+            case 1: //未接 但已達門檻
+                b_temp = GameObject.Find("Button_Accept").GetComponent<Button>();
+                b_temp.interactable = true;
+                break;
+            case 2: //接下
+                b_temp = GameObject.Find("Button_Accept").GetComponent<Button>();
+                b_temp.interactable = false;
+                break;
+            case 3: //失敗
+            case 4: //成功
+                b_temp = GameObject.Find("Button_Accept").GetComponent<Button>();
+                b_temp.interactable = false;
+                b_temp = GameObject.Find("Button_Finish").GetComponent<Button>();
+                b_temp.interactable = true;
+                break;
+            case 5: //已完成
+                b_temp = GameObject.Find("Button_Accept").GetComponent<Button>();
+                b_temp.interactable = false;
+                b_temp = GameObject.Find("Button_Finish").GetComponent<Button>();
+                b_temp.interactable = false;
+                break;
+            default:
+                break;
         }
     }
 
@@ -248,8 +266,9 @@ public class Function_Task : MonoBehaviour {
     {
         Button b_temp;
         Text t_temp;
+
         //改變狀態
-        Task_Data.ChangeStatus(Check.s,Check.Choose,1);
+        Task_Data.ChangeStatus(Check.s,Check.Choose,2);
         Task_Class task_temp = new Task_Class();
 
         if (Check.s == "learn")
@@ -268,7 +287,7 @@ public class Function_Task : MonoBehaviour {
     {
         Button b_temp;
         Text t_temp;
-        Task_Data.ChangeStatus(Check.s, Check.Choose, 4);
+        Task_Data.ChangeStatus(Check.s, Check.Choose, 5);
         Task_Class task_temp = new Task_Class();
 
         if (Check.s == "learn")

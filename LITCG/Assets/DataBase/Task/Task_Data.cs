@@ -9,7 +9,7 @@ static class Task_Data{
     private static string[] Learn_Reward = new string[7] { "", "", "", "", "", "", "" };
     private static string[] Learn_Punishment = new string[7] { "", "", "", "", "", "", "" };
 
-    private static int[] Learn_Status = new int[7] { 0, 0, 0, 0, 0, 0, 0 };
+    private static int[] Learn_Status = new int[7] { 1, 0, 0, 1, 0, 0, 0 };
 
 
     private static string[] Battle_Title = new string[3] { "", "", "" };
@@ -18,7 +18,7 @@ static class Task_Data{
     private static string[] Battle_Reward = new string[3] { "", "", "" };
     private static string[] Battle_Punishment = new string[3] { "", "", "" };
 
-    private static int[] Battle_Status = new int[3] { 0, 0, 0 };
+    private static int[] Battle_Status = new int[3] { 1, 0, 0 };
 
 
     private static Task_Class[] learn_temp = new Task_Class[7];
@@ -165,19 +165,17 @@ static class Task_Data{
                 break;
         }
 
-
-
         //宣告 learn_temp 陣列並加入資料 Start
         for(int i = 0; i < 7; i++)
         {
-            learn_temp[i] = new Task_Class(Learn_Title[i], Learn_Threshold[i], Learn_Request[i], Learn_Reward[i], Learn_Punishment[i]);
+            learn_temp[i] = new Task_Class(Learn_Title[i], Learn_Threshold[i], Learn_Request[i], Learn_Reward[i], Learn_Punishment[i], Learn_Status[i]);
         }
         //宣告 learn_temp 陣列並加入資料 End
         //宣告 battle_temp 陣列並加入資料 Start
 
         for (int i = 0; i < 3; i++)
         {
-            battle_temp[i] = new Task_Class(Battle_Title[i], Battle_Threshold[i], Battle_Request[i], Battle_Reward[i], Battle_Punishment[i]);
+            battle_temp[i] = new Task_Class(Battle_Title[i], Battle_Threshold[i], Battle_Request[i], Battle_Reward[i], Battle_Punishment[i], Battle_Status[i]);
         }
         //宣告 battle_temp 陣列並加入資料 End
     }

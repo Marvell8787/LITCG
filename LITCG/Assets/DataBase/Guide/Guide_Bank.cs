@@ -33,7 +33,7 @@ static class Guide_Bank
     "\t\t◇Threshold:needed to complete a certain condition\n" +
     "\t\t◇Required:Task success conditions\n" +
     "●Each task can only be taken once, will succeed or fail\n" +
-    "●Regardless of success or failure, you need to return to the task\n";
+    "●Regardless of success or failure, you need to return to the Task\n";
 
     //Learn
 

@@ -31,6 +31,8 @@ public class Canvas_Guide : MonoBehaviour {
                 b_temp.GetComponentInChildren<Text>().text = "Previous";
                 b_temp = GameObject.Find("Button_Next").GetComponent<Button>();
                 b_temp.GetComponentInChildren<Text>().text = "Next";
+                b_temp = GameObject.Find("Button_Back").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "Back";
                 break;
             default:
                 t_temp.text = Guide_Bank.C_Init_Content;

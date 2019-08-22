@@ -4,7 +4,7 @@ using UnityEngine;
 
 static class Item_Data
 {
-    //Total
+    //獎懲皆有、僅有獎
     public static string[] Total = new string[8] {"10","7","∞","220","22","18","9", "∞" };
     public static string Task = "10";
     public static string Learn = "7";
@@ -14,4 +14,5 @@ static class Item_Data
     public static string Badges = "21";
     public static string Points = "9";
     public static string Mistakes = "∞";
+    //僅有懲
 }
