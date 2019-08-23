@@ -29,6 +29,8 @@ public class Canvas_Level : MonoBehaviour {
         switch (System_Data.language)
         {
             case 0:
+                t_temp = GameObject.Find("Text_Coin").GetComponent<Text>();
+                t_temp.text = "金幣：";
                 t_temp = GameObject.Find("Text_QuestionType").GetComponent<Text>();
                 t_temp.text = "題型：";
                 t_temp = GameObject.Find("Text_Range").GetComponent<Text>();

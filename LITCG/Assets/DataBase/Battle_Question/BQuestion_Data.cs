@@ -80,11 +80,11 @@ static class BQuestion_Data{
             {
                 while (true)
                 {
-                    if (Question_bank.Vocabulary_Ans[rand[c]] == (question_temp[BQuestion_Check.Question_Num].GetAnswer_r_Content()))
+                    if (Question_Bank.Vocabulary_Ans[rand[c]] == (question_temp[BQuestion_Check.Question_Num].GetAnswer_r_Content()))
                     { c++; continue; }
                     else
                     {
-                        ChangeButton_Ans(Question_bank.Vocabulary_Ans[rand[c]], i);
+                        ChangeButton_Ans(Question_Bank.Vocabulary_Ans[rand[c]], i);
                         c++;
                         break;
                     }

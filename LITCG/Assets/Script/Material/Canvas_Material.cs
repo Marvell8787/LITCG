@@ -8,6 +8,26 @@ public class Canvas_Material : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Vocabulary_Data.Vocabulary_Init();
+        Button b_temp;
+        Text t_temp;
+        switch (System_Data.language)
+        {
+            case 0:
+                b_temp = GameObject.Find("Button_Up").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "上一頁";
+                b_temp = GameObject.Find("Button_Down").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "下一頁";
+                b_temp = GameObject.Find("Button_Left").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "上一個";
+                b_temp = GameObject.Find("Button_Right").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "下一個";
+                b_temp = GameObject.Find("Button_Back").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "返回";
+                break;
+            default:
+                break;
+        }
+
         ShowContent(Material_Check.Choose);
         ChangeButtonText();
     }

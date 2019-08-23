@@ -61,11 +61,11 @@ public class Function_Level_Learn : MonoBehaviour {
                 task_temp = Task_Data.Learn_Get(Level_Check.choose);
                 if (Question_Check.Score >= Task_Bank.Learn_Request_Score[Level_Check.choose])//成功
                 {
-                    task_temp.ChangeStatus(3);
+                    task_temp.ChangeStatus(4);
                 }
                 else //失敗
                 {
-                    task_temp.ChangeStatus(2);
+                    task_temp.ChangeStatus(3);
                 }
                 Level_Check.challenge = 0;
             }
@@ -143,7 +143,16 @@ public class Function_Level_Learn : MonoBehaviour {
         if (Question_Check.Question_Num == (Question_Check.Question_total - 1))
         {
             t_temp = GameObject.Find("Text_ENDContent").GetComponent<Text>();
-            t_temp.text = "END";
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp.text = "結束";
+                    break;
+                default:
+                    t_temp.text = "END";
+                    break;
+            }
+
         }
     }
 

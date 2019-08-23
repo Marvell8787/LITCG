@@ -167,22 +167,22 @@ static class Question_Data{
                 {
                     if (Level_Check.choose <=2)  //英文
                     {
-                        if (Question_bank.Vocabulary_Ans[rand[c]] == (question_temp[Question_Check.Question_Num].GetAnswer_r_Content()))
+                        if (Question_Bank.Vocabulary_Ans[rand[c]] == (question_temp[Question_Check.Question_Num].GetAnswer_r_Content()))
                         { c++; continue; }
                         else
                         {
-                            ChangeButton_Ans(Question_bank.Vocabulary_Ans[rand[c]], i);
+                            ChangeButton_Ans(Question_Bank.Vocabulary_Ans[rand[c]], i);
                             c++;
                             break;
                         }
                     }
                     else //中文
                     {
-                        if (Question_bank.Vocabulary_Ans[rand[c]] == (question_temp[Question_Check.Question_Num].GetQuestion()))
+                        if (Question_Bank.Vocabulary_Ans[rand[c]] == (question_temp[Question_Check.Question_Num].GetQuestion()))
                         { c++; continue; }
                         else
                         {
-                            ChangeButton_Ans(Question_bank.Vocabulary_Ans_C_Name[rand[c]], i);
+                            ChangeButton_Ans(Question_Bank.Vocabulary_Ans_C_Name[rand[c]], i);
                             c++;
                             break;
                         }

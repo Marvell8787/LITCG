@@ -30,6 +30,20 @@ public class Function_Overall : MonoBehaviour {
                 Level_Data.ChangeHighestScore(Question_Check.Score.ToString(), Level_Check.choose);
 
             }
+            if (Level_Check.challenge == 1)
+            {
+                Task_Class task_temp = new Task_Class();
+                task_temp = Task_Data.Learn_Get(Level_Check.choose);
+                if (Question_Check.Score >= Task_Bank.Learn_Request_Score[Level_Check.choose])//成功
+                {
+                    task_temp.ChangeStatus(4);
+                }
+                else //失敗
+                {
+                    task_temp.ChangeStatus(3);
+                }
+                Level_Check.challenge = 0;
+            }
             Application.LoadLevel("Settlement_Learn");
         }
         else
@@ -84,7 +98,17 @@ public class Function_Overall : MonoBehaviour {
         if (Question_Check.Question_Num == 19)
         {
             t_temp = GameObject.Find("Text_ENDContent").GetComponent<Text>();
-            t_temp.text = "END";
+
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp.text = "結束";
+                    break;
+                default:
+                    t_temp.text = "END";
+                    break;
+            }
+
         }
     }
 }

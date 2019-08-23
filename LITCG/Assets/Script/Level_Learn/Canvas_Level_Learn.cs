@@ -9,8 +9,27 @@ public class Canvas_Level_Learn : MonoBehaviour {
 	void Start () {
         Text t_temp;
         Image i_Temp;
+        Button b_temp;
         Level_Class[] level_temp = new Level_Class[7];
         Question_Class question_temp = new Question_Class();
+
+        switch (System_Data.language)
+        {
+            case 0:
+                t_temp = GameObject.Find("Text_QuestionType").GetComponent<Text>();
+                t_temp.text = "題    型：";
+                t_temp = GameObject.Find("Text_Level").GetComponent<Text>();
+                t_temp.text = "關卡：";
+                t_temp = GameObject.Find("Text_Answer").GetComponent<Text>();
+                t_temp.text = "解答：";
+                t_temp = GameObject.Find("Text_Score").GetComponent<Text>();
+                t_temp.text = "分數：";
+                b_temp = GameObject.Find("Button_Next").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "下一題";
+                break;
+            default:
+                break;
+        }
 
         Question_Data.Question_Init();
         ClearAllText();
@@ -35,7 +54,16 @@ public class Canvas_Level_Learn : MonoBehaviour {
             case 1: //Level-2 聽力
             case 2: //Level-3 聽力
                 t_temp = GameObject.Find("Text_Question").GetComponent<Text>();
-                t_temp.text = "Please click on the pattern on the left to select the correct answer based on what you hear and from the options below.";
+                switch (System_Data.language)
+                {
+                    case 0:
+                        t_temp.text = "請點選左邊的圖示，並選出聽到的答案。";
+                        break;
+                    default:
+                        t_temp.text = "Please click on the pattern on the left to select the correct answer based on what you hear and from the options below.";
+                        break;
+                }
+
                 i_Temp = GameObject.Find("Image_Question").GetComponent<Image>();
                 i_Temp.sprite = Resources.Load("Image/Voice", typeof(Sprite)) as Sprite;
                 Question_Data.Button_Ans_Set();
