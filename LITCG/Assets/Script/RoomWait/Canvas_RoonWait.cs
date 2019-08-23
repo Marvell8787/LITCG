@@ -8,11 +8,34 @@ public class Canvas_RoonWait : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Button b_temp;
         Text t_temp;
         t_temp = GameObject.Find("Text_A_LP_Num").GetComponent<Text>();
         t_temp.text = "20";
         t_temp = GameObject.Find("Text_A_Deck_Num").GetComponent<Text>();
         t_temp.text = Learner_Data.Learner_GetData("Cards_Num").ToString();
+        switch (System_Data.language)
+        {
+            case 0:
+                t_temp = GameObject.Find("Text_A").GetComponent<Text>();
+                t_temp.text = "我方";
+                t_temp = GameObject.Find("Text_B").GetComponent<Text>();
+                t_temp.text = "電腦";
+                t_temp = GameObject.Find("Text_A_Deck").GetComponent<Text>();
+                t_temp.text = "牌組：";
+                t_temp = GameObject.Find("Text_B_Deck").GetComponent<Text>();
+                t_temp.text = "牌組：";
+                t_temp = GameObject.Find("Text_Time").GetComponent<Text>();
+                t_temp.text = "回合數";
+                t_temp = GameObject.Find("Text_Range").GetComponent<Text>();
+                t_temp.text = "題目範圍";
+                b_temp = GameObject.Find("Button_Back").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "返回";
+                break;
+            default:
+                break;
+        }
+
         switch (Enemy.No)
         {
             case 1:

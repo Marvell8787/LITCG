@@ -85,8 +85,19 @@ public class EP_RoomFight : MonoBehaviour {
             t_temp = GameObject.Find("Text_ATK_B_num").GetComponent<Text>();
             t_temp.text = "0";
 
-            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-            t_temp.text = "請答題!";
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "請答題!";
+                    break;
+                case 1:
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "Question !";
+                    break;
+                default:
+                    break;
+            }
 
             //抽牌
 

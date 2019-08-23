@@ -39,9 +39,21 @@ public class Text_Count_RoomFight : MonoBehaviour {
             i_temp = GameObject.Find("Image_Test").GetComponent<Image>();
             i_temp.color = Color.white;
 
-            Text temp; 
-            temp = GameObject.Find("Text_Status").GetComponent<Text>();
-            temp.text = "請答題!";
+            Text temp;
+            switch (System_Data.language)
+            {
+                case 0:
+                    temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    temp.text = "請答題!";
+                    break;
+                case 1:
+                    temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    temp.text = "Question !";
+                    break;
+                default:
+                    break;
+            }
+
 
             BQuestion_Class question_temp = new BQuestion_Class();
             BQuestion_Data.BQuestion_Init();

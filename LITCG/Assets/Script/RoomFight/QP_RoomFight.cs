@@ -22,7 +22,6 @@ public class QP_RoomFight : MonoBehaviour {
         BQuestion_Check.Choose_Ans_n = 1;
         BQuestion_Check.Choose_Ans_Content = Question_Data.GetButton_Ans(1);
         //Debug.Log(Question_Check.Choose_Ans_Content);
-
         CheckAns();
     }
     public void Choose_C()
@@ -51,17 +50,41 @@ public class QP_RoomFight : MonoBehaviour {
         {
             BQuestion_Data.ChangeFeedBack("O", BQuestion_Check.Question_Num);
             t_temp = GameObject.Find("Text_Answer").GetComponent<Text>();
-            t_temp.text = "Ans:" + question_temp.GetAnswer_r_Content();
-            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-            t_temp.text = "答對了!";
+            t_temp.text = "Ans： " + question_temp.GetAnswer_r_Content();
+
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "答對了 !";
+                    break;
+                case 1:
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "You're right !";
+                    break;
+                default:
+                    break;
+            }
         }
         else
         {
             BQuestion_Data.ChangeFeedBack("X", Question_Check.Question_Num);
             t_temp = GameObject.Find("Text_Answer").GetComponent<Text>();
-            t_temp.text = "Ans:" + question_temp.GetAnswer_r_Content();
-            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-            t_temp.text = "答錯了!";
+            t_temp.text = "Ans： " + question_temp.GetAnswer_r_Content();
+
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "答錯了 !";
+                    break;
+                case 1:
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "You're wrong !";
+                    break;
+                default:
+                    break;
+            }
 
             Player.ChangeLP(Player.GetLP() - 5);
 
@@ -81,21 +104,58 @@ public class QP_RoomFight : MonoBehaviour {
 
         if (BQuestion_Check.Question_Num == 9)
         {
+
             t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
-            t_temp.text = "最後一個回合!";
+
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp.text = "最後一個回合!";
+                    break;
+                case 1:
+                    t_temp.text = "Last Time!";
+                    break;
+                default:
+                    break;
+            }
+
             t_temp.color = new Color32(255, 0, 0, 255);
             t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
         }
         else if (Player.GetLP() < 1)
         {
-            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-            t_temp.text = "遊戲結束!";
-            t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
-            t_temp.text = "你輸了!";
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "遊戲結束!";
+                    t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                    t_temp.text = "你輸了!";
+                    break;
+                case 1:
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "Game Over !";
+                    t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                    t_temp.text = "You Lose !";
+                    break;
+                default:
+                    break;
+            }
             t_temp.color = new Color32(255, 0, 0, 255);
             t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
             b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
-            b_temp.GetComponentInChildren<Text>().text = "END";
+
+            switch (System_Data.language)
+            {
+                case 0:
+                    b_temp.GetComponentInChildren<Text>().text = "結束";
+                    break;
+                case 1:
+                    b_temp.GetComponentInChildren<Text>().text = "END";
+                    break;
+                default:
+                    break;
+            }
             b_temp.interactable = true;
         }
         else

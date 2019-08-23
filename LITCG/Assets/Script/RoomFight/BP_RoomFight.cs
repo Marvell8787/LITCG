@@ -42,8 +42,22 @@ public class BP_RoomFight : MonoBehaviour {
         t_temp.text = "";
         t_temp.rectTransform.localPosition = new Vector3(-50f, 350f, 0f);
 
-        t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-        t_temp.text = "請出牌!";
+
+        switch (System_Data.language)
+        {
+            case 0:
+                t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                t_temp.text = "請出牌!";
+                break;
+            case 1:
+                t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                t_temp.text = "Use your Card !";
+                break;
+            default:
+                break;
+        }
+
+
 
         Player_Data.ShowHand(0);
 
@@ -331,20 +345,51 @@ public class BP_RoomFight : MonoBehaviour {
         //判斷攻擊力並分出勝負
         if (aatk > batk)
         {
-            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
             Enemy.DecLP((aatk - batk));
-            t_temp.text = "敵方LP - " +(aatk - batk);
+            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp.text = "敵方LP - " + (aatk - batk);
+                    break;
+                case 1:
+                    t_temp.text = "Com LP - " + (aatk - batk);
+
+                    break;
+                default:
+                    break;
+            }
         }
         else if (batk > aatk)
         {
-            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
             Player.DecLP((batk - aatk));
-            t_temp.text = "我方LP - " + (batk - aatk);
+            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp.text = "我方LP - " + (batk - aatk);
+                    break;
+                case 1:
+                    t_temp.text = "Player LP - " + (batk - aatk);
+                    break;
+                default:
+                    break;
+            }
         }
         else
         {
             t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-            t_temp.text = "平手";
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp.text = "平手";
+                    break;
+                case 1:
+                    t_temp.text = "It;s tie";
+                    break;
+                default:
+                    break;
+            }
         }
         t_temp = GameObject.Find("Text_LP_A_num").GetComponent<Text>();
         t_temp.text = Player.GetLP().ToString();
@@ -353,69 +398,161 @@ public class BP_RoomFight : MonoBehaviour {
 
         if (Player.GetLP() < 1)
         {
-            b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
-            b_temp.GetComponentInChildren<Text>().text = "END";
-            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-            t_temp.text = "遊戲結束!";
-            t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
-            t_temp.text = "你輸了!";
+            switch (System_Data.language)
+            {
+                case 0:
+                    b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                    b_temp.GetComponentInChildren<Text>().text = "結束";
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "遊戲結束!";
+                    t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                    t_temp.text = "你輸了!";
+                    break;
+                case 1:
+                    b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                    b_temp.GetComponentInChildren<Text>().text = "END";
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "Game Over !";
+                    t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                    t_temp.text = "You Lose !";
+                    break;
+                default:
+                    break;
+            }
+
             t_temp.color = new Color32(255, 0, 0, 255);
             t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
         }
         else if (Enemy.GetLP() < 1)
         {
-            b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
-            b_temp.GetComponentInChildren<Text>().text = "END";
-            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-            t_temp.text = "遊戲結束!";
-            t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
-            t_temp.text = "你贏了!";
+            switch (System_Data.language)
+            {
+                case 0:
+                    b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                    b_temp.GetComponentInChildren<Text>().text = "結束";
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "遊戲結束!";
+                    t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                    t_temp.text = "你贏了!";
+                    break;
+                case 1:
+                    b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                    b_temp.GetComponentInChildren<Text>().text = "END";
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "Game Over !";
+                    t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                    t_temp.text = "You Win !";
+                    break;
+                default:
+                    break;
+            }
+
             t_temp.color = new Color32(255, 0, 0, 255);
             t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
         }
         else if(BQuestion_Check.Question_Num == 10) //10個回合
         {
             if(Player.GetLP() >= Enemy.GetLP()){
-                b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
-                b_temp.GetComponentInChildren<Text>().text = "END";
-                t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-                t_temp.text = "遊戲結束!";
-                t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
-                t_temp.text = "你贏了!";
+                switch (System_Data.language)
+                {
+                    case 0:
+                        b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                        b_temp.GetComponentInChildren<Text>().text = "結束";
+                        t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                        t_temp.text = "遊戲結束!";
+                        t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                        t_temp.text = "你贏了!";
+                        break;
+                    case 1:
+                        b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                        b_temp.GetComponentInChildren<Text>().text = "END";
+                        t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                        t_temp.text = "Game Over !";
+                        t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                        t_temp.text = "You Win !";
+                        break;
+                    default:
+                        break;
+                }
                 t_temp.color = new Color32(255, 0, 0, 255);
                 t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
             }
             else
             {
-                b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
-                b_temp.GetComponentInChildren<Text>().text = "END";
-                t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-                t_temp.text = "遊戲結束!";
-                t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
-                t_temp.text = "你輸了!";
+                switch (System_Data.language)
+                {
+                    case 0:
+                        b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                        b_temp.GetComponentInChildren<Text>().text = "結束";
+                        t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                        t_temp.text = "遊戲結束!";
+                        t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                        t_temp.text = "你輸了!";
+                        break;
+                    case 1:
+                        b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                        b_temp.GetComponentInChildren<Text>().text = "END";
+                        t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                        t_temp.text = "Game Over !";
+                        t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                        t_temp.text = "You Lose !";
+                        break;
+                    default:
+                        break;
+                }
                 t_temp.color = new Color32(255, 0, 0, 255);
                 t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
             }
         }
         else if (Player.GetDeck_Num() == 0)
         {
-            b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
-            b_temp.GetComponentInChildren<Text>().text = "END";
-            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-            t_temp.text = "遊戲結束!";
-            t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
-            t_temp.text = "我方牌組已抽完，你輸了!";
+            switch (System_Data.language)
+            {
+                case 0:
+                    b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                    b_temp.GetComponentInChildren<Text>().text = "結束";
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "遊戲結束 !";
+                    t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                    t_temp.text = "我方牌組已抽完，你輸了 !";
+                    break;
+                case 1:
+                    b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                    b_temp.GetComponentInChildren<Text>().text = "END";
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "Game Over !";
+                    t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                    t_temp.text = "Player's Deck is gone !";
+                    break;
+                default:
+                    break;
+            }
             t_temp.color = new Color32(255, 0, 0, 255);
             t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
         }
         else if (Enemy.GetDeck_Num() == 0)
         {
-            b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
-            b_temp.GetComponentInChildren<Text>().text = "END";
-            t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
-            t_temp.text = "遊戲結束!";
-            t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
-            t_temp.text = "敵方牌組已抽完，你贏了!";
+            switch (System_Data.language)
+            {
+                case 0:
+                    b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                    b_temp.GetComponentInChildren<Text>().text = "結束";
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "遊戲結束 !";
+                    t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                    t_temp.text = "敵方牌組已抽完，你贏了!";
+                    break;
+                case 1:
+                    b_temp = GameObject.Find("Button_NEXT").GetComponent<Button>();
+                    b_temp.GetComponentInChildren<Text>().text = "END";
+                    t_temp = GameObject.Find("Text_Status").GetComponent<Text>();
+                    t_temp.text = "Game Over !";
+                    t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
+                    t_temp.text = "Com's Deck is gone !";
+                    break;
+                default:
+                    break;
+            }
             t_temp.color = new Color32(255, 0, 0, 255);
             t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
         }
