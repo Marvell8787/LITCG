@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Function_Shop : MonoBehaviour {
 
     public void Card1()
@@ -59,6 +59,6 @@ public class Function_Shop : MonoBehaviour {
 
     public void Back()
     {
-        Application.LoadLevel("Home");
+        SceneManager.LoadScene("Home");
     }
 }

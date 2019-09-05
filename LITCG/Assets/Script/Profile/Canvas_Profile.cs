@@ -7,16 +7,31 @@ public class Canvas_Profile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Text T_Temp;
+        Button b_temp;
 
-        T_Temp = GameObject.Find("Text_CardsContent").GetComponent<Text>();
-        T_Temp.text = Learner_Data.Learner_GetData("Cards_Num").ToString();
-        T_Temp = GameObject.Find("Text_BadgesContent").GetComponent<Text>();
-        T_Temp.text = Learner_Data.Learner_GetData("Badges_Num").ToString();
-        T_Temp = GameObject.Find("Text_PointsContent").GetComponent<Text>();
-        T_Temp.text = Learner_Data.Learner_GetData("Points_Num").ToString();
-        T_Temp = GameObject.Find("Text_MistakesContent").GetComponent<Text>();
-        T_Temp.text = Learner_Data.Learner_GetData("Mistakes_Num").ToString();
+        switch (System_Data.language)
+        {
+            case 0:
+                b_temp = GameObject.Find("Button_Back").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "返回";
+                b_temp = GameObject.Find("Button_Previous").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "上一頁";
+                b_temp = GameObject.Find("Button_Next").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "下一頁";
+                break;
+            case 1:
+                break;
+
+        }
+        /*
+        t_temp = GameObject.Find("Text_CardsContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Cards_Num").ToString();
+        t_temp = GameObject.Find("Text_BadgesContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Badges_Num").ToString();
+        t_temp = GameObject.Find("Text_PointsContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Points_Num").ToString();
+        t_temp = GameObject.Find("Text_MistakesContent").GetComponent<Text>();
+        t_temp.text = Learner_Data.Learner_GetData("Mistakes_Num").ToString();*/
 
 
     }

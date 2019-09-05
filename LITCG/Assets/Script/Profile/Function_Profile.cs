@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Function_Profile : MonoBehaviour {
 
 	// Use this for initialization
@@ -10,7 +10,7 @@ public class Function_Profile : MonoBehaviour {
 	}
     public void Back()
     {
-        Application.LoadLevel("Home");
+        SceneManager.LoadScene("Home");
     }
 
 }

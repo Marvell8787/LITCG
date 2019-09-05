@@ -27,11 +27,11 @@ static class Vocabulary_Data{
     {
         for (int i = 0; i < 20; i++)
         {
-            Vocabulary_E_Name[i] = Vocabulary_bank.Vocabulary_E_Name[i]; 
-            Vocabulary_C_Name[i] = Vocabulary_bank.Vocabulary_C_Name[i];
-            Vocabulary_Voice[i] = Vocabulary_bank.Vocabulary_Voice[i];
-            Vocabulary_PartOfSpeech[i] = Vocabulary_bank.Vocabulary_PartOfSpeech[i];
-            Vocabulary_Sentence[i] = Vocabulary_bank.Vocabulary_Sentence[i];
+            Vocabulary_E_Name[i] = Vocabulary_Bank.Vocabulary_E_Name[i]; 
+            Vocabulary_C_Name[i] = Vocabulary_Bank.Vocabulary_C_Name[i];
+            Vocabulary_Voice[i] = Vocabulary_Bank.Vocabulary_Voice[i];
+            Vocabulary_PartOfSpeech[i] = Vocabulary_Bank.Vocabulary_PartOfSpeech[i];
+            Vocabulary_Sentence[i] = Vocabulary_Bank.Vocabulary_Sentence[i];
         }
     }
 

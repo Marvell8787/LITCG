@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 static class BattleCheck
 {
     //A
@@ -10,8 +10,8 @@ static class BattleCheck
     public static int HandChoose = 0; //選擇的手牌
     public static int TypeChoose = 0; //選擇牌的類型 1:戰鬥 2:魔法 3:支援
     public static int Phase = 1; //階段 1:問答 2:出牌 3:戰鬥 4:結算
-    public static int Fight_A = 22; //22:沒有 0~21:有
-    public static int Magic_A = 22; //22:沒有 0~21:有
+    public static int Vanguard_A = 22; //22:沒有 0~21:有
+    public static int Center_A = 22; //22:沒有 0~21:有
     public static int Support_A = 22; //22:沒有 0~21:有
     public static int A_ATK = 0; //顯示的攻擊力
     //B
@@ -19,17 +19,18 @@ static class BattleCheck
     public static int HCB_M = 5; //選擇的手牌 魔法卡
     public static int HCB_S = 5; //選擇的手牌 支援卡
 
-    public static int Fight_B = 22; //22:沒有 0~21:有
-    public static int Magic_B = 22; //22:沒有 0~21:有
+    public static int Vanguard_B = 22; //22:沒有 0~21:有
+    public static int Center_B = 22; //22:沒有 0~21:有
     public static int Support_B = 22; //22:沒有 0~21:有
     public static int B_ATK = 0; //顯示的攻擊力
 
-    //A vs B
+    //win lose
+    public static int Flag = 0; //0 = lose  1 = win
+
 }
 public class Function_RoomFight : MonoBehaviour {
 
     private Player_Class Player = new Player_Class();
-    private Player_Class Enemy = new Player_Class();
     private Card_Class[] card_temp = new Card_Class[22];
 
     int time_int = 2;
@@ -42,7 +43,6 @@ public class Function_RoomFight : MonoBehaviour {
             card_temp[i] = Card_Data.Card_Get(i);
         }
         Player = Player_Data.Player_Get(0);
-        Enemy = Player_Data.Player_Get(1);
         BattleCheck.HandChoose = 0;
         BattleCheck.TypeChoose = 0;
         BattleCheck.A_ATK = 0;
@@ -137,19 +137,19 @@ public class Function_RoomFight : MonoBehaviour {
             return;
         }
 
-        if (BattleCheck.Fight_A == 22 && card_temp[n].GetCType() == "Fight")
+        if (BattleCheck.Vanguard_A == 22 && (card_temp[n].GetCType() == "Vanguard" || card_temp[n].GetCType() == "前衛"))
         {
             b_temp = GameObject.Find("Button_USE").GetComponent<Button>();
             b_temp.interactable = true;
             BattleCheck.TypeChoose = 1;
         }
-        else if(BattleCheck.Magic_A == 22 && card_temp[n].GetCType() == "Magic")
+        else if(BattleCheck.Center_A == 22 && (card_temp[n].GetCType() == "Center" || card_temp[n].GetCType() == "中鋒"))
         {
             b_temp = GameObject.Find("Button_USE").GetComponent<Button>();
             b_temp.interactable = true;
             BattleCheck.TypeChoose = 2;
         }
-        else if (BattleCheck.Support_A == 22 && card_temp[n].GetCType() == "Support")
+        else if (BattleCheck.Support_A == 22 && (card_temp[n].GetCType() == "Support" || card_temp[n].GetCType() == "支援"))
         {
             b_temp = GameObject.Find("Button_USE").GetComponent<Button>();
             b_temp.interactable = true;
@@ -205,7 +205,7 @@ public class Function_RoomFight : MonoBehaviour {
         {
             CancelInvoke("timer");
             Learner_Data.Learner_Add("Battle_Lose", 1);
-            Application.LoadLevel("Settlement_Battle");
+            SceneManager.LoadScene("Settlement_Battle");
         }
 
     }

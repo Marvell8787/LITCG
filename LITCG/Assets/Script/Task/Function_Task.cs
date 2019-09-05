@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 static class Check
 {
     public static string s = "";
@@ -116,7 +117,7 @@ public class Function_Task : MonoBehaviour {
 
     public void Back() //回首頁
     {
-        Application.LoadLevel("Home");
+        SceneManager.LoadScene("Home");
     }
     public void ClearAllText() //清除所有Text
     {
@@ -289,6 +290,7 @@ public class Function_Task : MonoBehaviour {
         Text t_temp;
         Task_Data.ChangeStatus(Check.s, Check.Choose, 5);
         Task_Class task_temp = new Task_Class();
+        Task_Class[] task_reg = new Task_Class[7];
 
         if (Check.s == "learn")
             task_temp = Task_Data.Learn_Get(Check.Choose);
@@ -302,5 +304,18 @@ public class Function_Task : MonoBehaviour {
         t_temp.text = task_temp.GetTitle();
         t_temp.color = Color.gray;
         t_temp.fontStyle = FontStyle.Italic;
+
+        for (int i = 0; i < 7; i++)
+        {
+            task_temp = Task_Data.Learn_Get(i);
+        }
+        if(task_reg[0].GetStatus()==5 && task_reg[1].GetStatus() == 5 && task_reg[2].GetStatus() == 0)
+        {
+            Task_Data.ChangeStatus("learn", 2, 1);
+        }
+        else if (task_reg[3].GetStatus() == 5 && task_reg[4].GetStatus() == 5 && task_reg[5].GetStatus() == 0)
+        {
+            Task_Data.ChangeStatus("learn", 5, 1);
+        }
     }
 }

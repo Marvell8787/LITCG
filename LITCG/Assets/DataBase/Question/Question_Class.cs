@@ -20,7 +20,7 @@ class Question_Class{
         Answer_c_Content = _Answer_c_Content;
         FeedBack = _FeedBack;
     }
-    private int GetQuestionNum()
+    public int GetQuestionNum()
     {
         return QuestionNum;
     }

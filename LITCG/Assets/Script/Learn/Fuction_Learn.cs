@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Fuction_Learn : MonoBehaviour {
     public void GoMaterial()
     {
-        Application.LoadLevel("Material");
+        SceneManager.LoadScene("Material");
     }
     public void GoLevel()
     {
-        Application.LoadLevel("Level");
+        SceneManager.LoadScene("Level");
     }
     public void Back()
     {
-        Application.LoadLevel("Home");
+        SceneManager.LoadScene("Home");
     }
 
 }

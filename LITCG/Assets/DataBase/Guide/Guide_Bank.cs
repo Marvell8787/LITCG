@@ -6,9 +6,9 @@ static class Guide_Bank
 {
     //Init
     public static string C_Init_Content =
-        "●點選兩側的按鈕可得知資訊\n";
+        "●點選左側的按鈕可得知資訊\n";
     public static string E_Init_Content =
-    "●Click on the buttons on both sides to get information.";
+    "●Click on the buttons on left side to get information.";
 
     //Task
     public static string C_Task_Content =

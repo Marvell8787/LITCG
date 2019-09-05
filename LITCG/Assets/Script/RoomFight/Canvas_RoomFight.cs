@@ -43,10 +43,6 @@ public class Canvas_RoomFight : MonoBehaviour {
                 t_temp.text = "牌組：";
                 t_temp = GameObject.Find("Text_Deck_B").GetComponent<Text>();
                 t_temp.text = "牌組：";
-                t_temp = GameObject.Find("Text_Time").GetComponent<Text>();
-                t_temp.text = "回合數";
-                t_temp = GameObject.Find("Text_Range").GetComponent<Text>();
-                t_temp.text = "題目範圍";
                 b_temp = GameObject.Find("Button_Surrender").GetComponent<Button>();
                 b_temp.GetComponentInChildren<Text>().text = "投降";
                 b_temp = GameObject.Find("Button_START").GetComponent<Button>();

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Function_Home : MonoBehaviour {
@@ -65,39 +66,39 @@ public class Function_Home : MonoBehaviour {
     //GO Button
     public void Task()
     {
-        Application.LoadLevel("Task");
+        SceneManager.LoadScene("Task");
     }
     public void Learn()
     {
-        Application.LoadLevel("Learn");
+        SceneManager.LoadScene("Learn");
     }
     public void Deck()
     {
-        Application.LoadLevel("Deck");
+        SceneManager.LoadScene("Deck");
     }
     public void Battle()
     {
-        Application.LoadLevel("Battle");
+        SceneManager.LoadScene("Battle");
     }
     public void Shop()
     {
-        Application.LoadLevel("Shop");
+        SceneManager.LoadScene("Shop");
     }
     public void Profile()
     {
-        Application.LoadLevel("Profile");
+        SceneManager.LoadScene("Profile");
     }
     public void Guide()
     {
-        Application.LoadLevel("Guide");
+        SceneManager.LoadScene("Guide");
     }
     public void Badges()
     {
-        Application.LoadLevel("Badges");
+        SceneManager.LoadScene("Badges");
     }
     public void Leaderboard()
     {
-        Application.LoadLevel("Leaderboard");
+        SceneManager.LoadScene("Leaderboard");
     }
 
 

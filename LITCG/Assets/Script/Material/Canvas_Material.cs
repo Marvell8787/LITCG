@@ -9,7 +9,6 @@ public class Canvas_Material : MonoBehaviour {
 	void Start () {
         Vocabulary_Data.Vocabulary_Init();
         Button b_temp;
-        Text t_temp;
         switch (System_Data.language)
         {
             case 0:

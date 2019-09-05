@@ -11,7 +11,7 @@ public class QP_RoomFight : MonoBehaviour {
     {
         BQuestion_Check.Choose_Ans = "A";
         BQuestion_Check.Choose_Ans_n = 0;
-        BQuestion_Check.Choose_Ans_Content = Question_Data.GetButton_Ans(0);
+        BQuestion_Check.Choose_Ans_Content = BQuestion_Data.GetButton_Ans(0);
         //Debug.Log(Question_Check.Choose_Ans_Content);
 
         CheckAns();
@@ -20,7 +20,7 @@ public class QP_RoomFight : MonoBehaviour {
     {
         BQuestion_Check.Choose_Ans = "B";
         BQuestion_Check.Choose_Ans_n = 1;
-        BQuestion_Check.Choose_Ans_Content = Question_Data.GetButton_Ans(1);
+        BQuestion_Check.Choose_Ans_Content = BQuestion_Data.GetButton_Ans(1);
         //Debug.Log(Question_Check.Choose_Ans_Content);
         CheckAns();
     }
@@ -28,7 +28,7 @@ public class QP_RoomFight : MonoBehaviour {
     {
         BQuestion_Check.Choose_Ans = "C";
         BQuestion_Check.Choose_Ans_n = 2;
-        BQuestion_Check.Choose_Ans_Content = Question_Data.GetButton_Ans(2);
+        BQuestion_Check.Choose_Ans_Content = BQuestion_Data.GetButton_Ans(2);
         //Debug.Log(Question_Check.Choose_Ans_Content);
 
         CheckAns();
@@ -68,7 +68,7 @@ public class QP_RoomFight : MonoBehaviour {
         }
         else
         {
-            BQuestion_Data.ChangeFeedBack("X", Question_Check.Question_Num);
+            BQuestion_Data.ChangeFeedBack("X", BQuestion_Check.Question_Num);
             t_temp = GameObject.Find("Text_Answer").GetComponent<Text>();
             t_temp.text = "Ans： " + question_temp.GetAnswer_r_Content();
 

@@ -10,11 +10,11 @@ public class BP_RoomFight : MonoBehaviour {
     private Card_Class[] card_temp = new Card_Class[22];
     void Start()
     {
-        BattleCheck.Fight_A = 22; //22:沒有 0~21:有
-        BattleCheck.Magic_A = 22; //22:沒有 0~21:有
+        BattleCheck.Vanguard_A = 22; //22:沒有 0~21:有
+        BattleCheck.Center_A = 22; //22:沒有 0~21:有
         BattleCheck.Support_A = 22; //22:沒有 0~21:有
-        BattleCheck.Fight_B = 22; //22:沒有 0~21:有
-        BattleCheck.Magic_B = 22; //22:沒有 0~21:有
+        BattleCheck.Vanguard_B = 22; //22:沒有 0~21:有
+        BattleCheck.Center_B = 22; //22:沒有 0~21:有
         BattleCheck.Support_B = 22; //22:沒有 0~21:有
         BattleCheck.TypeChoose = 0;
         Card_Data.Card_Init();
@@ -81,14 +81,14 @@ public class BP_RoomFight : MonoBehaviour {
 
         if (BattleCheck.TypeChoose == 1)
         {
-            i_temp = GameObject.Find("Image_Fight_A").GetComponent<Image>();
-            BattleCheck.Fight_A = n;
+            i_temp = GameObject.Find("Image_Vanguard_A").GetComponent<Image>();
+            BattleCheck.Vanguard_A = n;
             t_temp = GameObject.Find("Text_ATK_A_num").GetComponent<Text>();
             t_temp.text = (card_temp[n].GetATK())+" ";
             BattleCheck.A_ATK = card_temp[n].GetATK();
-            if (BattleCheck.Magic_A < 22)
+            if (BattleCheck.Center_A < 22)
             {
-                int s = BattleCheck.Magic_A;
+                int s = BattleCheck.Center_A;
                 switch (s)
                 {
                     case 15:
@@ -114,8 +114,8 @@ public class BP_RoomFight : MonoBehaviour {
         }
         else if(BattleCheck.TypeChoose == 2)
         {
-            i_temp = GameObject.Find("Image_Magic_A").GetComponent<Image>();
-            BattleCheck.Magic_A = n;
+            i_temp = GameObject.Find("Image_Center_A").GetComponent<Image>();
+            BattleCheck.Center_A = n;
             t_temp = GameObject.Find("Text_ATK_A_num").GetComponent<Text>();
             switch (n)
             {
@@ -172,7 +172,12 @@ public class BP_RoomFight : MonoBehaviour {
 
         b_temp = GameObject.Find("Button_FIGHT").GetComponent<Button>();
         b_temp.interactable = false;
-        
+
+        Player_Data.ShowHand(0);
+        Player_Data.ShowHand(1);
+        b_temp = GameObject.Find("Button_USE").GetComponent<Button>();
+        b_temp.interactable = false;
+
         //描述電腦出牌 先出支援 再出魔法 最後出戰鬥(隨機挑)
 
         Enemy = Player_Data.Player_Get(1);
@@ -203,12 +208,12 @@ public class BP_RoomFight : MonoBehaviour {
         for (int i = 0; i < 5; i++)
         {
             int n = Enemy.GetHand_Status(Ehand[i]);
-            if (n>14 && n < 18 && BattleCheck.Magic_B == 22)
+            if (n>14 && n < 18 && BattleCheck.Center_B == 22)
             {
                 int r = Random.Range(0, 2);
                 if (r == 1)
                 {
-                    BattleCheck.Magic_B = Enemy.GetHand_Status(Ehand[i]); //使用了魔法卡
+                    BattleCheck.Center_B = Enemy.GetHand_Status(Ehand[i]); //使用了魔法卡
                     Enemy.ChangeHand_Status(Ehand[i], 22);
                     BattleCheck.HCB_M = Ehand[i];
                     break;
@@ -223,9 +228,9 @@ public class BP_RoomFight : MonoBehaviour {
         for (int i = 0; i < 5; i++)
         {
             int n = Enemy.GetHand_Status(Ehand[i]);
-            if (n < 15 && BattleCheck.Fight_B == 22)
+            if (n < 15 && BattleCheck.Vanguard_B == 22)
             {
-                BattleCheck.Fight_B = Enemy.GetHand_Status(Ehand[i]); //使用了戰鬥卡
+                BattleCheck.Vanguard_B = Enemy.GetHand_Status(Ehand[i]); //使用了戰鬥卡
                 int a = Enemy.GetHand_Status(Ehand[i]);
                 BattleCheck.B_ATK = card_temp[a].GetATK();
                 Text temp;
@@ -247,59 +252,59 @@ public class BP_RoomFight : MonoBehaviour {
             ss += Ehand[i] + " ";
         }
         Debug.Log(ss);
-        Debug.Log(BattleCheck.Fight_B);
-        Debug.Log(BattleCheck.Magic_B);
+        Debug.Log(BattleCheck.Vanguard_B);
+        Debug.Log(BattleCheck.Center_B);
         Debug.Log(BattleCheck.Support_B);
         //Debug
         */
         //電腦放置卡牌
 
-        if (BattleCheck.Fight_B < 15)
+        if (BattleCheck.Vanguard_B < 15)
         {
             
-            i_temp = GameObject.Find("Image_Fight_B").GetComponent<Image>();
+            i_temp = GameObject.Find("Image_Vanguard_B").GetComponent<Image>();
             t_temp = GameObject.Find("Text_ATK_B_num").GetComponent<Text>();
-            t_temp.text = (card_temp[BattleCheck.Fight_B].GetATK()) + " ";
+            t_temp.text = (card_temp[BattleCheck.Vanguard_B].GetATK()) + " ";
 
-            BattleCheck.B_ATK = card_temp[BattleCheck.Fight_B].GetATK();
+            BattleCheck.B_ATK = card_temp[BattleCheck.Vanguard_B].GetATK();
 
-            i_temp.sprite = Resources.Load("Image/Card/" + card_temp[BattleCheck.Fight_B].GetPicture(), typeof(Sprite)) as Sprite;
+            i_temp.sprite = Resources.Load("Image/Card/" + card_temp[BattleCheck.Vanguard_B].GetPicture(), typeof(Sprite)) as Sprite;
             i_temp = GameObject.Find("Image_Hand_B_" + (BattleCheck.HCB_F + 1).ToString()).GetComponent<Image>();
             i_temp.sprite = Resources.Load("Image/Battle/Hand", typeof(Sprite)) as Sprite;
         }
-        if (BattleCheck.Magic_B >14 && BattleCheck.Magic_B < 19)
+        if (BattleCheck.Center_B >14 && BattleCheck.Center_B < 19)
         {
-            i_temp = GameObject.Find("Image_Magic_B").GetComponent<Image>();
+            i_temp = GameObject.Find("Image_Center_B").GetComponent<Image>();
             t_temp = GameObject.Find("Text_ATK_B_num").GetComponent<Text>();
-            switch (BattleCheck.Magic_B)
+            switch (BattleCheck.Center_B)
             {
                 case 15:
-                    t_temp.text = t_temp.text + " + " + (card_temp[BattleCheck.Magic_B].GetATK());
+                    t_temp.text = t_temp.text + " + " + (card_temp[BattleCheck.Center_B].GetATK());
                     BattleCheck.B_ATK += 1;
                     break;
                 case 16:
-                    t_temp.text = t_temp.text + " + " + (card_temp[BattleCheck.Magic_B].GetATK());
+                    t_temp.text = t_temp.text + " + " + (card_temp[BattleCheck.Center_B].GetATK());
                     BattleCheck.B_ATK += 2;
                     break;
                 case 17:
-                    t_temp.text = (card_temp[BattleCheck.Magic_B].GetATK()).ToString();
+                    t_temp.text = (card_temp[BattleCheck.Center_B].GetATK()).ToString();
                     BattleCheck.B_ATK += 3;
                     break;
                 case 18:
-                    t_temp.text = (card_temp[BattleCheck.Magic_B].GetATK()).ToString();
+                    t_temp.text = (card_temp[BattleCheck.Center_B].GetATK()).ToString();
                     BattleCheck.B_ATK += 4;
                     break;
                 default:
                     break;
             }
-            i_temp.sprite = Resources.Load("Image/Card/" + card_temp[BattleCheck.Magic_B].GetPicture(), typeof(Sprite)) as Sprite;
+            i_temp.sprite = Resources.Load("Image/Card/" + card_temp[BattleCheck.Center_B].GetPicture(), typeof(Sprite)) as Sprite;
             i_temp = GameObject.Find("Image_Hand_B_" + (BattleCheck.HCB_M + 1).ToString()).GetComponent<Image>();
             i_temp.sprite = Resources.Load("Image/Battle/Hand", typeof(Sprite)) as Sprite;
         }
         if (BattleCheck.Support_B < 22)
         {
             i_temp = GameObject.Find("Image_Supprot_B").GetComponent<Image>();
-            i_temp.sprite = Resources.Load("Image/Card/" + card_temp[BattleCheck.Fight_B].GetPicture(), typeof(Sprite)) as Sprite;
+            i_temp.sprite = Resources.Load("Image/Card/" + card_temp[BattleCheck.Vanguard_B].GetPicture(), typeof(Sprite)) as Sprite;
 
             i_temp = GameObject.Find("Image_Hand_B_" + (BattleCheck.HCB_S  + 1).ToString()).GetComponent<Image>();
             i_temp.sprite = Resources.Load("Image/Battle/Hand", typeof(Sprite)) as Sprite;
@@ -450,7 +455,7 @@ public class BP_RoomFight : MonoBehaviour {
             t_temp.color = new Color32(255, 0, 0, 255);
             t_temp.rectTransform.localPosition = new Vector3(-50f, 0f, 0f);
         }
-        else if(BQuestion_Check.Question_Num == 10) //10個回合
+        else if(BQuestion_Check.Question_Num == BQuestion_Check.Question_total) 
         {
             if(Player.GetLP() >= Enemy.GetLP()){
                 switch (System_Data.language)

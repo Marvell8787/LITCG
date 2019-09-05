@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class EP_RoomFight : MonoBehaviour {
     private Player_Class Player = new Player_Class();
     private Player_Class Enemy = new Player_Class();
@@ -30,22 +30,38 @@ public class EP_RoomFight : MonoBehaviour {
         if (Player.GetLP() < 1)
         {
             Learner_Data.Learner_Add("Battle_Lose", 1);
-            Application.LoadLevel("Settlement_Battle");
+            SceneManager.LoadScene("Settlement_Battle");
         }
         else if (Enemy.GetLP() < 1)
         {
             Learner_Data.Learner_Add("Battle_Win", 1);
-            Application.LoadLevel("Settlement_Battle");
+            BattleCheck.Flag = 1;
+            SceneManager.LoadScene("Settlement_Battle");
         }
-        else if (Player.GetDeck_Num() ==0)
+        else if (Player.GetDeck_Num() == 0)
         {
             Learner_Data.Learner_Add("Battle_Lose", 1);
-            Application.LoadLevel("Settlement_Battle");
+            SceneManager.LoadScene("Settlement_Battle");
         }
         else if (Enemy.GetDeck_Num() == 0)
         {
             Learner_Data.Learner_Add("Battle_Win", 1);
-            Application.LoadLevel("Settlement_Battle");
+            BattleCheck.Flag = 1;
+            SceneManager.LoadScene("Settlement_Battle");
+        }
+        else if (BQuestion_Check.Question_Num == BQuestion_Check.Question_total)
+        {
+            if (Player.GetLP() >= Enemy.GetLP())
+            {
+                Learner_Data.Learner_Add("Battle_Win", 1);
+                BattleCheck.Flag = 1;
+                SceneManager.LoadScene("Settlement_Battle");
+            }
+            else
+            {
+                Learner_Data.Learner_Add("Battle_Lose", 1);
+                SceneManager.LoadScene("Settlement_Battle");
+            }
         }
         else
         {
@@ -58,25 +74,25 @@ public class EP_RoomFight : MonoBehaviour {
             BattleCheck.B_ATK = 0;
             BattleCheck.HandChoose = 0;
             BattleCheck.TypeChoose = 0;
-            BattleCheck.Fight_A = 22; //22:沒有 0~21:有
-            BattleCheck.Magic_A = 22; //22:沒有 0~21:有
+            BattleCheck.Vanguard_A = 22; //22:沒有 0~21:有
+            BattleCheck.Center_A = 22; //22:沒有 0~21:有
             BattleCheck.Support_A = 22; //22:沒有 0~21:有
             BattleCheck.HCB_F = 5;
             BattleCheck.HCB_M = 5;
             BattleCheck.HCB_S = 5;
-            BattleCheck.Fight_B = 22; //22:沒有 0~21:有
-            BattleCheck.Magic_B = 22; //22:沒有 0~21:有
+            BattleCheck.Vanguard_B = 22; //22:沒有 0~21:有
+            BattleCheck.Center_B = 22; //22:沒有 0~21:有
             BattleCheck.Support_B = 22; //22:沒有 0~21:有
 
-            i_temp = GameObject.Find("Image_Fight_A").GetComponent<Image>();
+            i_temp = GameObject.Find("Image_Vanguard_A").GetComponent<Image>();
             i_temp.sprite = Resources.Load("Image/Battle/Table", typeof(Sprite)) as Sprite;
-            i_temp = GameObject.Find("Image_Magic_A").GetComponent<Image>();
+            i_temp = GameObject.Find("Image_Center_A").GetComponent<Image>();
             i_temp.sprite = Resources.Load("Image/Battle/Table", typeof(Sprite)) as Sprite;
             i_temp = GameObject.Find("Image_Support_A").GetComponent<Image>();
             i_temp.sprite = Resources.Load("Image/Battle/Table", typeof(Sprite)) as Sprite;
-            i_temp = GameObject.Find("Image_Fight_B").GetComponent<Image>();
+            i_temp = GameObject.Find("Image_Vanguard_B").GetComponent<Image>();
             i_temp.sprite = Resources.Load("Image/Battle/Table", typeof(Sprite)) as Sprite;
-            i_temp = GameObject.Find("Image_Magic_B").GetComponent<Image>();
+            i_temp = GameObject.Find("Image_Center_B").GetComponent<Image>();
             i_temp.sprite = Resources.Load("Image/Battle/Table", typeof(Sprite)) as Sprite;
             i_temp = GameObject.Find("Image_Support_B").GetComponent<Image>();
             i_temp.sprite = Resources.Load("Image/Battle/Table", typeof(Sprite)) as Sprite;

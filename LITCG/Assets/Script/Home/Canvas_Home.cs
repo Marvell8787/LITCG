@@ -11,7 +11,6 @@ public class Canvas_Home : MonoBehaviour {
     void Start () {
         Text t_temp;
         Button b_temp;
-        Image i_temp;
         GameGoal_Data.GameGoal_Init();
 
         for(int i = 0; i < 8; i++)

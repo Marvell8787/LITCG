@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-static class Vocabulary_bank
+static class Vocabulary_Bank
 {
 
     public static string[] Vocabulary_E_Name = new string[20] {  "access", "ashamed", "authority" , "bare", "behavior", "citizen", "clash","destroy", "exhaust", "fort", "graceful","invade", "mystery", "occupy", "restrict", "security", "toss", "troop","vary","wicked" };

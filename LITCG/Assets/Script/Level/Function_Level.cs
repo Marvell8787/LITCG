@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Function_Level : MonoBehaviour {
     //Button
     public void Back()
     {
-        Application.LoadLevel("Learn");
+        SceneManager.LoadScene("Home");
     }
     public void Level_1()
     {
@@ -47,16 +47,16 @@ public class Function_Level : MonoBehaviour {
     public void Practice()
     {
         if (Level_Check.choose < 6)
-            Application.LoadLevel("Level_Learn");
+            SceneManager.LoadScene("Level_Learn");
         else
-            Application.LoadLevel("Overall");
+            SceneManager.LoadScene("Overall");
     }
     public void Challenge()
     {
         if (Level_Check.choose < 6)
-            Application.LoadLevel("Level_Learn");
+            SceneManager.LoadScene("Level_Learn");
         else
-            Application.LoadLevel("Overall");
+            SceneManager.LoadScene("Overall");
     }
     public void ShowContent(int n)
     {

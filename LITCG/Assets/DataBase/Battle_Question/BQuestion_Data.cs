@@ -18,11 +18,7 @@ static class BQuestion_Data{
     
     //Battle Question
     private static string[] Question = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-    private static string[] Answer_r = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
     private static string[] Answer_r_Content = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-    private static string[] Answer_c = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-    private static string[] Answer_c_Content = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-    private static string[] FeedBack = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 
     private static string[] Button_Ans = new string[3] { "", "", "" };
 
@@ -33,19 +29,35 @@ static class BQuestion_Data{
 
     public static void BQuestion_Init()
     {
-        Random.seed = System.Guid.NewGuid().GetHashCode();
+        Random.InitState(System.Guid.NewGuid().GetHashCode());
         Vocabulary_Data.Vocabulary_Init();
         for (int i = 0; i < 20; i++)
         {
             vocabulary_temp[i] = Vocabulary_Data.Vocabulary_Get(i);
         }
-        BQuestion_Check.Question_total = 20;
-        BQuestion_Vocabulary_Set();
+
+        switch (Enemy.No)
+        {
+            case 1:
+                BQuestion_Check.Question_total = 5;
+                BQuestion_Vocabulary_Set();
+                break;
+            case 2:
+                BQuestion_Check.Question_total = 10;
+                BQuestion_Vocabulary_Set();
+                break;
+            case 3: 
+                BQuestion_Check.Question_total = 15;
+                BQuestion_Vocabulary_Set();
+                break;
+            default:
+                break;
+        }
     }
 
     public static void BQuestion_Vocabulary_Set() // 第n1~第n2題 共n3題
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < BQuestion_Check.Question_total + 5 ; i++)
         {
             Question[i] = vocabulary_temp[i].GetC_Name();
             Answer_r_Content[i] = vocabulary_temp[i].GetE_Name();

@@ -19,18 +19,13 @@ static class Question_Check
 static class Question_Data{
     // Level_Learn
     private static string[] Question = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-    private static string[] Answer_r = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
     private static string[] Answer_r_Content = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-    private static string[] Answer_c = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-    private static string[] Answer_c_Content = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-    private static string[] FeedBack = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
 
     //Overall
     private static string[] O_Question = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
     private static string[] O_Question_E = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
     private static string[] O_Answer_r_Content = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-    private static string[] O_Answer_c_Content = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
-    private static string[] O_FeedBack = new string[20] { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };
+
 
     private static string[] Button_Ans = new string[3] { "", "", ""};
 
@@ -45,7 +40,7 @@ static class Question_Data{
 
     public static void Question_Init()
     {
-        Random.seed = System.Guid.NewGuid().GetHashCode();
+        Random.InitState(System.Guid.NewGuid().GetHashCode());
         Vocabulary_Data.Vocabulary_Init();
         for(int i = 0; i < 20; i++)
         {

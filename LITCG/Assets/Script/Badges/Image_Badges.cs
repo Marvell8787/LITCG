@@ -6,49 +6,65 @@ using UnityEngine.UI;
 public class Image_Badges : MonoBehaviour {
     public void Badges_Output(int n)
     {
-        //Image I_Temp;
-        Text T_temp;
-        //I_Temp = GameObject.Find("Image_Show").GetComponent<Image>();
-        //I_Temp.sprite = Resources.Load("Image/Card/" + card_temp.GetPicture(), typeof(Sprite)) as Sprite;
+        Text t_temp;
 
-        T_temp = GameObject.Find("Text_Description").GetComponent<Text>();
-        T_temp.text = n.ToString();
+        t_temp = GameObject.Find("Text_Description").GetComponent<Text>();
+        switch (System_Data.language)
+        {
+            case 0:
+                t_temp.text = Badges_Bank.C_Badges_Description[n];
+                break;
+            case 1:
+                t_temp.text = Badges_Bank.E_Badges_Description[n];
+                break;
+            default:
+                break;
+        }
     }
     public void Badges_0()
     {
-        Badges_Output(0);
+        BadgesCheck.No = 0 + BadgesCheck.Next;
+        Badges_Output(BadgesCheck.No);
     }
     public void Badges_1()
     {
-        Badges_Output(1);
+        BadgesCheck.No = 1 + BadgesCheck.Next;
+        Badges_Output(BadgesCheck.No);
     }
     public void Badges_2()
     {
-        Badges_Output(2);
+        BadgesCheck.No = 2 + BadgesCheck.Next;
+        Badges_Output(BadgesCheck.No);
     }
     public void Badges_3()
     {
-        Badges_Output(3);
+        BadgesCheck.No = 3 + BadgesCheck.Next;
+        Badges_Output(BadgesCheck.No);
     }
     public void Badges_4()
     {
-        Badges_Output(4);
+        BadgesCheck.No = 4 + BadgesCheck.Next;
+        Badges_Output(BadgesCheck.No);
     }
     public void Badges_5()
     {
-        Badges_Output(5);
+        BadgesCheck.No = 5 + BadgesCheck.Next;
+        Badges_Output(BadgesCheck.No);
     }
     public void Badges_6()
     {
-        Badges_Output(6);
+        BadgesCheck.No = 6 + BadgesCheck.Next;
+        Badges_Output(BadgesCheck.No);
     }
     public void Badges_7()
     {
-        Badges_Output(7);
+        BadgesCheck.No = 7 + BadgesCheck.Next;
+        Badges_Output(BadgesCheck.No);
     }
     public void Badges_8()
     {
-        Badges_Output(8);
+        BadgesCheck.No = 8 + BadgesCheck.Next;
+        Badges_Output(BadgesCheck.No);
     }
 
 }

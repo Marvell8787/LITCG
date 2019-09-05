@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Threading;
-
 public class Function_Level_Learn : MonoBehaviour {
 
     public void Choose_A()
@@ -69,8 +69,7 @@ public class Function_Level_Learn : MonoBehaviour {
                 }
                 Level_Check.challenge = 0;
             }
-
-            Application.LoadLevel("Settlement_Learn");
+            SceneManager.LoadScene("Settlement_Learn");
         }
         else
         {
@@ -143,16 +142,18 @@ public class Function_Level_Learn : MonoBehaviour {
         if (Question_Check.Question_Num == (Question_Check.Question_total - 1))
         {
             t_temp = GameObject.Find("Text_ENDContent").GetComponent<Text>();
+            b_temp = GameObject.Find("Button_Next").GetComponent<Button>();
             switch (System_Data.language)
             {
                 case 0:
                     t_temp.text = "結束";
+                    b_temp.GetComponentInChildren<Text>().text = "結算";
                     break;
                 default:
                     t_temp.text = "END";
+                    b_temp.GetComponentInChildren<Text>().text = "Settlement";
                     break;
             }
-
         }
     }
 

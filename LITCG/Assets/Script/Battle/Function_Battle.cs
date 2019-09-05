@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 static class Enemy{
     public static int No = 0;
 }
@@ -20,20 +20,20 @@ public class Function_Battle : MonoBehaviour {
     public void Battle1()
     {
         Enemy.No = 1;
-        Application.LoadLevel("RoomWait");
+        SceneManager.LoadScene("RoomWait");
     }
     public void Battle2()
     {
         Enemy.No = 2;
-        Application.LoadLevel("RoomWait");
+        SceneManager.LoadScene("RoomWait");
     }
     public void Battle3()
     {
         Enemy.No = 3;
-        Application.LoadLevel("RoomWait");
+        SceneManager.LoadScene("RoomWait");
     }
     public void Back()
     {
-        Application.LoadLevel("Home");
+        SceneManager.LoadScene("Home");
     }
 }

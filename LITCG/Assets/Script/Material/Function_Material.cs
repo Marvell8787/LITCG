@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 static class Material_Check
 {
     public static string s = ""; //vocabulary
@@ -15,7 +16,7 @@ public class Function_Material : MonoBehaviour {
     // Use this for initialization
     public void Back()
     {
-        Application.LoadLevel("Learn");
+        SceneManager.LoadScene("Learn");
     }
     public void Right()
     {

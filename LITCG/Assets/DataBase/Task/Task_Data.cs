@@ -9,7 +9,7 @@ static class Task_Data{
     private static string[] Learn_Reward = new string[7] { "", "", "", "", "", "", "" };
     private static string[] Learn_Punishment = new string[7] { "", "", "", "", "", "", "" };
 
-    private static int[] Learn_Status = new int[7] { 1, 0, 0, 1, 0, 0, 0 };
+    private static int[] Learn_Status = new int[7] { 1, 1, 0, 1, 1, 0, 0 };
 
 
     private static string[] Battle_Title = new string[3] { "", "", "" };

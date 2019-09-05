@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Function_Leaderboard : MonoBehaviour {
+using UnityEngine.SceneManagement;
+public class Function_Rank : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -10,6 +10,6 @@ public class Function_Leaderboard : MonoBehaviour {
 	}
     public void Back()
     {
-        Application.LoadLevel("Home");
+        SceneManager.LoadScene("Home");
     }
 }

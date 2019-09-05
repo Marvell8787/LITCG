@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 static class Guide_Check
 {
     public static int Code = 0; // 1:任務 2:學習 3:對戰 4:持有物 
@@ -167,4 +167,9 @@ public class Function_Guide : MonoBehaviour {
         t_temp = GameObject.Find("Text_PageDown").GetComponent<Text>();
         t_temp.text = Guide_Check.PageDown.ToString();
     }
+    public void Back()
+    {
+        SceneManager.LoadScene("Home");
+    }
+
 }

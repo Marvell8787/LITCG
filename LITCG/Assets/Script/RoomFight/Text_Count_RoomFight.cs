@@ -7,8 +7,6 @@ public class Text_Count_RoomFight : MonoBehaviour {
     int time_int = 6;
     //public Text t_temp; //可從外部放
     Text t_temp;
-    private Player_Class Player = new Player_Class();
-    private Player_Class Enemy = new Player_Class();
     void Start () {
         t_temp = GameObject.Find("Text_Count").GetComponent<Text>();
         InvokeRepeating("timer", 1, 1);

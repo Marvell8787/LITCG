@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Function_RoomWait : MonoBehaviour {
 
     public void Back()
     {
-        Application.LoadLevel("Battle");
+        SceneManager.LoadScene("Battle");
     }
 
     public void Play()
@@ -15,6 +15,6 @@ public class Function_RoomWait : MonoBehaviour {
         Player_Data.Shuffle(0);
         Player_Data.Shuffle(1);
         Player_Data.Deal();
-        Application.LoadLevel("RoomFight");
+        SceneManager.LoadScene("RoomFight");
     }
 }

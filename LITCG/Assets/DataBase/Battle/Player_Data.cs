@@ -10,7 +10,7 @@ static class Player_Data{
 
     public static void Player_Init()
     {
-        Random.seed = System.Guid.NewGuid().GetHashCode();
+        Random.InitState(System.Guid.NewGuid().GetHashCode());
         Card_Data.Card_Init();
 
         for (int i = 0; i < 22; i++)
@@ -191,11 +191,10 @@ static class Player_Data{
             {
                 i_temp = GameObject.Find("Image_Hand_A_" + (i + 1).ToString()).GetComponent<Image>();
                 if (n == 22) //22 = 沒牌
-                {
                     i_temp.sprite = Resources.Load("Image/Battle/Hand", typeof(Sprite)) as Sprite;
-                }
                 else
                     i_temp.sprite = Resources.Load("Image/Card/" + card_temp[n].GetPicture(), typeof(Sprite)) as Sprite;
+                i_temp.color = new Color32(255, 255, 255, 255);
             }
             else
             {
@@ -205,13 +204,13 @@ static class Player_Data{
                     i_temp.sprite = Resources.Load("Image/Battle/Hand", typeof(Sprite)) as Sprite;
                 }
                 else
-                    i_temp.sprite = Resources.Load("Image/Card/" + card_temp[n].GetPicture(), typeof(Sprite)) as Sprite;
+                    //i_temp.sprite = Resources.Load("Image/Card/" + card_temp[n].GetPicture(), typeof(Sprite)) as Sprite;
+                    i_temp.sprite = Resources.Load("Image/Card/CardBack", typeof(Sprite)) as Sprite;
         }
     }
     public static void Shuffle(int n) //要更新的對象 0:玩家 1:敵人 遊戲開始亂數牌組
     {
         int r;
-        string[] output = new string[22];
         for (int i = 0; i < 22; i++)
         {
             r = Random.Range(0, 22);

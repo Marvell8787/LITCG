@@ -31,6 +31,8 @@ public class Canvas_RoonWait : MonoBehaviour {
                 t_temp.text = "題目範圍";
                 b_temp = GameObject.Find("Button_Back").GetComponent<Button>();
                 b_temp.GetComponentInChildren<Text>().text = "返回";
+                b_temp = GameObject.Find("Button_Play").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "開始";
                 break;
             default:
                 break;
@@ -44,7 +46,7 @@ public class Canvas_RoonWait : MonoBehaviour {
                 t_temp = GameObject.Find("Text_B_Deck_Num").GetComponent<Text>();
                 t_temp.text = "14";
                 t_temp = GameObject.Find("Text_Time_Num").GetComponent<Text>();
-                t_temp.text = "10";
+                t_temp.text = "5";
                 t_temp = GameObject.Find("Text_Range_Num").GetComponent<Text>();
                 t_temp.text = "1 - 10";
                 break;
@@ -54,7 +56,7 @@ public class Canvas_RoonWait : MonoBehaviour {
                 t_temp = GameObject.Find("Text_B_Deck_Num").GetComponent<Text>();
                 t_temp.text = "17";
                 t_temp = GameObject.Find("Text_Time_Num").GetComponent<Text>();
-                t_temp.text = "15";
+                t_temp.text = "10";
                 t_temp = GameObject.Find("Text_Range_Num").GetComponent<Text>();
                 t_temp.text = "1 - 15";
                 break;
@@ -64,7 +66,7 @@ public class Canvas_RoonWait : MonoBehaviour {
                 t_temp = GameObject.Find("Text_B_Deck_Num").GetComponent<Text>();
                 t_temp.text = "20";
                 t_temp = GameObject.Find("Text_Time_Num").GetComponent<Text>();
-                t_temp.text = "20";
+                t_temp.text = "15";
                 t_temp = GameObject.Find("Text_Range_Num").GetComponent<Text>();
                 t_temp.text = "1 - 20";
                 break;
