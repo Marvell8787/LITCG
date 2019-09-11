@@ -9,6 +9,7 @@ static class Settlement_LearnCheck
     public static int PageDown = 4;
     public static int Page = 0; //0 5 10 15
 
+    public static int Flag = 0; //0:失敗 1:成功 2:挑戰成功
 }
 public class Function_Settlement_Learn : MonoBehaviour {
     public void Previous()
@@ -64,11 +65,11 @@ public class Function_Settlement_Learn : MonoBehaviour {
         Question_Class[] question_temp = new Question_Class[20];
         Text t_temp;
         int n = Settlement_LearnCheck.Page;
-        for (int i = 0; i < Question_Check.Question_total; i++)
+        for (int i = 0; i < 20; i++)
         {
             question_temp[i] = new Question_Class(0, "", "", "", "", "", "");
         }
-        for (int i = 0; i < Question_Check.Question_Num; i++)
+        for (int i = 0; i < Question_Check.Question_total; i++)
         {
             question_temp[i] = Question_Data.Question_Get(i);
         }
@@ -79,9 +80,9 @@ public class Function_Settlement_Learn : MonoBehaviour {
             t_temp = GameObject.Find("Text_Question_" + (i + 1).ToString()).GetComponent<Text>();
             t_temp.text = question_temp[i + n].GetQuestion();
             t_temp = GameObject.Find("Text_Answer_" + (i + 1).ToString()).GetComponent<Text>();
-            t_temp.text = question_temp[i + n].GetAnswer_r() + " " + question_temp[i].GetAnswer_r_Content();
+            t_temp.text = question_temp[i + n].GetAnswer_r() + " " + question_temp[i + n].GetAnswer_r_Content();
             t_temp = GameObject.Find("Text_Choose_" + (i + 1).ToString()).GetComponent<Text>();
-            t_temp.text = question_temp[i + n].GetAnswer_c() + " " + question_temp[i].GetAnswer_c_Content();
+            t_temp.text = question_temp[i + n].GetAnswer_c() + " " + question_temp[i + n].GetAnswer_c_Content();
             t_temp = GameObject.Find("Text_Feedback_" + (i + 1).ToString()).GetComponent<Text>();
             t_temp.text = question_temp[i + n].GetFeedBack();
         }

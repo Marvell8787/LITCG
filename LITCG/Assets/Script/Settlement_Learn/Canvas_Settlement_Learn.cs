@@ -26,21 +26,27 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                 t_temp = GameObject.Find("Text_Feedback").GetComponent<Text>();
                 t_temp.text = "結果";
                 t_temp = GameObject.Find("Text_Flag").GetComponent<Text>();
-                /*if (BattleCheck.Flag == 0)
+                if (Settlement_LearnCheck.Flag == 0)
                     t_temp.text = "失敗 !";
-                else
-                    t_temp.text = "勝利 !";*/
+                else if (Settlement_LearnCheck.Flag == 1)
+                    t_temp.text = "成功 !";
+                else if (Settlement_LearnCheck.Flag == 2)
+                    t_temp.text = "挑戰成功 !";
                 break;
             case 1:
                 t_temp = GameObject.Find("Text_Flag").GetComponent<Text>();
-                if (BattleCheck.Flag == 0)
+                if (Settlement_LearnCheck.Flag == 0)
                     t_temp.text = "Lose !";
-                else
-                    t_temp.text = "Win !";
+                else if (Settlement_LearnCheck.Flag == 1)
+                    t_temp.text = "Success !";
+                else if (Settlement_LearnCheck.Flag == 2)
+                    t_temp.text = "Challenge Success !";
                 break;
             default:
                 break;
         }
+
+        Settlement_LearnCheck.Flag = 0;
 
         if (Question_Check.Question_Num < 6)
             Settlement_LearnCheck.PageDown = 1;

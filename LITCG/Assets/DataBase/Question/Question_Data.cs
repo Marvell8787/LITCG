@@ -105,7 +105,7 @@ static class Question_Data{
         }
         else if (Question_Check.Question_total == 20)
         {
-            for (int i = n1; i < n2; i++)
+            for (int i = n1-1; i < n2; i++)
             {
                 Question[i] = vocabulary_temp[i].GetE_Name();
                 if (Level_Check.choose <= 2)
