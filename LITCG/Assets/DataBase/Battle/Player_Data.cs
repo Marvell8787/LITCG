@@ -11,8 +11,6 @@ static class Player_Data{
     public static void Player_Init()
     {
         Random.InitState(System.Guid.NewGuid().GetHashCode());
-        Card_Data.Card_Init();
-
         for (int i = 0; i < 22; i++)
         {
             card_temp[i] = Card_Data.Card_Get(i);

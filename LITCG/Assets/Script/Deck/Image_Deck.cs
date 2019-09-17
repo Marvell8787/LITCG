@@ -110,7 +110,7 @@ public class Image_Deck : MonoBehaviour {
     }
     public void Card_19()
     {
-        Card_Output(7);
+        Card_Output(19);
     }
     public void Card_20()
     {

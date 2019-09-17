@@ -37,7 +37,6 @@ public class Function_RoomFight : MonoBehaviour {
 
     public void Start()
     {
-        Card_Data.Card_Init();
         for (int i = 0; i < 22; i++)
         {
             card_temp[i] = Card_Data.Card_Get(i);

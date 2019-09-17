@@ -9,7 +9,6 @@ public class EP_RoomFight : MonoBehaviour {
     private Card_Class[] card_temp = new Card_Class[22];
     // Use this for initialization
     void Start () {
-        Card_Data.Card_Init();
         for (int i = 0; i < 22; i++)
         {
             card_temp[i] = Card_Data.Card_Get(i);

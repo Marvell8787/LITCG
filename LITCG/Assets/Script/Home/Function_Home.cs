@@ -98,7 +98,7 @@ public class Function_Home : MonoBehaviour {
     }
     public void Leaderboard()
     {
-        SceneManager.LoadScene("Leaderboard");
+        SceneManager.LoadScene("Rank");
     }
 
 

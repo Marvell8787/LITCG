@@ -17,7 +17,6 @@ public class BP_RoomFight : MonoBehaviour {
         BattleCheck.Center_B = 22; //22:沒有 0~21:有
         BattleCheck.Support_B = 22; //22:沒有 0~21:有
         BattleCheck.TypeChoose = 0;
-        Card_Data.Card_Init();
         for (int i = 0; i < 22; i++)
         {
             card_temp[i] = Card_Data.Card_Get(i);

@@ -13,8 +13,6 @@ public class Canvas_Deck : MonoBehaviour {
         Card_Class[] card_temp = new Card_Class[22];
         int[] card_status = new int[22];
 
-        Card_Data.Card_Init();
-
         for (int i = 0; i < 22; i++)
         {
             card_temp[i] = Card_Data.Card_Get(i);

@@ -15,6 +15,7 @@ public class Function_Login : MonoBehaviour {
     {
         InputField in_temp;
 
+        Card_Data.Card_Init();
         Task_Data.Task_Init();
 
         in_temp = GameObject.Find("InputField_ID").GetComponent<InputField>();
