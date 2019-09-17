@@ -38,15 +38,15 @@ static class BQuestion_Data{
 
         switch (Enemy.No)
         {
-            case 1:
+            case 0:
                 BQuestion_Check.Question_total = 5;
                 BQuestion_Vocabulary_Set();
                 break;
-            case 2:
+            case 1:
                 BQuestion_Check.Question_total = 10;
                 BQuestion_Vocabulary_Set();
                 break;
-            case 3: 
+            case 2: 
                 BQuestion_Check.Question_total = 15;
                 BQuestion_Vocabulary_Set();
                 break;

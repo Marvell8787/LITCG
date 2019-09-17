@@ -56,22 +56,39 @@ public class Function_Level_Learn : MonoBehaviour {
             }
             if (Level_Check.challenge ==1) 
             {
+                Settlement_LearnCheck.Flag = 1;
                 Task_Class task_temp = new Task_Class();
                 task_temp = Task_Data.Learn_Get(Level_Check.choose);
                 if (Question_Check.Score >= Task_Bank.Learn_Request_Score[Level_Check.choose])//成功
                 {
                     task_temp.ChangeStatus(4);
-                    Settlement_LearnCheck.Flag = 2;
                 }
-                else //失敗
+                else if (Question_Check.Score < Task_Bank.Learn_Request_Score[Level_Check.choose]) //失敗
                 {
                     task_temp.ChangeStatus(3);
                 }
+
+                if (Question_Check.Score > 59 && Level_Check.challenge == 0)
+                {
+                    if (Learner_Data.Learner_GetLearn_Status(Level_Check.choose) == 0)
+                    {
+                        Learner_Data.Learner_ChangeLearn_Status(Level_Check.choose);
+                        Learner_Data.Learner_Add("Learn_Finish", 1);
+                    }
+                    Learner_Data.Learner_Add("Learn_Succes", 1);
+                }
+
                 Level_Check.challenge = 0;
             }
             else if (Question_Check.Score > 59 && Level_Check.challenge == 0)
             {
                 Settlement_LearnCheck.Flag = 1;
+                if (Learner_Data.Learner_GetLearn_Status(Level_Check.choose) == 0)
+                {
+                    Learner_Data.Learner_ChangeLearn_Status(Level_Check.choose);
+                    Learner_Data.Learner_Add("Learn_Finish", 1);
+                }
+                Learner_Data.Learner_Add("Learn_Succes", 1);
             }
             SceneManager.LoadScene("Settlement_Learn");
         }

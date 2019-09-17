@@ -10,6 +10,8 @@ static class Learner_Data{
     //Learn
     private static int Learn_Finish = 0; //完成數量
     private static int Learn_Succes = 0; //成功數量
+    private static int[] Learn_Status = new int[7] { 0, 0, 0, 0, 0, 0, 0}; //0:無 1:有
+
     //Battle
     private static int Battle_Num = 0; //戰鬥次數
     private static int Battle_Win = 0; //勝利次數
@@ -19,8 +21,8 @@ static class Learner_Data{
     //Reward and Punishment
     private static int Score = 100; //分數
     private static int Score_Highest = 100; //分數高點
-    private static int Coin = 100; //金幣持有
-    private static int Coin_Total = 100; //金幣總數
+    private static int Coin = 200; //金幣持有
+    private static int Coin_Total = 200; //金幣總數
     private static int Crystal = 10; //水晶
     private static int Crystal_Highest = 10; //水晶高數
     //Reward
@@ -134,6 +136,14 @@ static class Learner_Data{
         }
     }
 
+    public static int Learner_GetLearn_Status(int n)
+    {
+        return Learn_Status[n];
+    }
+    public static void Learner_ChangeLearn_Status(int n) //Cards
+    {
+        Learn_Status[n] = 1;
+    }
 
     public static int Learner_GetCard_Status(int n)
     {
@@ -186,11 +196,11 @@ static class Learner_Data{
                 break;
             //Score_Highest Crystal_Highest 是指定
             case "Score_Highest":
-                if (Score_Highest > 149 && Score_Highest < 250)
+                if (Score_Highest > 149 && Score_Highest < 200)
                     Badges_Status[9] = 1;
-                else if (Score_Highest > 249 && Score_Highest < 400)
+                else if (Score_Highest > 199 && Score_Highest < 250)
                     Badges_Status[10] = 1;
-                else if (Score_Highest > 399)
+                else if (Score_Highest > 249)
                     Badges_Status[11] = 1;
                 break;
             case "Coin_Total":
@@ -202,14 +212,15 @@ static class Learner_Data{
                     Badges_Status[14] = 1;
                 break;
             case "Crystal_Highest":
-                if (Crystal_Highest > 49 && Crystal_Highest < 100)
+                if (Crystal_Highest > 149 && Crystal_Highest < 250)
                     Badges_Status[15] = 1;
-                else if (Crystal_Highest > 99 && Crystal_Highest < 180)
+                else if (Crystal_Highest > 249 && Crystal_Highest < 400)
                     Badges_Status[16] = 1;
-                else if (Crystal_Highest > 179)
+                else if (Crystal_Highest > 399)
                     Badges_Status[17] = 1;
                 break;
-            default: break;
+            default:
+                break;
         }
     }
 

@@ -33,7 +33,7 @@ static class Player_Data{
 
         switch (Enemy.No)
         {
-            case 1:
+            case 0:
                 Player[1] = new Player_Class(10,14, 0, 5);
                 for (int i = 0; i < 22; i++)
                 {
@@ -50,7 +50,7 @@ static class Player_Data{
                     Player[1].ChangeDeck_Fight(i, i);
                 }
                 break;
-            case 2:
+            case 1:
                 Player[1] = new Player_Class(15, 17, 0, 5);
                 for (int i = 0; i < 22; i++)
                 {
@@ -67,7 +67,7 @@ static class Player_Data{
                     Player[1].ChangeDeck_Fight(i, i);
                 }
                 break;
-            case 3:
+            case 2:
                 Player[1] = new Player_Class(20, 20, 0, 5);
                 for (int i = 0; i < 22; i++)
                 {

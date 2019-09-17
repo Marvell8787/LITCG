@@ -64,7 +64,7 @@ static class Card_Data{
 
         for (int i = 0; i < 22; i++)
         {
-            card_temp[i] = new Card_Class(Card_CType[i],Card_Picture[i], Card_Name[i], Card_Rarity[i],"", Card_ATK[i], Card_Effect[i]);
+            card_temp[i] = new Card_Class(Card_CType[i],Card_Picture[i], Card_Name[i], Card_Rarity[i],"", Card_ATK[i], Card_Effect[i],("No." + i.ToString()));
         }
 
     }

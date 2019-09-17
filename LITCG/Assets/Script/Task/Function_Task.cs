@@ -288,14 +288,252 @@ public class Function_Task : MonoBehaviour {
     {
         Button b_temp;
         Text t_temp;
-        Task_Data.ChangeStatus(Check.s, Check.Choose, 5);
         Task_Class task_temp = new Task_Class();
         Task_Class[] task_reg = new Task_Class[7];
 
-        if (Check.s == "learn")
-            task_temp = Task_Data.Learn_Get(Check.Choose);
-        else if (Check.s == "battle")
-            task_temp = Task_Data.Battle_Get(Check.Choose);
+        //獎懲
+        switch (System_Data.Version)
+        {
+            case 0: //獎懲皆有
+                if (Check.s == "learn")
+                {
+                    task_temp = Task_Data.Learn_Get(Check.Choose);
+                    if (task_temp.GetStatus() == 3) //失敗
+                    {
+                        switch (Check.Choose)
+                        {
+                            case 0:
+                            case 1:
+                                Learner_Data.Learner_Add("Score", -10);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                break;
+                            case 2:
+                                Learner_Data.Learner_Add("Score", -20);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                break;
+                            case 3:
+                            case 4:
+                                Learner_Data.Learner_Add("Score", -10);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                break;
+                            case 5:
+                                Learner_Data.Learner_Add("Score", -20);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                break;
+                            case 6:
+                                Learner_Data.Learner_Add("Score", -30);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                Learner_Data.Learner_ChangePoints_Status(0); //任務點數-1
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else if (task_temp.GetStatus() == 4) //成功
+                    {
+                        switch (Check.Choose)
+                        {
+                            case 0:
+                            case 1:
+                                Learner_Data.Learner_Add("Score", 10);
+                                break;
+                            case 2:
+                                Learner_Data.Learner_Add("Score", 30);
+                                if(Learner_Data.Learner_GetCard_Status(19)==0)
+                                    Learner_Data.Learner_ChangeCard_Status(19);
+                                break;
+                            case 3:
+                            case 4:
+                                Learner_Data.Learner_Add("Score", 10);
+                                break;
+                            case 5:
+                                Learner_Data.Learner_Add("Score", 30);
+                                if (Learner_Data.Learner_GetCard_Status(20) == 0)
+                                    Learner_Data.Learner_ChangeCard_Status(20);
+                                break;
+                            case 6:
+                                Learner_Data.Learner_Add("Score", 50);
+                                if (Learner_Data.Learner_GetCard_Status(21) == 0)
+                                    Learner_Data.Learner_ChangeCard_Status(21);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else if (Check.s == "battle")
+                {
+                    task_temp = Task_Data.Battle_Get(Check.Choose);
+                    if (task_temp.GetStatus() == 3) //失敗
+                    {
+                        switch (Check.Choose)
+                        {
+                            case 0:
+                            case 1:
+                                Learner_Data.Learner_Add("Score", -10);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                break;
+                            case 2:
+                                Learner_Data.Learner_Add("Score", -10);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                Learner_Data.Learner_ChangePoints_Status(0); //任務點數-1
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    else if (task_temp.GetStatus() == 4) //成功
+                    {
+                        switch (Check.Choose)
+                        {
+                            case 0:
+                                Learner_Data.Learner_Add("Score", 20);
+                                break;
+                            case 1:
+                                Learner_Data.Learner_Add("Score", 20);
+                                if (Learner_Data.Learner_GetCard_Status(17) == 0)
+                                    Learner_Data.Learner_ChangeCard_Status(17);
+                                break;
+                            case 2:
+                                Learner_Data.Learner_Add("Score", 20);
+                                if (Learner_Data.Learner_GetCard_Status(18) == 0)
+                                    Learner_Data.Learner_ChangeCard_Status(18);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                break;
+            case 1: //僅有獎
+                if (Check.s == "learn")
+                {
+                    task_temp = Task_Data.Learn_Get(Check.Choose);
+                    if (task_temp.GetStatus() == 4) //成功
+                    {
+                        switch (Check.Choose)
+                        {
+                            case 0:
+                            case 1:
+                                Learner_Data.Learner_Add("Score", 10);
+                                break;
+                            case 2:
+                                Learner_Data.Learner_Add("Score", 30);
+                                if (Learner_Data.Learner_GetCard_Status(19) == 0)
+                                    Learner_Data.Learner_ChangeCard_Status(19);
+                                break;
+                            case 3:
+                            case 4:
+                                Learner_Data.Learner_Add("Score", 10);
+                                break;
+                            case 5:
+                                Learner_Data.Learner_Add("Score", 30);
+                                if (Learner_Data.Learner_GetCard_Status(20) == 0)
+                                    Learner_Data.Learner_ChangeCard_Status(20);
+                                break;
+                            case 6:
+                                Learner_Data.Learner_Add("Score", 50);
+                                if (Learner_Data.Learner_GetCard_Status(21) == 0)
+                                    Learner_Data.Learner_ChangeCard_Status(21);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else if (Check.s == "battle")
+                {
+                    task_temp = Task_Data.Battle_Get(Check.Choose);
+                    if (task_temp.GetStatus() == 4) //成功
+                    {
+                        switch (Check.Choose)
+                        {
+                            case 0:
+                                Learner_Data.Learner_Add("Score", 20);
+                                break;
+                            case 1:
+                                Learner_Data.Learner_Add("Score", 20);
+                                if (Learner_Data.Learner_GetCard_Status(17) == 0)
+                                    Learner_Data.Learner_ChangeCard_Status(17);
+                                break;
+                            case 2:
+                                Learner_Data.Learner_Add("Score", 20);
+                                if (Learner_Data.Learner_GetCard_Status(18) == 0)
+                                    Learner_Data.Learner_ChangeCard_Status(18);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                break;
+            case 2: //僅有懲
+
+                if (Check.s == "learn")
+                {
+                    task_temp = Task_Data.Learn_Get(Check.Choose);
+                    if (task_temp.GetStatus() == 3) //失敗
+                    {
+                        switch (Check.Choose)
+                        {
+                            case 0:
+                            case 1:
+                                Learner_Data.Learner_Add("Score", -10);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                break;
+                            case 2:
+                                Learner_Data.Learner_Add("Score", -20);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                break;
+                            case 3:
+                            case 4:
+                                Learner_Data.Learner_Add("Score", -10);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                break;
+                            case 5:
+                                Learner_Data.Learner_Add("Score", -20);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                break;
+                            case 6:
+                                Learner_Data.Learner_Add("Score", -30);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                Learner_Data.Learner_ChangePoints_Status(0); //任務點數-1
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else if (Check.s == "battle")
+                {
+                    task_temp = Task_Data.Battle_Get(Check.Choose);
+                    if (task_temp.GetStatus() == 3) //失敗
+                    {
+                        switch (Check.Choose)
+                        {
+                            case 0:
+                            case 1:
+                                Learner_Data.Learner_Add("Score", -10);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                break;
+                            case 2:
+                                Learner_Data.Learner_Add("Score", -10);
+                                Learner_Data.Learner_Add("Mistakes_Num", 1);
+                                Learner_Data.Learner_ChangePoints_Status(0); //任務點數-1
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                break;
+            case 3:
+                break;
+            default:
+                break;
+        }
+
+        Task_Data.ChangeStatus(Check.s, Check.Choose, 5);
 
         b_temp = GameObject.Find("Button_Finish").GetComponent<Button>();
         b_temp.interactable = false;
@@ -305,17 +543,46 @@ public class Function_Task : MonoBehaviour {
         t_temp.color = Color.gray;
         t_temp.fontStyle = FontStyle.Italic;
 
-        for (int i = 0; i < 7; i++)
+        if (Check.s == "learn")
         {
-            task_temp = Task_Data.Learn_Get(i);
+            for (int i = 0; i < 7; i++)
+            {
+                task_reg[i] = Task_Data.Learn_Get(i);
+            }
         }
-        if(task_reg[0].GetStatus()==5 && task_reg[1].GetStatus() == 5 && task_reg[2].GetStatus() == 0)
+        else if (Check.s == "battle")
         {
-            Task_Data.ChangeStatus("learn", 2, 1);
+            for (int i = 0; i < 3; i++)
+            {
+                task_reg[i] = Task_Data.Battle_Get(i);
+            }
         }
-        else if (task_reg[3].GetStatus() == 5 && task_reg[4].GetStatus() == 5 && task_reg[5].GetStatus() == 0)
+
+
+        //門檻 Learn
+
+        if (Check.s == "learn")
         {
-            Task_Data.ChangeStatus("learn", 5, 1);
+            if (task_reg[0].GetStatus() == 5 && task_reg[1].GetStatus() == 5 && task_reg[2].GetStatus() == 0 && Check.s == "learn")
+            {
+                Task_Data.ChangeStatus("learn", 2, 1);
+            }
+            else if (task_reg[3].GetStatus() == 5 && task_reg[4].GetStatus() == 5 && task_reg[5].GetStatus() == 0 && Check.s == "learn")
+            {
+                Task_Data.ChangeStatus("learn", 5, 1);
+            }
         }
+        else if (Check.s == "battle")
+        {
+            if (task_reg[0].GetStatus() == 5 && task_reg[1].GetStatus() == 0 && Check.s == "battle")
+            {
+                Task_Data.ChangeStatus("battle", 1, 1);
+            }
+            else if (task_reg[1].GetStatus() == 5 && task_reg[2].GetStatus() == 0 && Check.s == "battle")
+            {
+                Task_Data.ChangeStatus("battle", 2, 1);
+            }
+        }
+        Learner_Data.Learner_Add("Task_Finish", 1);
     }
 }

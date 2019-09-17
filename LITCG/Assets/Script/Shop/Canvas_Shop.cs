@@ -33,8 +33,28 @@ public class Canvas_Shop : MonoBehaviour {
         for (int i = 1; i <= 4; i++)
         {
             b_temp = GameObject.Find("Button_Buy_" + i.ToString()).GetComponent<Button>();
-            if(Learner_Data.Learner_GetCard_Status(i+6) ==1)
-                b_temp.interactable = false;
+            switch (i)
+            {
+                case 1:
+                    if (Learner_Data.Learner_GetCard_Status(9) == 1)
+                        b_temp.interactable = false;
+                    break;
+                case 2:
+                    if (Learner_Data.Learner_GetCard_Status(10) == 1)
+                        b_temp.interactable = false;
+                    break;
+                case 3:
+                    if (Learner_Data.Learner_GetCard_Status(11) == 1)
+                        b_temp.interactable = false;
+                    break;
+                case 4:
+                    if (Learner_Data.Learner_GetCard_Status(16) == 1)
+                        b_temp.interactable = false;
+                    break;
+                default:
+                    break;
+            }
+
         }
     }
 

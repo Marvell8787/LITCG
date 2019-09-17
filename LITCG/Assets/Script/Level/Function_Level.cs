@@ -53,10 +53,8 @@ public class Function_Level : MonoBehaviour {
     }
     public void Challenge()
     {
-        if (Level_Check.choose < 6)
-            SceneManager.LoadScene("Level_Learn");
-        else
-            SceneManager.LoadScene("Overall");
+        Level_Check.challenge = 1;
+        Practice();
     }
     public void ShowContent(int n)
     {
@@ -67,7 +65,6 @@ public class Function_Level : MonoBehaviour {
 
         Task_Class task_temp = new Task_Class();
         task_temp = Task_Data.Learn_Get(n);
-        //Debug.Log("");
 
         t_temp = GameObject.Find("Text_QuestionTypeContent").GetComponent<Text>();
         t_temp.text = level_temp.GetQuestionType();
@@ -87,7 +84,6 @@ public class Function_Level : MonoBehaviour {
         {
             b_temp = GameObject.Find("Button_Challenge").GetComponent<Button>();
             b_temp.interactable = true;
-            Level_Check.challenge = 1;
         }
         else
         {

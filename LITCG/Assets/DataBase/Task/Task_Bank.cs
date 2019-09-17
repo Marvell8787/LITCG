@@ -23,15 +23,15 @@ static class Task_Bank
     public static string[] E_Battle_Request = new string[3] { "Get a win in Battle 1", "Get a win in Battle 2", "Get a win in Battle 3" };
 
     //獎懲
-    public static string[] C_Learn_Reward_0 = new string[7] { "水晶+10", "水晶+10", "水晶+30", "水晶+10", "水晶+10", "水晶+30", "水晶+50" };
-    public static string[] C_Learn_Punishment_0 = new string[7] { "水晶-10", "水晶-10", "水晶-20", "水晶-10", "水晶-10", "水晶-20", "水晶-30" };
-    public static string[] C_Battle_Reward_0 = new string[3] { "水晶+20", "水晶+20", "水晶+20" };
-    public static string[] C_Battle_Punishment_0 = new string[3] { "水晶-10", "水晶-10", "水晶-10" };
+    public static string[] C_Learn_Reward_0 = new string[7] { "分數 +10", "分數 +10", "分數 +30、No.19", "分數 +10", "分數 +10", "分數 +30、No.20", "分數 +50、No.21" };
+    public static string[] C_Learn_Punishment_0 = new string[7] { "分數 -10", "分數 -10", "分數 -20", "分數 -10", "分數 -10", "分數 -20", "分數 -30" };
+    public static string[] C_Battle_Reward_0 = new string[3] { "分數 +10", "分數 +20、No.17", "分數 +20、No.18" };
+    public static string[] C_Battle_Punishment_0 = new string[3] { "分數 -10", "分數 -10", "分數 -10" };
 
-    public static string[] E_Learn_Reward_0 = new string[7] { "Crystal+10", "Crystal+10", "Crystal+30", "Crystal+10", "Crystal+10", "Crystal+30", "Crystal+50" };
-    public static string[] E_Learn_Punishment_0 = new string[7] { "Crystal-10", "Crystal-10", "Crystal-20", "Crystal-10", "Crystal-10", "Crystal-20", "Crystal-30" };
-    public static string[] E_Battle_Reward_0 = new string[3] { "Crystal+20", "Crystal+20", "Crystal+20" };
-    public static string[] E_Battle_Punishment_0 = new string[3] { "Crystal-10", "Crystal-10", "Crystal-10" };
+    public static string[] E_Learn_Reward_0 = new string[7] { "Score +10", "Score +10", "Score +30、No.19", "Score +10", "Score +10", "Score +30、No.20", "Score +50、No.21" };
+    public static string[] E_Learn_Punishment_0 = new string[7] { "Score -10", "Score -10", "Score -20", "Score -10", "Score -10", "Score -20", "Score -30" };
+    public static string[] E_Battle_Reward_0 = new string[3] { "Score +10", "Score +20、No.17", "Score +20、No.18" };
+    public static string[] E_Battle_Punishment_0 = new string[3] { "Score -10", "Score -10", "Score -10" };
 
     public static string[] C_Learn_Reward_1 = new string[7] { "無", "無", "無", "無", "無", "無", "無", };
     public static string[] C_Learn_Punishment_1 = new string[7] { "無", "無", "無", "無", "無", "無", "無" };

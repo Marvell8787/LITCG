@@ -8,7 +8,11 @@ public class Function_RoomWait : MonoBehaviour {
     {
         SceneManager.LoadScene("Battle");
     }
-
+    public void Challenge()
+    {
+        BattleCheck.challenge = 1;
+        Play();
+    }
     public void Play()
     {
         Player_Data.Player_Init();

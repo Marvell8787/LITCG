@@ -187,6 +187,18 @@ static class Task_Data{
     {
         return battle_temp[n];
     }
+    public static int GetStatus(string s, int c) //learn battle 陣列元素 參數
+    {
+        if (s == "learn")
+        {
+            return Learn_Status[c];
+        }
+        else
+        {
+            return Battle_Status[c];
+        }
+
+    }
     public static void ChangeStatus(string s, int c,int n) //learn battle 陣列元素 參數
     {
         if (s == "learn")

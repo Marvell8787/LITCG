@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 static class BattleCheck
 {
+    //Task
+    public static int challenge = 0;
     //A
     public static string s = ""; //vocabulary
     public static int HandChoose = 0; //選擇的手牌

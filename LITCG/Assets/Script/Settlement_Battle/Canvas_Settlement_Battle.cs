@@ -24,6 +24,8 @@ public class Canvas_Settlement_Battle : MonoBehaviour {
                 t_temp.text = "選擇";
                 t_temp = GameObject.Find("Text_Feedback").GetComponent<Text>();
                 t_temp.text = "結果";
+                t_temp = GameObject.Find("Text_Crystal").GetComponent<Text>();
+                t_temp.text = "水晶：";
                 t_temp = GameObject.Find("Text_Flag").GetComponent<Text>();
                 if (BattleCheck.Flag == 0)
                     t_temp.text = "失敗 !";
@@ -75,7 +77,129 @@ public class Canvas_Settlement_Battle : MonoBehaviour {
         }
 
         ShowContent();
+
+        //獎懲
+        switch (Enemy.No)
+        {
+            case 0:
+                if (BattleCheck.Flag == 1) //成功
+                {
+                    t_temp = GameObject.Find("Text_Crystal_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Crystal").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 1:
+                            Learner_Data.Learner_Add("Crystal", 10);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Crystal").ToString();
+                }
+                else //失敗
+                {
+                    t_temp = GameObject.Find("Text_Crystal_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Crystal").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 2: //僅有懲
+                            Learner_Data.Learner_Add("Crystal", -20);
+                            Learner_Data.Learner_Add("Mistakes_Num", 1);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Crystal").ToString();
+                }
+                break;
+            case 1:
+                if (BattleCheck.Flag == 1) //成功
+                {
+                    t_temp = GameObject.Find("Text_Crystal_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Crystal").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 1:
+                            Learner_Data.Learner_Add("Crystal", 50);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Crystal").ToString();
+                }
+                else //失敗
+                {
+                    t_temp = GameObject.Find("Text_Crystal_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Crystal").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 2: //僅有懲
+                            Learner_Data.Learner_Add("Crystal", -100);
+                            Learner_Data.Learner_Add("Mistakes_Num", 1);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Crystal").ToString();
+                }
+                break;
+            case 2:
+                if (BattleCheck.Flag == 1) //成功
+                {
+                    t_temp = GameObject.Find("Text_Crystal_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Crystal").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 1:
+                            Learner_Data.Learner_Add("Crystal", 200);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Crystal").ToString();
+                }
+                else //失敗
+                {
+                    t_temp = GameObject.Find("Text_Crystal_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Crystal").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 2: //僅有懲
+                            Learner_Data.Learner_Add("Crystal", -250);
+                            Learner_Data.Learner_Add("Mistakes_Num", 1);
+                            Learner_Data.Learner_ChangePoints_Status(2); //戰鬥點數-1
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Crystal").ToString();
+                }
+                break;
+            default:
+                break;
+        }
+
+        if (BattleCheck.challenge == 1)
+        {
+            Task_Class task_temp = new Task_Class();
+            task_temp = Task_Data.Battle_Get(Enemy.No);
+            if (BattleCheck.Flag == 1)//成功
+            {
+                task_temp.ChangeStatus(4);
+            }
+            else if (BattleCheck.Flag == 0) //失敗
+            {
+                task_temp.ChangeStatus(3);
+            }
+        }
         BattleCheck.Flag = 0;
+        BattleCheck.challenge = 0;
     }
     void ShowContent()
     {

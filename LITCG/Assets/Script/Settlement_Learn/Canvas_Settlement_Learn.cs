@@ -25,13 +25,13 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                 t_temp.text = "選擇";
                 t_temp = GameObject.Find("Text_Feedback").GetComponent<Text>();
                 t_temp.text = "結果";
+                t_temp = GameObject.Find("Text_Coin").GetComponent<Text>();
+                t_temp.text = "金幣：";
                 t_temp = GameObject.Find("Text_Flag").GetComponent<Text>();
                 if (Settlement_LearnCheck.Flag == 0)
                     t_temp.text = "失敗 !";
                 else if (Settlement_LearnCheck.Flag == 1)
                     t_temp.text = "成功 !";
-                else if (Settlement_LearnCheck.Flag == 2)
-                    t_temp.text = "挑戰成功 !";
                 break;
             case 1:
                 t_temp = GameObject.Find("Text_Flag").GetComponent<Text>();
@@ -39,8 +39,6 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                     t_temp.text = "Lose !";
                 else if (Settlement_LearnCheck.Flag == 1)
                     t_temp.text = "Success !";
-                else if (Settlement_LearnCheck.Flag == 2)
-                    t_temp.text = "Challenge Success !";
                 break;
             default:
                 break;
@@ -82,6 +80,186 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
 
         ShowContent();
 
+        //獎懲
+        switch (Level_Check.choose)
+        {
+            case 0: //Level-1 聽力
+            case 1: //Level-2 聽力
+                if (Question_Check.Score > 59) //成功
+                {
+                    t_temp = GameObject.Find("Text_Coin_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Coin").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 1:
+                            Learner_Data.Learner_Add("Coin", 10);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Coin").ToString();
+                }
+                else //失敗
+                {
+                    t_temp = GameObject.Find("Text_Coin_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Coin").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 2: //僅有懲
+                            Learner_Data.Learner_Add("Coin", -50);
+                            Learner_Data.Learner_Add("Mistakes_Num", 1);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Coin").ToString();
+                }
+                break;
+            case 2: //Level-3 聽力
+                if (Question_Check.Score > 59) //成功
+                {
+                    t_temp = GameObject.Find("Text_Coin_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Coin").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 1:
+                            Learner_Data.Learner_Add("Coin", 50);
+                            if (Learner_Data.Learner_GetCard_Status(12) == 0)
+                                Learner_Data.Learner_ChangeCard_Status(12);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Coin").ToString();
+                }
+                else //失敗
+                {
+                    t_temp = GameObject.Find("Text_Coin_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Coin").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 2: //僅有懲
+                            Learner_Data.Learner_Add("Coin", -100);
+                            Learner_Data.Learner_Add("Mistakes_Num", 1);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Coin").ToString();
+                }
+                break;
+            case 3: //Level-4 中文
+            case 4: //Level-5 中文
+                if (Question_Check.Score > 59) //成功
+                {
+                    t_temp = GameObject.Find("Text_Coin_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Coin").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 1:
+                            Learner_Data.Learner_Add("Coin", 10);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Coin").ToString();
+                }
+                else //失敗
+                {
+                    t_temp = GameObject.Find("Text_Coin_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Coin").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 2: //僅有懲
+                            Learner_Data.Learner_Add("Coin", -50);
+                            Learner_Data.Learner_Add("Mistakes_Num", 1);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Coin").ToString();
+                }
+                break;
+            case 5: //Level-6 中文
+                if (Question_Check.Score > 59) //成功
+                {
+                    t_temp = GameObject.Find("Text_Coin_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Coin").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 1:
+                            Learner_Data.Learner_Add("Coin", 50);
+                            if (Learner_Data.Learner_GetCard_Status(13) == 0)
+                                Learner_Data.Learner_ChangeCard_Status(13);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Coin").ToString();
+                }
+                else //失敗
+                {
+                    t_temp = GameObject.Find("Text_Coin_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Coin").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 2: //僅有懲
+                            Learner_Data.Learner_Add("Coin", -100);
+                            Learner_Data.Learner_Add("Mistakes_Num", 1);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Coin").ToString();
+                }
+                break;
+            case 6: //Overall
+                if (Question_Check.Score > 59) //成功
+                {
+                    t_temp = GameObject.Find("Text_Coin_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Coin").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 1:
+                            Learner_Data.Learner_Add("Coin", 100);
+                            if (Learner_Data.Learner_GetCard_Status(14) == 0)
+                                Learner_Data.Learner_ChangeCard_Status(14);
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Coin").ToString();
+                }
+                else //失敗
+                {
+                    t_temp = GameObject.Find("Text_Coin_n").GetComponent<Text>();
+                    t_temp.text = Learner_Data.Learner_GetData("Coin").ToString() + " -> ";
+                    switch (System_Data.Version)
+                    {
+                        case 0:
+                        case 2: //僅有懲
+                            Learner_Data.Learner_Add("Coin", -200);
+                            Learner_Data.Learner_Add("Mistakes_Num", 1);
+                            Learner_Data.Learner_ChangePoints_Status(1); //學習點數-1
+                            break;
+                        default:
+                            break;
+                    }
+                    t_temp.text = t_temp.text + Learner_Data.Learner_GetData("Coin").ToString();
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     void ShowContent()

@@ -9,9 +9,10 @@ class Card_Class{
     private string Rarity = ""; //稀有度 N R SR SSR
     private string Description = ""; //描述
     private int ATK = 0; 
-    private string Effect = ""; 
+    private string Effect = "";
+    private string No = "";
 
-    public Card_Class(string _CType = "",string _Picture="", string _Name = "", string _Rarity = "", string _Description = "", int _ATK = 0, string _Effect = "")
+    public Card_Class(string _CType = "",string _Picture="", string _Name = "", string _Rarity = "", string _Description = "", int _ATK = 0, string _Effect = "", string _No = "")
     {
         CType = _CType;
         Picture = _Picture;
@@ -20,6 +21,7 @@ class Card_Class{
         Description = _Description;
         ATK = _ATK;
         Effect = _Effect;
+        No = _No;
     }
     public string GetCType()
     {
@@ -48,5 +50,9 @@ class Card_Class{
     public string GetEffect()
     {
         return Effect;
+    }
+    public string GetNo()
+    {
+        return No;
     }
 }

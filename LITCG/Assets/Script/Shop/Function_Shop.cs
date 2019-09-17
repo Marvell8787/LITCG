@@ -11,9 +11,20 @@ public class Function_Shop : MonoBehaviour {
         if (Learner_Data.Learner_GetData("Coin") >= 150)
         {
             Learner_Data.Learner_Add("Card_Num",1);
-            Learner_Data.Learner_ChangeCard_Status(7);
+            Learner_Data.Learner_ChangeCard_Status(9);
             Learner_Data.Learner_Add("Coin", -150);
             Close(1);
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp = GameObject.Find("Text_Description").GetComponent<Text>();
+                    t_temp.text = "購買成功";
+                    break;
+                default:
+                    t_temp = GameObject.Find("Text_Description").GetComponent<Text>();
+                    t_temp.text = "Success";
+                    break;
+            }
         }
         else
         {
@@ -36,9 +47,20 @@ public class Function_Shop : MonoBehaviour {
         if (Learner_Data.Learner_GetData("Coin") >= 150)
         {
             Learner_Data.Learner_Add("Card_Num", 1);
-            Learner_Data.Learner_ChangeCard_Status(8);
+            Learner_Data.Learner_ChangeCard_Status(10);
             Learner_Data.Learner_Add("Coin", -150);
             Close(2);
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp = GameObject.Find("Text_Description").GetComponent<Text>();
+                    t_temp.text = "購買成功";
+                    break;
+                default:
+                    t_temp = GameObject.Find("Text_Description").GetComponent<Text>();
+                    t_temp.text = "Success";
+                    break;
+            }
         }
         else
         {
@@ -61,9 +83,20 @@ public class Function_Shop : MonoBehaviour {
         if (Learner_Data.Learner_GetData("Coin") >= 150)
         {
             Learner_Data.Learner_Add("Card_Num", 1);
-            Learner_Data.Learner_ChangeCard_Status(9);
+            Learner_Data.Learner_ChangeCard_Status(11);
             Learner_Data.Learner_Add("Coin", -150);
             Close(3);
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp = GameObject.Find("Text_Description").GetComponent<Text>();
+                    t_temp.text = "購買成功";
+                    break;
+                default:
+                    t_temp = GameObject.Find("Text_Description").GetComponent<Text>();
+                    t_temp.text = "Success";
+                    break;
+            }
         }
         else
         {
@@ -86,9 +119,20 @@ public class Function_Shop : MonoBehaviour {
         if (Learner_Data.Learner_GetData("Coin") >= 150)
         {
             Learner_Data.Learner_Add("Card_Num", 1);
-            Learner_Data.Learner_ChangeCard_Status(10);
+            Learner_Data.Learner_ChangeCard_Status(16);
             Learner_Data.Learner_Add("Coin", -150);
             Close(4);
+            switch (System_Data.language)
+            {
+                case 0:
+                    t_temp = GameObject.Find("Text_Description").GetComponent<Text>();
+                    t_temp.text = "購買成功";
+                    break;
+                default:
+                    t_temp = GameObject.Find("Text_Description").GetComponent<Text>();
+                    t_temp.text = "Success";
+                    break;
+            }
         }
         else
         {

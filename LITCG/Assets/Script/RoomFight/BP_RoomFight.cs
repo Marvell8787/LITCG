@@ -311,9 +311,10 @@ public class BP_RoomFight : MonoBehaviour {
 
         //結算 左上角顯示這回合贏還是輸
         //雙方攻擊力
+        /*
         Debug.Log("A = " + BattleCheck.A_ATK);
         Debug.Log("B = " + BattleCheck.B_ATK);
-        
+        */
         //雙方判斷支援卡
         switch (BattleCheck.Support_A)
         {
