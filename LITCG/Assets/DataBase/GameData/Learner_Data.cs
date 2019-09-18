@@ -60,9 +60,9 @@ static class Learner_Data{
             case "Battle_Question_Succes_Num": Battle_Question_Succes_Num += n; break;
             case "Battle_Question_Fail_Num": Battle_Question_Fail_Num += n; break;
             //Reward and Punishment
-            case "Score": Score += n; break;
+            case "Score": Score += n; if (Score > Score_Highest) Score_Highest = Score; break;
             case "Coin": Coin += n; break;
-            case "Crystal": Crystal += n; break;
+            case "Crystal": Crystal += n; if (Crystal > Crystal_Highest) Crystal_Highest = Crystal; break;
             //Score_Highest Crystal_Highest 是指定
             case "Score_Highest": Score_Highest = n; break;
             case "Coin_Total": Coin_Total += n; break;
@@ -187,7 +187,7 @@ static class Learner_Data{
                 break;
             //Battle
             case "Battle_Win":
-                if (Battle_Win > 3 && Battle_Win < 5)
+                if (Battle_Win > 2 && Battle_Win < 5)
                     Badges_Status[6] = 1;
                 else if (Battle_Win > 4 && Battle_Win < 10)
                     Badges_Status[7] = 1;
@@ -195,7 +195,7 @@ static class Learner_Data{
                     Badges_Status[8] = 1;
                 break;
             //Score_Highest Crystal_Highest 是指定
-            case "Score_Highest":
+            case "Score":
                 if (Score_Highest > 149 && Score_Highest < 200)
                     Badges_Status[9] = 1;
                 else if (Score_Highest > 199 && Score_Highest < 250)
@@ -211,7 +211,7 @@ static class Learner_Data{
                 else if (Coin_Total > 599)
                     Badges_Status[14] = 1;
                 break;
-            case "Crystal_Highest":
+            case "Crystal":
                 if (Crystal_Highest > 149 && Crystal_Highest < 250)
                     Badges_Status[15] = 1;
                 else if (Crystal_Highest > 249 && Crystal_Highest < 400)

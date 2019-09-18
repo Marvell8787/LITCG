@@ -94,6 +94,7 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                         case 0:
                         case 1:
                             Learner_Data.Learner_Add("Coin", 10);
+                            Learner_Data.Learner_Add("Coin_Total", 10);
                             break;
                         default:
                             break;
@@ -109,6 +110,7 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                         case 0:
                         case 2: //僅有懲
                             Learner_Data.Learner_Add("Coin", -50);
+                            Learner_Data.Learner_Add("Coin_Total", -50);
                             Learner_Data.Learner_Add("Mistakes_Num", 1);
                             break;
                         default:
@@ -127,6 +129,7 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                         case 0:
                         case 1:
                             Learner_Data.Learner_Add("Coin", 50);
+                            Learner_Data.Learner_Add("Coin_Total", 50);
                             if (Learner_Data.Learner_GetCard_Status(12) == 0)
                                 Learner_Data.Learner_ChangeCard_Status(12);
                             break;
@@ -144,6 +147,7 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                         case 0:
                         case 2: //僅有懲
                             Learner_Data.Learner_Add("Coin", -100);
+                            Learner_Data.Learner_Add("Coin_Total", -100);
                             Learner_Data.Learner_Add("Mistakes_Num", 1);
                             break;
                         default:
@@ -163,6 +167,7 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                         case 0:
                         case 1:
                             Learner_Data.Learner_Add("Coin", 10);
+                            Learner_Data.Learner_Add("Coin_Total", 10);
                             break;
                         default:
                             break;
@@ -178,6 +183,7 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                         case 0:
                         case 2: //僅有懲
                             Learner_Data.Learner_Add("Coin", -50);
+                            Learner_Data.Learner_Add("Coin_Total", -50);
                             Learner_Data.Learner_Add("Mistakes_Num", 1);
                             break;
                         default:
@@ -196,6 +202,7 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                         case 0:
                         case 1:
                             Learner_Data.Learner_Add("Coin", 50);
+                            Learner_Data.Learner_Add("Coin_Total", 50);
                             if (Learner_Data.Learner_GetCard_Status(13) == 0)
                                 Learner_Data.Learner_ChangeCard_Status(13);
                             break;
@@ -213,6 +220,7 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                         case 0:
                         case 2: //僅有懲
                             Learner_Data.Learner_Add("Coin", -100);
+                            Learner_Data.Learner_Add("Coin_Total", -100);
                             Learner_Data.Learner_Add("Mistakes_Num", 1);
                             break;
                         default:
@@ -231,6 +239,7 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                         case 0:
                         case 1:
                             Learner_Data.Learner_Add("Coin", 100);
+                            Learner_Data.Learner_Add("Coin_Total", 100);
                             if (Learner_Data.Learner_GetCard_Status(14) == 0)
                                 Learner_Data.Learner_ChangeCard_Status(14);
                             break;
@@ -248,6 +257,7 @@ public class Canvas_Settlement_Learn : MonoBehaviour {
                         case 0:
                         case 2: //僅有懲
                             Learner_Data.Learner_Add("Coin", -200);
+                            Learner_Data.Learner_Add("Coin_Total", -200);
                             Learner_Data.Learner_Add("Mistakes_Num", 1);
                             Learner_Data.Learner_ChangePoints_Status(1); //學習點數-1
                             break;

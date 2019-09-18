@@ -42,18 +42,23 @@ public class Function_Task : MonoBehaviour {
             {
                 case 0: //未接 未達門檻
                     t_temp.color = Color.black;
+                    t_temp.fontStyle = FontStyle.Bold;
                     break;
                 case 1: //未接 已達門檻
                     t_temp.color = Color.black;
+                    t_temp.fontStyle = FontStyle.Bold;
                     break;
                 case 2: //接下
                     t_temp.color = Color.blue;
+                    t_temp.fontStyle = FontStyle.Bold;
                     break;
                 case 3: //失敗
                     t_temp.color = Color.red;
+                    t_temp.fontStyle = FontStyle.Bold;
                     break;
                 case 4: //成功
                     t_temp.color = Color.green;
+                    t_temp.fontStyle = FontStyle.Bold;
                     break;
                 case 5: //完成
                     t_temp.color = Color.gray;

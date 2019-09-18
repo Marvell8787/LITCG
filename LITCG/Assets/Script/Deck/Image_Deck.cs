@@ -9,15 +9,15 @@ public class Image_Deck : MonoBehaviour {
 
     public void Card_Output(int n)
     {
-        Image I_Temp;
-        Text T_temp;
+        Image i_temp;
+        Text t_temp;
         for(int i = 0; i < 22; i++)
         {
-            I_Temp = GameObject.Find("Image_Card_" + i).GetComponent<Image>();
-            I_Temp.color = new Color32(255, 255, 255, 255);
+            i_temp = GameObject.Find("Image_Card_" + i).GetComponent<Image>();
+            i_temp.color = new Color32(255, 255, 255, 255);
         }
-        I_Temp = GameObject.Find("Image_Card_" + n).GetComponent<Image>();
-        I_Temp.color = new Color32(255, 0, 0, 255);
+        i_temp = GameObject.Find("Image_Card_" + n).GetComponent<Image>();
+        i_temp.color = new Color32(255, 0, 0, 255);
 
         int card_status = new int();
         card_status = Learner_Data.Learner_GetCard_Status(n);
@@ -26,11 +26,13 @@ public class Image_Deck : MonoBehaviour {
 
         card_temp = Card_Data.Card_Get(n);
 
-        I_Temp = GameObject.Find("Image_Show").GetComponent<Image>();
-        I_Temp.sprite = Resources.Load("Image/Card/" + card_temp.GetPicture(), typeof(Sprite)) as Sprite;
+        i_temp = GameObject.Find("Image_Show").GetComponent<Image>();
+        i_temp.sprite = Resources.Load("Image/Card/" + card_temp.GetPicture(), typeof(Sprite)) as Sprite;
 
-        T_temp = GameObject.Find("Text_DescriptionContent").GetComponent<Text>();
-        T_temp.text = card_temp.GetEffect();
+        t_temp = GameObject.Find("Text_Description").GetComponent<Text>();
+        t_temp.text = card_temp.GetEffect();
+        t_temp = GameObject.Find("Text_No").GetComponent<Text>();
+        t_temp.text = card_temp.GetNo();
     }
     public void Card_0()
     {

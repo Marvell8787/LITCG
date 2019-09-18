@@ -15,6 +15,16 @@ public class Canvas_Rank : MonoBehaviour {
                 b_temp.GetComponentInChildren<Text>().text = "返回";
                 b_temp = GameObject.Find("Button_Update").GetComponent<Button>();
                 b_temp.GetComponentInChildren<Text>().text = "更新";
+                b_temp = GameObject.Find("Button_Item_1").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "分數";
+                b_temp = GameObject.Find("Button_Item_2").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "金幣";
+                b_temp = GameObject.Find("Button_Item_3").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "水晶";
+                b_temp = GameObject.Find("Button_Item_4").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "獎章";
+                b_temp = GameObject.Find("Button_Item_5").GetComponent<Button>();
+                b_temp.GetComponentInChildren<Text>().text = "失誤";
                 break;
             case 1:
                 break;

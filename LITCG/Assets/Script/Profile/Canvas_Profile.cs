@@ -14,10 +14,6 @@ public class Canvas_Profile : MonoBehaviour {
             case 0:
                 b_temp = GameObject.Find("Button_Back").GetComponent<Button>();
                 b_temp.GetComponentInChildren<Text>().text = "返回";
-                b_temp = GameObject.Find("Button_Previous").GetComponent<Button>();
-                b_temp.GetComponentInChildren<Text>().text = "上一頁";
-                b_temp = GameObject.Find("Button_Next").GetComponent<Button>();
-                b_temp.GetComponentInChildren<Text>().text = "下一頁";
                 break;
             case 1:
                 break;
