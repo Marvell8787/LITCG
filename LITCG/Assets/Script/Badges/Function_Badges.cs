@@ -80,25 +80,9 @@ public class Function_Badges : MonoBehaviour {
         {
             i_temp = GameObject.Find("Image_Badges_" + i.ToString()).GetComponent<Image>();
             if (badges_temp[i] == 1)
-            {
-                switch (i % 3)
-                {
-                    case 0:
-                        i_temp.sprite = Resources.Load("Image/Badges/copper", typeof(Sprite)) as Sprite;
-                        break;
-                    case 1:
-                        i_temp.sprite = Resources.Load("Image/Badges/silver", typeof(Sprite)) as Sprite;
-                        break;
-                    case 2:
-                        i_temp.sprite = Resources.Load("Image/Badges/gold", typeof(Sprite)) as Sprite;
-                        break;
-                    default:
-                        break;
-                }
-            }
+                i_temp.color = new Color32(255, 255, 255, 255);
             else
-                i_temp.sprite = Resources.Load("Image/Badges/None", typeof(Sprite)) as Sprite;
-
+                i_temp.color = new Color32(60, 60, 60, 255);
         }
     }
 }
