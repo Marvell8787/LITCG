@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Function_Login : MonoBehaviour {
 
+    public GameObject SettingUI;
+
 	// Use this for initialization
 	void Start () {
 
@@ -26,6 +28,14 @@ public class Function_Login : MonoBehaviour {
         System_Data.Nickname = in_temp.GetComponentInChildren<Text>().text;
 
         SceneManager.LoadScene("Home");        
+    }
+    public void Setting()
+    {
+        SettingUI.SetActive(true);
+    }
+    public void Close()
+    {
+        SettingUI.SetActive(false);
     }
     public void Chinese()
     {
